@@ -1,0 +1,10 @@
+C:\Users\user\Source\repos\C4ImagingNetCore\bin\Release\netcoreapp3.1\C4ImagingNetCore.deps.json
+C:\Users\user\Source\repos\C4ImagingNetCore\bin\Release\netcoreapp3.1\C4ImagingNetCore.dll
+C:\Users\user\Source\repos\C4ImagingNetCore\bin\Release\netcoreapp3.1\C4ImagingNetCore.pdb
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.csproj.AssemblyReference.cache
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.AssemblyInfoInputs.cache
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.AssemblyInfo.cs
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.dll
+C:\Users\user\Source\repos\C4ImagingNetCore\obj\Release\netcoreapp3.1\C4ImagingNetCore.pdb

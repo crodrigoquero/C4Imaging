@@ -1,0 +1,699 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "C4ImagingNetCore.UI/1.0.0": {
+        "dependencies": {
+          "C4.ImaginingNetCore.Notifier.Logging": "1.0.0",
+          "C4ImagingNetCore.Backend": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.Extensions.Hosting": "3.1.6",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.3"
+        },
+        "runtime": {
+          "C4ImagingNetCore.UI.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.CommandLine/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.CommandLine.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.EnvironmentVariables/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.6",
+          "Microsoft.Extensions.FileProviders.Physical": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.FileExtensions.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.6",
+          "Microsoft.Extensions.Configuration.FileExtensions": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.UserSecrets/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Json": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.UserSecrets.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/5.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.821.31504"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.6",
+          "Microsoft.Extensions.FileSystemGlobbing": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Physical.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/3.1.6": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Hosting/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.1.6",
+          "Microsoft.Extensions.Configuration.CommandLine": "3.1.6",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.6",
+          "Microsoft.Extensions.Configuration.UserSecrets": "3.1.6",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.Extensions.FileProviders.Physical": "3.1.6",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.1.6",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Console": "3.1.6",
+          "Microsoft.Extensions.Logging.Debug": "3.1.6",
+          "Microsoft.Extensions.Logging.EventLog": "3.1.6",
+          "Microsoft.Extensions.Logging.EventSource": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Hosting.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.6",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.6",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0",
+          "System.Diagnostics.DiagnosticSource": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Configuration/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Configuration.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Console/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.6",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Configuration": "3.1.6"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Debug.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.EventLog/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "System.Diagnostics.EventLog": "4.7.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.EventLog.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.EventSource/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.EventSource.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.6": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.6",
+          "Microsoft.Extensions.Configuration.Binder": "3.1.6",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31605"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/5.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/5.0.0": {},
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.3": {},
+      "Microsoft.Win32.Registry/4.7.0": {
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "Microsoft.Win32.SystemEvents/5.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/5.0.0": {
+        "runtime": {
+          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "System.Diagnostics.EventLog/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0",
+          "Microsoft.Win32.Registry": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Diagnostics.EventLog.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/System.Diagnostics.EventLog.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "System.Drawing.Common/5.0.2": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "5.0.0.2",
+            "fileVersion": "5.0.421.11614"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.2",
+            "fileVersion": "5.0.421.11614"
+          },
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.2",
+            "fileVersion": "5.0.421.11614"
+          }
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {},
+      "C4.ImaginingNetCore.Notifier.Logging/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "5.0.0"
+        },
+        "runtime": {
+          "C4.ImaginingNetCore.Notifier.Logging.dll": {}
+        }
+      },
+      "C4ImagingNetCore/1.0.0": {
+        "dependencies": {
+          "System.Drawing.Common": "5.0.2"
+        },
+        "runtime": {
+          "C4ImagingNetCore.dll": {}
+        }
+      },
+      "C4ImagingNetCore.Backend/1.0.0": {
+        "dependencies": {
+          "C4ImagingNetCore": "1.0.0",
+          "C4ImagingNetCore.Helpers": "1.0.0"
+        },
+        "runtime": {
+          "C4ImagingNetCore.Backend.dll": {}
+        }
+      },
+      "C4ImagingNetCore.Helpers/1.0.0": {
+        "runtime": {
+          "C4ImagingNetCore.Helpers.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "C4ImagingNetCore.UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Configuration/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gphCAywKC+ye1XdL+8Nv2Pd5b1Fn2yx7DekB4GQPCKaPyK94T9Tb+Sfk/iNdaDKtDl4vwidMI0w2AnoXtvofsw==",
+      "path": "microsoft.extensions.configuration/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z7QAA7XFvYuGZCKsfzetdIq0Vj1ngiIzCBBqerlQMhewx1ZFLXHuvKx9xAIWeZqhuQv69VmFs3vO0Af9FDAa9Q==",
+      "path": "microsoft.extensions.configuration.abstractions/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.abstractions.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Binder/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZEEuo0TEQE+a/+l4EB/KdsjVt9bIee37c74C7Q+lLiP6WiPuBytP4EmxPYwrTB/oQX8sm9W3KvVGE5WW6oaNPg==",
+      "path": "microsoft.extensions.configuration.binder/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.binder.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.CommandLine/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jXyua91KFPVWwz+vrWsKKBC8kLec75cmHSKi32ZEyq8+hLYdmGkkTmgoty3bQrM/XE5OWEQf4IS0FQz7dSYGoQ==",
+      "path": "microsoft.extensions.configuration.commandline/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.commandline.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.EnvironmentVariables/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FQqYNZ+my/gWjazYt9gnI4PmhqroO+8qkcR0pxL4sGIjbNNzYAydxPjjsInqUhaaflIrRo0sYd8s3Wbc1sGpcQ==",
+      "path": "microsoft.extensions.configuration.environmentvariables/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.environmentvariables.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XPxBt0rtj66Z5rcVzykgTw+PCXPCWXpOCookSvJXBG+v55zYa//nLayLbrDpGMEJH/nyOTdtRh6zlkmGeLk/7w==",
+      "path": "microsoft.extensions.configuration.fileextensions/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.fileextensions.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Json/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lvAoaNuiHDNo8dicd15JXle5pgp/N0RTTa7ozJD+s0NQONFAjS25g8kjjFe3XZaM8XiZyYVYCFaQE8Q+M20IXg==",
+      "path": "microsoft.extensions.configuration.json/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.json.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.UserSecrets/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TPs9iJ2eQmWCYG56DkxWG7lp9Gt5oF35Ev6UoJLCDSEBrgeMz0zTThz7jjNWS4YffS1mAFFv5VaBcDnpGEzJ1Q==",
+      "path": "microsoft.extensions.configuration.usersecrets/3.1.6",
+      "hashPath": "microsoft.extensions.configuration.usersecrets.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xzFW00AZEvOXM1OX+0+AYH5op/Hf3u//e6wszBd/rK72sypD+jx5CtsHxM4BVuFBEs8SajfO4QzSJtrQaHDr4A==",
+      "path": "microsoft.extensions.dependencyinjection/5.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HjEWm0GNHeN8ykVGn2DCebBEdZYL9CVypVAysaDHfjwiRT1d8nRhYGH8ua0mheE1TIep5+86O2Ft0UcbuWyghg==",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.1.6",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rwngFMfwi2TBkAy/2SSIwR6ajl3cIEOkOlPlmG1j5cGGvJfNA1ujQNOr8rotI1z6keFi7zXRLLhm9gmaoMVDOA==",
+      "path": "microsoft.extensions.fileproviders.physical/3.1.6",
+      "hashPath": "microsoft.extensions.fileproviders.physical.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileSystemGlobbing/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QMyvTl195jfGHEH7edeNsQWEVkwex3CoYs/hfzwy1rXIVTfnGLp6SIhL7JfokKa1xM4UamPEggmxFTH/VN4Jrg==",
+      "path": "microsoft.extensions.filesystemglobbing/3.1.6",
+      "hashPath": "microsoft.extensions.filesystemglobbing.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Gp6znPFzIcobx8e8qUcLMKgh8aBqnXqslTaBaUTDBKi/Zh2OKPd40BRp2YHcw3rl9/bZ9gXy2fHKy4C6ejN8oA==",
+      "path": "microsoft.extensions.hosting/3.1.6",
+      "hashPath": "microsoft.extensions.hosting.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CtXVuuBcKQXmNQm6a/wGwKkYxLNsIp7TrL8+XPld6aFUisOkkBHTm3EIm8vwKlHRI8xLONgfgILXPXREGaBBwQ==",
+      "path": "microsoft.extensions.hosting.abstractions/3.1.6",
+      "hashPath": "microsoft.extensions.hosting.abstractions.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MgOwK6tPzB6YNH21wssJcw/2MKwee8b2gI7SllYfn6rvTpIrVvVS5HAjSU2vqSku1fwqRvWP0MdIi14qjd93Aw==",
+      "path": "microsoft.extensions.logging/5.0.0",
+      "hashPath": "microsoft.extensions.logging.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NxP6ahFcBnnSfwNBi2KH2Oz8Xl5Sm2krjId/jRR3I7teFphwiUoUeZPwTNA21EX+5PtjqmyAvKaOeBXcJjcH/w==",
+      "path": "microsoft.extensions.logging.abstractions/5.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Configuration/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pon4Rm7wJBFG3E/1WG+m90Eb8nBVc4WscrEyCD9LSfw4s0fbuxn97+wBvmZ9AyTz5bqDmFGT9ecBiws7nlqaKg==",
+      "path": "microsoft.extensions.logging.configuration/3.1.6",
+      "hashPath": "microsoft.extensions.logging.configuration.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Console/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+0XSV+1Wf/7xu1NQol2+yhlqOOWI9NmQSyEeVuBhnD/TsVg+mAZAP6TEmdS5fdCFyVy9sZF4QaQCSDEMRbKq0g==",
+      "path": "microsoft.extensions.logging.console/3.1.6",
+      "hashPath": "microsoft.extensions.logging.console.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Debug/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7XFX/O8TxYQL2moddqBybzsCjfWbxGB1vzlhBN9AbPFJDqGaxUd0amLjbmYNcv8oKzjVjp4SuqtkLAFmEekZmQ==",
+      "path": "microsoft.extensions.logging.debug/3.1.6",
+      "hashPath": "microsoft.extensions.logging.debug.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.EventLog/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EMe0NWs3u3WEWmi0mtAI0WWIAcZCxVYr1ugbl2lAKw3urZO0act0peeQjU/nfu9SLtuTHeQRH/f7Qcd/VbnJpQ==",
+      "path": "microsoft.extensions.logging.eventlog/3.1.6",
+      "hashPath": "microsoft.extensions.logging.eventlog.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.EventSource/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yEWUTEKdldbJqbhfUh7Ef2SC0WFWegvVcMsnCXtfQncKQb/GY+ZJJRrWxQ4KhuGfgE1sbNPrFmmZ1oLCtaaCMg==",
+      "path": "microsoft.extensions.logging.eventsource/3.1.6",
+      "hashPath": "microsoft.extensions.logging.eventsource.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CBvR92TCJ5uBIdd9/HzDSrxYak+0W/3+yxrNg8Qm6Bmrkh5L+nu6m3WeazQehcZ5q1/6dDA7J5YdQjim0165zg==",
+      "path": "microsoft.extensions.options/5.0.0",
+      "hashPath": "microsoft.extensions.options.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T/NaRlfgmAXCqGteoDbzxQuV72LqGhWDSKDNufGmKP7t1wAGHhLKD31GL0VXoI/s0kuEbGLY/5QTo1ATD2TRGA==",
+      "path": "microsoft.extensions.options.configurationextensions/3.1.6",
+      "hashPath": "microsoft.extensions.options.configurationextensions.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cI/VWn9G1fghXrNDagX9nYaaB/nokkZn0HYAawGaELQrl8InSezfe9OnfPZLcJq3esXxygh3hkq2c3qoV3SDyQ==",
+      "path": "microsoft.extensions.primitives/5.0.0",
+      "hashPath": "microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-C58FPjr4CkZl9gRXGLbrw0Qd5bU/Uu3DA/SEYVjkaRGfkehjZ+qd/aFnLgjs7zeiIcrMaLUURgcMwbj2PKjMnw==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.10.3",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.10.3.nupkg.sha512"
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "path": "microsoft.win32.registry/4.7.0",
+      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
+      "path": "microsoft.win32.systemevents/5.0.0",
+      "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==",
+      "path": "system.diagnostics.diagnosticsource/5.0.0",
+      "hashPath": "system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iDoKGQcRwX0qwY+eAEkaJGae0d/lHlxtslO+t8pJWAUxlvY3tqLtVOPnW2UU4cFjP0Y/L1QBqhkZfSyGqVMR2w==",
+      "path": "system.diagnostics.eventlog/4.7.0",
+      "hashPath": "system.diagnostics.eventlog.4.7.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rvr/M1WPf24ljpvvrVd74+NdjRUJu1bBkspkZcnzSZnmAUQWSvanlQ0k/hVHk+cHufZbZfu7vOh/vYc0q5Uu/A==",
+      "path": "system.drawing.common/5.0.2",
+      "hashPath": "system.drawing.common.5.0.2.nupkg.sha512"
+    },
+    "System.Security.AccessControl/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "path": "system.security.accesscontrol/4.7.0",
+      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "path": "system.security.principal.windows/4.7.0",
+      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "C4.ImaginingNetCore.Notifier.Logging/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "C4ImagingNetCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "C4ImagingNetCore.Backend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "C4ImagingNetCore.Helpers/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
