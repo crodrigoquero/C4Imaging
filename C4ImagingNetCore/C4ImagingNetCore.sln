@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4ImagingNetCore", "C4ImagingNetCore.csproj", "{4D2B1ADA-1D2E-4886-842B-48F20D14779F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore", "C4ImagingNetCore.csproj", "{4D2B1ADA-1D2E-4886-842B-48F20D14779F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4ImagingNetCore.UI", "..\C4ImagingingNetCore.UI\C4ImagingNetCore.UI.csproj", "{904C2C4E-2F8A-499A-9867-3DBFFF4DD460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.UI", "..\C4ImagingingNetCore.UI\C4ImagingNetCore.UI.csproj", "{904C2C4E-2F8A-499A-9867-3DBFFF4DD460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.ImaginingNetCore.Notifier.Logging", "..\C4.ImaginingNetCore.Notifier.Logging\C4.ImaginingNetCore.Notifier.Logging.csproj", "{C5E93DB7-CE08-4196-83C3-35882EFEC549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4.ImaginingNetCore.Notifier.Logging", "..\C4.ImaginingNetCore.Notifier.Logging\C4.ImaginingNetCore.Notifier.Logging.csproj", "{C5E93DB7-CE08-4196-83C3-35882EFEC549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4ImagingNetCore.Backend", "..\C4ImagingNetCore.Backend\C4ImagingNetCore.Backend.csproj", "{C98B6919-888B-4E5D-A412-C922283F7C10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.Backend", "..\C4ImagingNetCore.Backend\C4ImagingNetCore.Backend.csproj", "{C98B6919-888B-4E5D-A412-C922283F7C10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4ImagingNetCore.Helpers", "..\C4ImagingNetCore.MathsHelper\C4ImagingNetCore.Helpers.csproj", "{21284A52-9094-496B-870A-48A51AF5D5A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.Helpers", "..\C4ImagingNetCore.MathsHelper\C4ImagingNetCore.Helpers.csproj", "{21284A52-9094-496B-870A-48A51AF5D5A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4ImagingNetCore.Backend.Worker.Image", "..\C4ImagingNetCore.Backend.Worker.Image\C4ImagingNetCore.Backend.Worker.Image.csproj", "{72A2C0D6-1B8D-4B56-8AA8-65C8BF8322C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{21284A52-9094-496B-870A-48A51AF5D5A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21284A52-9094-496B-870A-48A51AF5D5A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21284A52-9094-496B-870A-48A51AF5D5A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A2C0D6-1B8D-4B56-8AA8-65C8BF8322C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A2C0D6-1B8D-4B56-8AA8-65C8BF8322C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A2C0D6-1B8D-4B56-8AA8-65C8BF8322C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A2C0D6-1B8D-4B56-8AA8-65C8BF8322C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

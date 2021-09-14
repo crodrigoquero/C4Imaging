@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "C4ImagingNetCore.Backend.Worker.Image": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
