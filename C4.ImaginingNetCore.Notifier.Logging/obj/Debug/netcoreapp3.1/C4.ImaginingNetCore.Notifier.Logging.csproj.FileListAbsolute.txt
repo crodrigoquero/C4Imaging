@@ -8,3 +8,13 @@ C:\Users\user\Source\repos\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcor
 C:\Users\user\Source\repos\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.csproj.CoreCompileInputs.cache
 C:\Users\user\Source\repos\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.dll
 C:\Users\user\Source\repos\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.pdb
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\bin\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.deps.json
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\bin\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.dll
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\bin\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.pdb
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.csproj.AssemblyReference.cache
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.AssemblyInfoInputs.cache
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.AssemblyInfo.cs
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.dll
+C:\Users\user\Source\repos\C4Imaging\C4.ImaginingNetCore.Notifier.Logging\obj\Debug\netcoreapp3.1\C4.ImaginingNetCore.Notifier.Logging.pdb

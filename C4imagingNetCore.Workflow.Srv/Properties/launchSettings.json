@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "C4imagingNetCore.Workflow.Srv": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

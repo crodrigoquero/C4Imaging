@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ImageClassifier": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Temp\\workerservice\\WorkerInbox"
+    }
+  }
+}
