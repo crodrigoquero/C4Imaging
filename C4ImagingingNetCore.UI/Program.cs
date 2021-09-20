@@ -30,11 +30,11 @@ namespace C4ImagingNetCore.UI
             // enforcing app prerequsites/business rules
             if (args.Count() == 0)
             {
-                status = app.SendError("Plase provide a file name (do not include file path)");
+                status = app.SendError("Please provide a file name (do not include file path)");
                 Environment.Exit(0);
             }
 
-            // logging IMAGE ANALYSIS
+            // logging RECEIVED IMAGE
             status = app.SendNotification("File '" + args[0] + "' received");
 
             // Prepare analysis execution parameters

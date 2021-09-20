@@ -66,3 +66,15 @@ C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\net
 C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.WindowsServices.dll
 C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\System.ServiceProcess.ServiceController.dll
 C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\CommandLine.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\C4ImagingNetCore.Backend.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\C4ImagingNetCore.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\C4ImagingNetCore.Helpers.dll
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\C4ImagingNetCore.Backend.pdb
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\C4ImagingNetCore.pdb
+C:\Users\user\Source\repos\C4Imaging\C4imagingNetCore.Workflow.Srv\bin\Debug\netcoreapp3.1\C4ImagingNetCore.Helpers.pdb
