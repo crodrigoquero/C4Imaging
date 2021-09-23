@@ -102,7 +102,7 @@ __workFlow.srv.img.categorization.byCountry__
 
 ## Proximos pasos
 
-Me gsutaria desarrollar algunas funciones mas antes de pasar a la version 2.
+Me gustaria desarrollar algunas funciones mas antes de pasar a la version 2.
 
 - Enviar imagenes por lotes usando archivos zip para su proceso en paralelo.
 - Desarrollar otros servicios parecidos para catalogar imagenes con tros criterios y asi poder generar un workflow de cetegorizacion de imagenes completo a modo de ejemplo.
