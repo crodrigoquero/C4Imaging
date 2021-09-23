@@ -45,9 +45,9 @@ Por ejemplo se puede emplear la siguiente estructura:
 sc.exe create C4Monitor binpath= "C:\Temp\workerservice\C4imagingNetCore.Workflow.Srv.exe C:\Temp\workerservice\WorkerInbox C:\Temp\workerservice\WorkerOutbox"
 ```
 ## Arrancar el servicio
-
+```ssh
 start-service C4Monitor
-
+```
 ## Parar el servicio
 ```ssh
 stop-service C4Monitor
