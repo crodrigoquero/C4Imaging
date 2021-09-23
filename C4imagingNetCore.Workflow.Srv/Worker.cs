@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
+using System.Collections.Generic;
 
 namespace C4imagingNetCore.Workflow.Srv
 {
@@ -16,6 +17,9 @@ namespace C4imagingNetCore.Workflow.Srv
         private readonly ILogger<Worker> _logger;
         private HttpClient client;
         private readonly CommandLineOptions _commandLineOptions;
+
+        private enum WorkerStartupInputType { standard=1, multicategory}
+        WorkerStartupInputType _workerStartupInputType = WorkerStartupInputType.standard;
 
         public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
         {
@@ -38,40 +42,127 @@ namespace C4imagingNetCore.Workflow.Srv
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            _logger.LogInformation("Service started");
 
             if (!Directory.Exists(_commandLineOptions.Path))
             {
-                _logger.LogError($"Directory \"{_commandLineOptions.Path}\" does not exist.");
+                _logger.LogError($"Inbox Directory \"{_commandLineOptions.Path}\" does not exist.");
                 return;
             }
 
-            var rootDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-             _logger.LogInformation($"Listening for images created in \"{_commandLineOptions.Path}\"...");
-
-            using FileSystemWatcher watcher = new FileSystemWatcher
+            if (!Directory.Exists(_commandLineOptions.OutputPath))
             {
-                Path = _commandLineOptions.Path
-            };
-
-            foreach (var extension in _commandLineOptions.Extensions)
-            {
-                watcher.Filters.Add($"*.{extension}");
+                _logger.LogError($"Outbox Directory \"{_commandLineOptions.OutputPath}\" does not exist.");
+                return;
             }
 
-            //adding event handler to "created" event (using lambda expression
+            // CRUCIAL: PROCESS PRE-EXISTING/REMAINING FILES FROM PREVIOUS EXECUTIONS
+            string[] fileEntries = Directory.GetFiles(_commandLineOptions.Path);
+            foreach (string fileEntry in fileEntries) // get all the files from the inbox ...
+            {
+                // and process them, one by one
+               await ProcessFileAsync(fileEntry);
+            }
+
+            ///var rootDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            //averiguar si el directorio raiz tiene subsdirectorios
+            DirectoryInfo directory = new DirectoryInfo(_commandLineOptions.Path);
+            DirectoryInfo[] subDirectories = directory.GetDirectories();
+
+            _logger.LogInformation(_commandLineOptions.Path + " has "+ subDirectories.Length + " subdirectories:" );
+ 
+            // we need to setup the type of data entry for this service based on if the inbox folder
+            // has subdirectories (the possible input types can be diverse) or not
+            if (subDirectories.Length > 0) _workerStartupInputType = WorkerStartupInputType.multicategory;
+            _logger.LogInformation("Assumend " + _workerStartupInputType.ToString() + " input");
+
+            //root directory
+            using FileSystemWatcher watcher = new FileSystemWatcher
+            {
+                Path = _commandLineOptions.Path,
+                IncludeSubdirectories = false // important to avoid file IO exceptions
+            };
+
+            //the watcher is for monitor new directories created in the root directory
+            using FileSystemWatcher subFolderWatcher = new FileSystemWatcher
+            {
+                Path = _commandLineOptions.Path,
+                IncludeSubdirectories = false // important to avoid file IO exceptions
+            };
+
+            // setup the watcher to watch for new directories only...
+            subFolderWatcher.NotifyFilter = NotifyFilters.Attributes
+                                 | NotifyFilters.CreationTime
+                                 | NotifyFilters.DirectoryName;
+            
+            // ... and assign an event handler to it
+            subFolderWatcher.Created += async (object sender, FileSystemEventArgs e) =>
+            {
+                await Task.Delay(1000); // instead using delays, here we can implement some retry logic
+                _logger.LogWarning("NEW SUBCATEGORY FOUND: '" + e.Name +  "' (Subdirectory created) ");
+
+                // WARNING: Now, we need to restart the service (!) otherwise, new incoming files in such new category 
+                // will not get processed, because thre are not event handler for them.
+                // This situation is going to occur very often at the first workflow executions, until
+                // the workflow have been "learned" all the possible categories:
+                if(_workerStartupInputType == WorkerStartupInputType.standard)
+                {
+                    // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
+                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
+                }
+
+            };
+
+            // and fianlly, activate the subfolder watcher
+            subFolderWatcher.EnableRaisingEvents = true;
+
             watcher.Created += async (object sender, FileSystemEventArgs e) =>
             {
                 await Task.Delay(1000);
                 await ProcessFileAsync(e.FullPath);
             };
 
-            watcher.EnableRaisingEvents = true; //activating the fieWatcher
+            // create a directory watchers list
+            List<FileSystemWatcher> watchersList = new List<FileSystemWatcher>();
+            foreach (DirectoryInfo dir in subDirectories)
+            {
+                watchersList.Add(new FileSystemWatcher { Path = _commandLineOptions.Path + @"\"   + dir.Name, IncludeSubdirectories = false });
+            };
+
+            //add file extensions filter and an eventhandler to each subfolder watcher
+            foreach (FileSystemWatcher watcherItem in watchersList)
+            {
+                foreach (var extension in _commandLineOptions.Extensions)
+                {
+                    watcherItem.Filters.Add($"*.{extension}");
+                }
+
+                watcherItem.Created += async (object sender, FileSystemEventArgs e) =>
+                {
+                    await Task.Delay(1000);
+                    await ProcessFileAsync(e.FullPath);
+                };
+
+                _logger.LogInformation($"Listening for images created in \"{watcherItem.Path}\"...");
+                watcherItem.EnableRaisingEvents = true; //activating the fieWatcher for each subdirectoy
+            };
+
+            // setup the kind of input we are going to receive
+            _workerStartupInputType = WorkerStartupInputType.standard;
+
+            foreach (var extension in _commandLineOptions.Extensions)
+            {
+                watcher.Filters.Add($"*.{extension}");
+            }
+
+            watcher.EnableRaisingEvents = true; //activating the fieWatcher for root subdirectory
+            _logger.LogInformation($"Listening for images created in \"{_commandLineOptions.Path}\"...");
+
 
             var tcs = new TaskCompletionSource<bool>();
             stoppingToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
             await tcs.Task;
-
 
         }
 
@@ -135,7 +226,7 @@ namespace C4imagingNetCore.Workflow.Srv
                 }
 
                 // now, the categorized images are ready for another and more accurate
-                // categorization performed by another background worker like this, in the
+                // categorization performed by another background worker like this one, which can live in the
                 // same server on in a remote one.
 
                 // NEXT, PLEASE! 

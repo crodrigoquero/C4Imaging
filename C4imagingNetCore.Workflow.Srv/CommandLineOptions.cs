@@ -13,6 +13,9 @@ namespace C4imagingNetCore.Workflow.Srv
         [Value(index: 0, Required = true, HelpText = "Path to watch.")]
         public string Path { get; set; }
 
+        [Value(index: 1, MetaName ="OutputPath", Required = true, HelpText = "Output directory.")]
+        public string OutputPath { get; set; }
+
         [Option(shortName: 'e', longName: "extensions", Required = false, HelpText = "Valid image extensions.", Default = new[] { "png", "jpg", "jpeg" })]
         public string[] Extensions { get; set; }
 
