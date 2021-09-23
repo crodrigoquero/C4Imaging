@@ -5,7 +5,7 @@ cada vez que se cree o se mueva una imagen a su directorio de trabajo (InBox) de
 
 En esta version, el directorio de trabajo o InBox es C:\Temp\workerservice. Este directorio puedeser configurado al instalar el servicio en Windows.
 
-# Que tiene de especial este servicio?
+## Que tiene de especial este servicio?
 
 Este servicio es le primero de una larga serie de servicios que tengo pensado desarrollar. En su estado actual puede ser empleado como plantilla de proyecto Visual Studio 2019 para crear otros servicios. 
 
@@ -15,7 +15,6 @@ ser concatenados para crear un workflow o proceso mucho mas complejo. No sera ne
 El servicio lleva a cabo una accion muy concreta: categrozacion de imagenes por ratio de aspecto, nada especial. La accion principal se ejecuta dentro de una funcion asincrona (ProcessFileAsync). Pero en versiones futuras, tal accion podra ser sustituida por otra a traves de plugins, lo cual quiere decir que se podra modificar el comportamiento, la mision y la utilidad del servicio de forma dinamica a traves de una api, sin ncesidad de tener que instalar el servicio de nuevo. 
 
 Tal caracterisica simplificara el proceso de desarrollo de cualquier workFlow, por extenso o complejo que sea. Permitira tambien a los usuarios poder configurar un workFlow segun sus necesidades concretas mediante una interfaz de usuario basada en web. Esto ultimo implica la generacion y compilacion dinamica de codigo, y una vez llegados a ese punto, puedo intuir que se podran hacer cosas verdaderamente interesantes. 
-
 
 
 ## Publicar el servicio
@@ -42,21 +41,21 @@ Por ejemplo se puede emplear la siguiente estructura:
 
 
 ## Instalar el servicio
-
+```ssh
 sc.exe create C4Monitor binpath= "C:\Temp\workerservice\C4imagingNetCore.Workflow.Srv.exe C:\Temp\workerservice\WorkerInbox C:\Temp\workerservice\WorkerOutbox"
-
+```
 ## Arrancar el servicio
 
 start-service C4Monitor
 
 ## Parar el servicio
-
+```ssh
 stop-service C4Monitor
-
+```
 ## Borrar el servicio
-
+```ssh
 sc.exe delete C4Monitor
-
+```
 ## Configuar el servicio para auto-arranque automatico despues de error
 
 Este servicio debe ser configurado para que arranque automaticamente tras un error de ejecucion. El servicio fallara cada vez que encuentre una nueva categoria de imagen. Esto es absolutamente normal.
@@ -64,17 +63,17 @@ Este servicio debe ser configurado para que arranque automaticamente tras un err
 Este comportamiento ha sido establecido intencionalmente de forma que cada vez que se encuentreuna nueva categoria el servicio vuelva a arrancar para poder asi establecer los watchers para cada nueva categroia.
 
 El mencionado comportamiento debe ser establecido al isntalar el servicio en windows, mediante el siguiente comando:
-
+```ssh
 SC.exe failure C4Monitor reset= 86400 actions= restart/1000/restart/1000/restart/1000
-
+```
 Como se puede ver, el comando establece el comportamiento del servicio ante los fallos. El
 servicio volvera arrancar de nuevo inmediatamente tras porducirse un error de ejecucion.
 
 
 ## Asignar una categoria al servicio
-
+```ssh
 sc.exe config c4Monitor group= workflows
-
+```
 
 # Considreaciones acerca de los nombres del los servicios
 
@@ -99,4 +98,11 @@ workFlow.srv.img.categorization.bySizeGroups
 
 workFlow.srv.img.categorization.byCountry
 
+## Proximos pasos
 
+Me gsutaria desarrollar algunas funciones mas antes de pasar a la version 2.
+
+- Enviar imagenes por lotes usando archivos zip para su proceso en paralelo.
+- Desarrollar otros servicios parecidos para catalogar imagenes con tros criterios y asi poder generar un workflow de cetegorizacion de imagenes completo a modo de ejemplo.
+- Carga dinamica de plugins de proceso.
+- API para el control del workflow. 
