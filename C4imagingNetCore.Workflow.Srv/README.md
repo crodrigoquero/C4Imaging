@@ -19,10 +19,10 @@ Tal caracterisica simplificara el proceso de desarrollo de cualquier workFlow, p
 
 ## Publicar el servicio
 
-1- En visual studio 2019, seleccione la opccion "Publish" del menu "Build".
-2- Selccione la opccion pulicar en una carpeta.
-3- Seleccione la ubicacion de la carpeta. 
-4- Pulse el boton "Publish"
+1. En visual studio 2019, seleccione la opccion "Publish" del menu "Build".
+2. Selccione la opccion pulicar en una carpeta.
+3. Seleccione la ubicacion de la carpeta. 
+4. Pulse el boton "Publish"
 
 Visual studio generara los binarios del servicio necesarios para su instalacion en windows.
 Los comandos de isntalacion deben apuntar al directorio en el que residen los archivos 
