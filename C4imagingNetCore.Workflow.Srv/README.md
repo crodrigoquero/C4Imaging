@@ -44,6 +44,8 @@ Por ejemplo se puede emplear la siguiente estructura:
 ```ssh
 sc.exe create C4Monitor binpath= "C:\Temp\workerservice\C4imagingNetCore.Workflow.Srv.exe C:\Temp\workerservice\WorkerInbox C:\Temp\workerservice\WorkerOutbox"
 ```
+Como puede verse, el nombre del servicio y los parametros necesarios para que el servicio arranque (los mismos que escribimos en la linea de comandos cuando ejecutamos el servicio como aplicacion de consola) se pasan en la misma cadena.
+
 ## Arrancar el servicio
 ```ssh
 start-service C4Monitor
