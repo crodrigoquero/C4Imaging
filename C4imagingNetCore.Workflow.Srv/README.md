@@ -1,11 +1,11 @@
-﻿#Acerca de este servicio
+﻿# Acerca de este servicio
 
 Este servicio categoriza imagenes por aspect ratio. Una vez instalado y en funcionamiento,
 cada vez que se cree o se mueva una imagen a su directorio de trabajo (InBox) desde otro directorio, esta sera categorizada de forma inmediata por Aspect Ratio. El servicio crea una carpeta para cada uno de estos ratios y va colocando en cada una de ellas las imagines que se depositan en el mencioando directorio de trabajo.
 
 En esta version, el directorio de trabajo o InBox es C:\Temp\workerservice. Este directorio puedeser configurado al instalar el servicio en Windows.
 
-#Que tiene de especial este servicio?
+# Que tiene de especial este servicio?
 
 Este servicio es le primero de una larga serie de servicios que tengo pensado desarrollar. En su estado actual puede ser empleado como plantilla de proyecto Visual Studio 2019 para crear otros servicios. 
 
@@ -18,7 +18,7 @@ Tal caracterisica simplificara el proceso de desarrollo de cualquier workFlow, p
 
 
 
-##Publicar el servicio
+## Publicar el servicio
 
 1- En visual studio 2019, seleccione la opccion "Publish" del menu "Build".
 2- Selccione la opccion pulicar en una carpeta.
@@ -45,19 +45,19 @@ Por ejemplo se puede emplear la siguiente estructura:
 
 sc.exe create C4Monitor binpath= "C:\Temp\workerservice\C4imagingNetCore.Workflow.Srv.exe C:\Temp\workerservice\WorkerInbox C:\Temp\workerservice\WorkerOutbox"
 
-##Arrancar el servicio
+## Arrancar el servicio
 
 start-service C4Monitor
 
-##Parar el servicio
+## Parar el servicio
 
 stop-service C4Monitor
 
-##Borrar el servicio
+## Borrar el servicio
 
 sc.exe delete C4Monitor
 
-##Configuar el servicio para auto-arranque automatico despues de error
+## Configuar el servicio para auto-arranque automatico despues de error
 
 Este servicio debe ser configurado para que arranque automaticamente tras un error de ejecucion. El servicio fallara cada vez que encuentre una nueva categoria de imagen. Esto es absolutamente normal.
 
@@ -71,12 +71,12 @@ Como se puede ver, el comando establece el comportamiento del servicio ante los 
 servicio volvera arrancar de nuevo inmediatamente tras porducirse un error de ejecucion.
 
 
-##Asignar una categoria al servicio
+## Asignar una categoria al servicio
 
 sc.exe config c4Monitor group= workflows
 
 
-#Considreaciones acerca de los nombres del los servicios
+# Considreaciones acerca de los nombres del los servicios
 
 Sea cuidadoso en la asignacion de nombres de los servicios, procure que el nombre del servicio sea consistente 
 con los otros servicios existnetetes usando notacion de dominio:
