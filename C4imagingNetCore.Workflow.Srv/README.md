@@ -82,23 +82,23 @@ sc.exe config c4Monitor group= workflows
 Sea cuidadoso en la asignacion de nombres de los servicios, procure que el nombre del servicio sea consistente 
 con los otros servicios existnetetes usando notacion de dominio:
 
-[nombre compania].wf.srv.[categoria].[funcionalidad/nombre servicio]
+**_[nombre compania]_.wf.srv._[categoria]_._[funcionalidad/nombre servicio]_**
 
 o bien:
 
-Workflows.srv.[categoria].[funcionalidad/nombre servicio]
+**Workflows.srv._[categoria].[funcionalidad/nombre servicio]_**
 
 Ejemplos:
 
-miCompania.wf.srv.img.categorization.byAspectRatio
+__miCompania.wf.srv.img.categorization.byAspectRatio__
 
-workFlow.srv.img.categorization.byAspectRatio
+__workFlow.srv.img.categorization.byAspectRatio__
 
 Y asi, subsiguientes servicios prodrian ser nombrados como:
 
-workFlow.srv.img.categorization.bySizeGroups
+__workFlow.srv.img.categorization.bySizeGroups__
 
-workFlow.srv.img.categorization.byCountry
+__workFlow.srv.img.categorization.byCountry__
 
 ## Proximos pasos
 
