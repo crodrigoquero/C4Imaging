@@ -59,7 +59,7 @@ That circunstance leads us to the possibility that will be the user who'll defin
 
 Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow Nodes can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow nodes (services).
 
-## Some WorkFlow Nodes Development Ideas
+### Some WorkFlow Nodes Development Ideas
 
 __Use case 1:__ A Goverment Agency neeeds a way to validate sets of ducuments provided by the job applicats in a long recruitment process. The applicats need to provide scanned images of their driving license, passport, univerty or college qualifications, etc. Will be great if a WorkFlow Node / service can do the job. If cact will be event greater if we can create a service that can recognise different types of documents from different countries. Perhaps we can create a TensorFlow model to do that, and use it within the service. The input of this service can be a zip file, and the output can be a json data structure constaining the validation summary.  
 
