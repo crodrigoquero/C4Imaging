@@ -6,7 +6,7 @@ Another possible definition of WorkFlow (more formal) is that it is a coordinate
 
 Each WorkFlow task runs in response to a WorkFlow managed business event. These events can be generated (triggered) by humans or by other processing entities. These events circulate or rather, flow, in the form of messages managed by a messaging engine (message broker). 
 
-### APIS And Microservices Are Not Enough
+### APIs and/or Microservices Are Not Enough
 
 Rest APIs provide only endpoints for users; they are not intended to carry out long processes.
 
@@ -43,6 +43,8 @@ In this project, each workflow is composed by a series of services, which in the
 
 Each WorkFlow node can be moved from one given location within the WorkFlow chain to another. This is possible because all of the WorkFlow nodes have exactly the same structure and behavior. A node that currently occupies the eighth place in the chain, can moved to the first place, and everything will continue to work perfectly without the need to make changes to any nodes' code.
 
+Each WorkFlow node is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
+
 ### Each workflow must have its wn API
 
 In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. 
@@ -55,6 +57,14 @@ Perhaps in the medium term this will not continue to be the case, that is, in th
 
 That circunstance leads us to the possibility that will be the user who'll define the contents of these structures through the aforementioned API, which is the same as saying that the users can define their own WorkFlows without the need for intervention from the software development team... Great.
 
-Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow Nodes can be developed right now. Here are some ideas:
+Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow Nodes can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow nodes (services).
+
+## Some WorkFlow Nodes Development Ideas
+
+__Use case 1:__ A Goverment Agency neeeds a way to validate sets of ducuments provided by the job applicats in a long recruitment process. The applicats need to provide scanned images of their driving license, passport, univerty or college qualifications, etc. Will be great if a WorkFlow Node / service can do the job. If cact will be event greater if we can create a service that can recognise different types of documents from different countries. Perhaps we can create a TensorFlow model to do that, and use it within the service. 
+
+
+
+
 
 
