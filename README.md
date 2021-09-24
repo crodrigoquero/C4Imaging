@@ -1,4 +1,4 @@
-## Acerca de este proyecto
+## About this project
 
 This project implements a system of WorkFlows that executes business processes of various types and purposes and is mainly based on services / background workers for Windows 10 or Linux. It is developed with Visual Studio 2019 using the C # programming language. It is expected that its final version will allow end users to fully define any business process (WorkFlow) without having to resort to the development team.
 
