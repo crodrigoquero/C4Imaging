@@ -75,16 +75,24 @@ A medida que la ejecucion del WokrFlow avanza, esos ficheros se mueven de un dir
 
 Los directorios de salida pueden ser hacer referencia a categorias o afirmaciones en sus nombres. Esto da una idea del potencial del sistema.
 
-En el nivel de los servicios no hay ningun motor de base de datos involucrado.
 
-#### System Fault Tolerant 
+#### System caracteristics
 
-Si el sistema cae, puede continuar la ejecucion desde el punto preciso en el que sistema fue detenido. Esto es asi porque lo primero que hace cada servicio es buscar buscar ya archivos presentes en su directorio de entrada para procesarlos antes de continuar su efecucion normal.  
+1. System Fault Tolerant: Si el sistema cae, puede continuar la ejecucion desde el punto preciso en el que sistema fue detenido. Esto es asi porque lo primero que hace cada servicio es buscar buscar archivos ya presentes en su directorio de entrada para procesarlos antes de continuar su efecucion normal. 
+
+2. Services' Configurable basic behavior: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
 
 #### Operational Premises
 
-1. __Se debe realizar una copia de respaldo de los archivos de entrada__: Algunos workflows pueden realizar modificaciones en los archivos de entrada. Para poder evertir el proceso, se deben llevar a cabo copias de respaldo de los archivos de ntrada. 
-2. __Each workflow must have its own API:__ In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow node (or service). So through encapsualation concept, all those details will remain hidden for the calling application. 
+1. Se debe realizar una copia de respaldo de los archivos de entrada: Algunos workflows pueden realizar modificaciones en los archivos de entrada. Para poder evertir el proceso, se deben llevar a cabo copias de respaldo de los archivos de ntrada. 
+
+2. Each workflow must have its own API: In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow node (or service). So through encapsualation concept, all those details will remain hidden for the calling application.
+
+3. No database engine in services level: En el nivel de los servicios no hay ningun motor de base de datos involucrado.
+
+4. No se pueden instalar dos servicios con el mismo nombre: sin comentarios. Windows no te dejara hacer tal cosa. 
+
+5. No Message Broker in services level: Los servicios solo procesan archivos y mantienen un log de a lo largo de su vida. No son responsables de lanzar notificaciones de ningun tipo, lo cual es trabajo para otro componentes del sistema, que es responsables de monitorizar, configurar y administrar los servicios de un determinado WorkFlow. 
 
 ## Posible project evolution 
 
