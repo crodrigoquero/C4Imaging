@@ -72,13 +72,14 @@ Each WorkFlow node can be moved from one given location within the WorkFlow chai
 
 Each WorkFlow node is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
 
-### System Components
+### System Components Summary
 
-- WorkFlow:
-- WorkFlow Node:
-- WorkFlow Controller/Observer:
-- WorkFlow Manager:
-- WorkFlow API:
+- __WorkFlow__: A data structure / entity (Json) that hold a collection of workflow nodes and other related properties, which lives into the WorkFlow API domain, and is managed by it.
+- __WorkFlow Node__: Windows Service with a particular structure or behavior. It is the main component of the Workflow.
+- __WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
+- __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
+- __WorkFlow API__: API Rest that allow applications to use a given workflow. Each WorkFlow API is associated with one and just one WorkFlow.
+- __WorkFlow Task PlugIn__:
 
 ### Basic Operation
 
