@@ -67,32 +67,32 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 
 ### Basic Operation
 
-Los servicios del sistema trabajan con ficheros, es decir aceptan ficheros como entrada y produce ficheros como salida. Los ficheros en la salida quedan agrupados o categorizados en directorios. Eso es todo. Tanto los ficheros de entrada como los de salida pueden ser imagenes, documentos de MS Word, documentos Json, documentos XML, etc., o una combinacion de todos ellos, dependiendo del caso de uso.
+The workflow services work with files, that is, they accept files as input and produce files as output. The files in the output are grouped or categorized in directories. That is all. Both the input and output files can be images, MS Word documents, Json documents, XML documents, datasets, etc., or a combination of all of them, depending on the use case.
 
-Asi pues, y dado que que los servicios trabajan solo con ficheros, estos monitorizan uno o varios directorios en particular; cada servicio monitoriza en directorio o los directorios de salida de su predecesor en la cadena del WorkFlow. El primer servicio monitoriza el directorio Inbox del workflow, que siempre tiene el mismo nombre (inbox). Cuando se ejecutada el primer servicio por primera vez este crea un directorio que tiene el mismo nombre del assembly servicio, y dentro de ese directorio se crea un subdirectorio llamado "InBox".
+Thus, and since the services work only with files, they monitor one or more directories in particular, each service monitors the output directory or directories of its predecessor in the WorkFlow chain. The first service monitors the workflow's Inbox directory, which always has the same name (inbox). When the first service is executed for the first time, it creates a directory that has the same name as the service assembly, and within that directory a subdirectory called "InBox" is created.
 
-A medida que la ejecucion del WokrFlow avanza, esos ficheros se mueven de un directorio a otro, es decir desaparecen del directorio de salida del servicio anterior en el WorkFlow y aparecen el el directorio de salida del siguiente servicio del WorkFlow. En futuras versiones del sistema, esto ultimo no sera del todo cierto, ya que el sistema avanzara en complejidad y se puede redirigir la salida de un servicio a otro WorkFlow, si se dan determinadas condiciones. En tales casos, habra un nuevo componente en medio de cada sericio que se encargara de tomar ciertas decisiones y redirigir el trafico consecuentemente. 
+As the WokrFlow execution progresses, these files move from one directory to another, that is, they disappear from the output directory of the previous WorkFlow service and appear in the output directory of the next WorkFlow service. In future versions of the system, this will not be always entirely true, since the system will progress in complexity and the output of a service can be redirected to another WorkFlow, if certain conditions are met. In such cases, there will be a new component in the middle of each service that will be in charge of making certain decisions and redirecting traffic accordingly.
 
-Los directorios de salida pueden ser hacer referencia a categorias o afirmaciones en sus nombres. Esto da una idea del potencial del sistema.
+Output directories can referrence to categories or astertions into their names. This gives an idea of the potential of the system.
 
 
 #### System caracteristics
 
-1. System Fault Tolerant: Si el sistema cae, puede continuar la ejecucion desde el punto preciso en el que sistema fue detenido. Esto es asi porque lo primero que hace cada servicio es buscar buscar archivos ya presentes en su directorio de entrada para procesarlos antes de continuar su efecucion normal. 
+1. System Fault Tolerant: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
 
 2. Services' Configurable basic behavior: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
 
 #### Operational Premises
 
-1. Se debe realizar una copia de respaldo de los archivos de entrada: Algunos workflows pueden realizar modificaciones en los archivos de entrada. Para poder evertir el proceso, se deben llevar a cabo copias de respaldo de los archivos de ntrada. 
+1. __A backup copy of the input files must be made__: Some workflows can make modifications to the input files. So as norm, and in order to be able reverse or cancel the process, backup copies of the input files must be made before the service process begins if the service is going to make changes on those files. 
 
-2. Each workflow must have its own API: In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow node (or service). So through encapsualation concept, all those details will remain hidden for the calling application.
+2. __Each workflow must have its own API__: In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow node (or service). So through encapsualation concept, all those details will remain hidden for the calling application.
 
-3. No database engine in services level: En el nivel de los servicios no hay ningun motor de base de datos involucrado.
+3. __No database engine in services level__: At the service level there is no database engine involved.
 
-4. No se pueden instalar dos servicios con el mismo nombre: sin comentarios. Windows no te dejara hacer tal cosa. 
+4. __Cannot install two services with the same name__: No comments. Windows will not let you to do such a thing. 
 
-5. No Message Broker in services level: Los servicios solo procesan archivos y mantienen un log de a lo largo de su vida. No son responsables de lanzar notificaciones de ningun tipo, lo cual es trabajo para otro componentes del sistema, que es responsables de monitorizar, configurar y administrar los servicios de un determinado WorkFlow. 
+5. __No Message Broker in services level__: Los servicios solo procesan archivos y mantienen un log de a lo largo de su vida. No son responsables de lanzar notificaciones de ningun tipo, lo cual es trabajo para otro componentes del sistema, que es responsables de monitorizar, configurar y administrar los servicios de un determinado WorkFlow. 
 
 ## Posible project evolution 
 
