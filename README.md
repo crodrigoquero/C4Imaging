@@ -71,7 +71,7 @@ Los servicios del sistema trabajan con ficheros, es decir aceptan ficheros como 
 
 Asi pues, y dado que que los servicios trabajan solo con ficheros, estos monitorizan uno o varios directorios en particular; cada servicio monitoriza en directorio o los directorios de salida de su predecesor en la cadena del WorkFlow. El primer servicio monitoriza el directorio Inbox del workflow, que siempre tiene el mismo nombre (inbox). Cuando se ejecutada el primer servicio por primera vez este crea un directorio que tiene el mismo nombre del assembly servicio, y dentro de ese directorio se crea un subdirectorio llamado "InBox".
 
-A medida que la ejecucion del WokrFlow avanza, esos ficheros se mueven de un directorio a otro, es decir desaparecen del directorio de salida del servicio anterior en el WorkFlow y aparecen el el directorio de salida del siguiente servicio del WorkFlow. En futuras versiones del sistema, esto ultimo no sera del todo cierto, ya que el sistema avanzara en complejidad y se puede redirigir la salida de un servicio a otro WorkFlow, si se dan determinadas condiciones. En tales casos, habra un nuevo componente en medio de cada sericio que se encargara de toamr ciertas decisiones y redirigir el trafico consecuentemente. 
+A medida que la ejecucion del WokrFlow avanza, esos ficheros se mueven de un directorio a otro, es decir desaparecen del directorio de salida del servicio anterior en el WorkFlow y aparecen el el directorio de salida del siguiente servicio del WorkFlow. En futuras versiones del sistema, esto ultimo no sera del todo cierto, ya que el sistema avanzara en complejidad y se puede redirigir la salida de un servicio a otro WorkFlow, si se dan determinadas condiciones. En tales casos, habra un nuevo componente en medio de cada sericio que se encargara de tomar ciertas decisiones y redirigir el trafico consecuentemente. 
 
 Los directorios de salida pueden ser hacer referencia a categorias o afirmaciones en sus nombres. Esto da una idea del potencial del sistema.
 
@@ -79,13 +79,16 @@ En el nivel de los servicios no hay ningun motor de base de datos involucrado.
 
 #### System Fault Tolerant 
 
-Si el sistema cae.... 
+Si el sistema cae, puede continuar la ejecucion desde el punto preciso en el que sistema fue detenido. Esto es asi porque lo primero que hace cada servicio es buscar buscar ya archivos presentes en su directorio de entrada para procesarlos antes de continuar su efecucion normal.  
+
+#### Operational Premises
+
+##### Se debe realizar una copia de respaldo de los archivos de entrada
+
+Algunos workflows pueden realizar modificaciones en los archivos de entrada. Para poder evertir el proceso, se deben llevar a cabo copias de respaldo de los archivos de ntrada. 
 
 
-
-
-
-### Each workflow must have its own API
+##### Each workflow must have its own API
 
 In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. 
 
