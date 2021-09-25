@@ -43,7 +43,7 @@ To articulate the business process in a workflow environment, there are some int
 
 Must of them are great. But the problem is you have to choose one... and to be able to choose one properly, you may have to test all of them, and to do that you are going to need to learn about them. The learning curve will high, so the whole process will take some time eventually. 
 
-I you're in a rush, which happens very often in software development, and if you are an experienced coder, probably you will provide yourself a solution from your own industry. 
+If you're in a rush, which happens very often in software development, and if you are an experienced coder, probably you will provide yourself a solution from your own industry. 
 
 WorkFlows are a crucial part of the business process. So you have to be careful about what dependencias you are going to stabish on the company codebase. So you're probably going to want to partner with a company that will assure you of long-term support. Many small independent developers are brilliant, but they can't guarantee that.
 
@@ -76,7 +76,6 @@ Thus, and since the services work only with files, they monitor one or more dire
 As the WokrFlow execution progresses, these files move from one directory to another, that is, they disappear from the output directory of the previous WorkFlow service and appear in the output directory of the next WorkFlow service. In future versions of the system, this will not be always entirely true, since the system will progress in complexity and the output of a service can be redirected to another WorkFlow, if certain conditions are met. In such cases, there will be a new component in the middle of each service that will be in charge of making certain decisions and redirecting traffic accordingly.
 
 Output directories can referrence to categories or astertions into their names. This gives an idea of the potential of the system.
-
 
 #### System caracteristics
 
