@@ -115,7 +115,7 @@ Output directories can referrence to categories or astertions into their names. 
 
 6. __Services does just one thing and does it well__: The services only process files to parform a concrete task on them, and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. 
 
-7. __Each WorkFlow must have its own Message Queue__: Sucha queue must be managed by the proper workflow components /a assets (i.e. Workflow controller or WorkFlow observer).
+7. __Each WorkFlow must have its own Message Queue__: Such a queue must be managed by the proper workflow components (i.e. Workflow controller or WorkFlow observer).
 
 ## Posible project evolution 
 
