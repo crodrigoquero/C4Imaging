@@ -59,6 +59,8 @@ An example workflow is included that categorizes images in order to illustrate i
 
 The general purpose WorkFlow nodes created in this project can be useful by themselves, without necessarily being integrated into a WorkFlow; Not only are they interesting in a miservices / monolithic architecture, but they can also be useful on a desktop computer that has Windows 10 Home Edition installed. 
 
+The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "Tipical WorkFlow Processes" section for more details).
+
 ## System Architecture
 
 In this project, each workflow is composed by a series of services, which in the domain of this system are called __WorkFlow Nodes__. The functionality of each one of these nodes is very atomic and isolated, so a workflow node is reusable; such particular functionality can be useful in another WorkFlow.
