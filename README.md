@@ -72,6 +72,14 @@ Each WorkFlow node can be moved from one given location within the WorkFlow chai
 
 Each WorkFlow node is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
 
+### System Components
+
+- WorkFlow:
+- WorkFlow Node:
+- WorkFlow Controller/Observer:
+- WorkFlow Manager:
+- WorkFlow API:
+
 ### Basic Operation
 
 The workflow services work with files, that is, they accept files as input and produce files as output. The files in the output are grouped or categorized in directories. That is all. Both the input and output files can be images, MS Word documents, Json documents, XML documents, datasets, etc., or a combination of all of them, depending on the use case.
