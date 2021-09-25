@@ -83,12 +83,9 @@ Si el sistema cae, puede continuar la ejecucion desde el punto preciso en el que
 
 #### Operational Premises
 
-##### Se debe realizar una copia de respaldo de los archivos de entrada
-
+##### 1. Se debe realizar una copia de respaldo de los archivos de entrada
 Algunos workflows pueden realizar modificaciones en los archivos de entrada. Para poder evertir el proceso, se deben llevar a cabo copias de respaldo de los archivos de ntrada. 
-
-
-##### Each workflow must have its own API
+##### 2. Each workflow must have its own API
 
 In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. 
 
