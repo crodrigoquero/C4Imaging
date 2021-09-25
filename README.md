@@ -94,7 +94,8 @@ Output directories can referrence to categories or astertions into their names. 
 
 4. __Cannot install two services with the same name__: No comments. Windows will not let you to do such a thing. 
 
-5. __No Message Broker in services level__: The services only process files and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. 
+5. __Services are isolated workers__: No Message Broker in services level; services can't comunicate to each other, or to any other system. They don't have external dependencies to carry out their main (and unique) task.
+6. __Services does just one thing and does it well__: The services only process files to parform a concrete task on them, and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. 
 
 ## Posible project evolution 
 
