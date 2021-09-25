@@ -79,11 +79,11 @@ Output directories can referrence to categories or astertions into their names. 
 
 #### System caracteristics
 
-1. __Services are Fault Tolerant__: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
+1. __Services are fault tolerant__: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
 
-2. __Services have a configurable basic behavior__: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
+2. __Services has a configurable startup__: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
 
-3. __Services can occupy any position within the WorkFlow's chain__: The position that a service occupies does not affect its internal operation; It is not necessary to make any changes to its internal structure if such service needs to be moved to a different position than its current one within the WorkFlow.
+3. __Services are moveable__: Services can occupy any position within the WorkFlow's chain. The position that a service occupies does not affect its internal operation; It is not necessary to make any changes to its internal structure if such service needs to be moved to a different position than its current one within the WorkFlow.
 
 #### Operational Premises
 
