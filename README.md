@@ -65,6 +65,26 @@ Each WorkFlow node can be moved from one given location within the WorkFlow chai
 
 Each WorkFlow node is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
 
+### Basic Operation
+
+Los servicios del sistema trabajan con ficheros, es decir aceptan ficheros como entrada y produce ficheros como salida. Los ficheros en la salida quedan agrupados o categorizados en directorios. Eso es todo. Tanto los ficheros de entrada como los de salida pueden ser imagenes, documentos de MS Word, documentos Json, documentos XML, etc., o una combinacion de todos ellos, dependiendo del caso de uso.
+
+Asi pues, y dado que que los servicios trabajan solo con ficheros, estos monitorizan uno o varios directorios en particular; cada servicio monitoriza en directorio o los directorios de salida de su predecesor en la cadena del WorkFlow. El primer servicio monitoriza el directorio Inbox del workflow, que siempre tiene el mismo nombre (inbox). Cuando se ejecutada el primer servicio por primera vez este crea un directorio que tiene el mismo nombre del assembly servicio, y dentro de ese directorio se crea un subdirectorio llamado "InBox".
+
+A medida que la ejecucion del WokrFlow avanza, esos ficheros se mueven de un directorio a otro, es decir desaparecen del directorio de salida del servicio anterior en el WorkFlow y aparecen el el directorio de salida del siguiente servicio del WorkFlow. En futuras versiones del sistema, esto ultimo no sera del todo cierto, ya que el sistema avanzara en complejidad y se puede redirigir la salida de un servicio a otro WorkFlow, si se dan determinadas condiciones. En tales casos, habra un nuevo componente en medio de cada sericio que se encargara de toamr ciertas decisiones y redirigir el trafico consecuentemente. 
+
+Los directorios de salida pueden ser hacer referencia a categorias o afirmaciones en sus nombres. Esto da una idea del potencial del sistema.
+
+En el nivel de los servicios no hay ningun motor de base de datos involucrado.
+
+#### System Fault Tolerant 
+
+Si el sistema cae.... 
+
+
+
+
+
 ### Each workflow must have its own API
 
 In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. 
