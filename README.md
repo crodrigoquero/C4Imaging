@@ -78,9 +78,9 @@ Output directories can referrence to categories or astertions into their names. 
 
 #### System caracteristics
 
-1. System Fault Tolerant: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
+1. __Services are Fault Tolerant__: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
 
-2. Services' Configurable basic behavior: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
+2. __Services have a Configurable basic behavior__: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
 
 #### Operational Premises
 
