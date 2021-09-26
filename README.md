@@ -136,16 +136,18 @@ Output directories can referrence to categories or astertions into their names. 
 [*CAUTION: I need to elaborate this section a little bit more*]
 
 1. __(DC1) Single User__: The user installs locally some WorkFlow nodes to execute large / complicated analysis processes over files. 
-2. __(DC2) LAN Server__: Small TEAM in a LAN sharing a Workflow on a LAN server. Every TEAM Member has the Desktop app installed.
+2. __(DC2) LAN Team__: Small TEAM in a LAN sharing a Workflow on a LAN server. Every TEAM Member has the Desktop app installed.
 3. __(DC3) P2P__: A single user becomes server as well, sharing his WorkFlow Processing resources with other users (peers).
 4. __(DC4) Web Application__: Where the web app (microservices-based or not) delegates some large processes to a WorkFlow engine. 
 
-Deployment Cofiguration | Second Header
------------------------ | -------------
-DC1 - Single User | Content from cell 2
-DC2 - LAN Server | Content in the second column
-DC3 - P2P  | Content in the second column
-DC4 - Web Application  | Content in the second column
+Below you can see a list of necessary system components for each Deployment Configuration:
+
+Deployment Cofiguration | Minimal Neccesary Components
+----------------------- | ----------------------------
+DC1 - Single User | WorkFlow Node(s) + WorkFlow Desktop App (Win)
+DC2 - LAN Team |  WorkFlow + WorkFlow Node(s) + WorkFlow Desktop App (Win)
+DC3 - P2P | WorkFlow Node(s) + WorkFlow Desktop App (Win)
+DC4 - Web Application | WorFlow(s) API
 
 ### Deployment Configurations Combinations
 
