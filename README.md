@@ -91,7 +91,7 @@ Below you can see the system components list and the the current development sta
 *__REMARKS__: This list will be updated periodically. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
 
 #1006900323
-crodrigoquero#1006900323
+crodrigoquero/C4Imaging#2
 crodrigoquero/WorkFlow Node PlugIns#1006900323
 
 https://github.com/crodrigoquero/C4Imaging/issues/2#issue-1006900323
