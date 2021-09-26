@@ -142,7 +142,7 @@ Output directories can referrence to categories or astertions into their names. 
 
 Below you can see a list of necessary system components for each Deployment Configuration:
 
-Deployment Cofiguration | Minimal Neccesary Components
+DC | Minimal Neccesary Components
 ----------------------- | ----------------------------
 DC1 - Single User | WorkFlow Node(s) + WorkFlow Desktop App (Win)
 DC2 - LAN Team |  WorkFlow + WorkFlow Node(s) + WorkFlow Desktop App (Win)
