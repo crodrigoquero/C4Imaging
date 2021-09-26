@@ -86,7 +86,7 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 - [ ] __Work Flow Monitor UI__: 
     - [ ] __Windows Desktop application (Winforms/WPF)__: Allows final users to monitor a single workflow or a set of them in some deplyment scenarios (see issues / ehacements section for more datails about this component). 
 
-*REMARKS: Please keep into account that because the system's building process is still in the architecture design level, all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed, added or redefined.*
+*__REMARKS__: Please keep into account that because the system's building process is still in the architecture design level, all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed, added or redefined.*
 
 ### Basic Operation
 
