@@ -75,8 +75,10 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 
 ### System Components Summary
 
+Below you can see the system components list and the the current development status of each of them: 
+
 - [ ] __WorkFlow__: A data structure / entity (Json) that hold a collection of workflow nodes and other related properties, which lives into the WorkFlow API domain, and is managed by it.
-- [X] __WorkFlow Node__: Windows Service with a particular structure or behavior. It is the main component of the Workflow.
+- [X] __WorkFlow Node__: Windows Service with a particular structure and behavior. It is the main component of the Workflow.
 - [ ] __WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
 - [ ] __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
 - [ ] __WorkFlow Scheduler__: Sets execution time for work orders / processes.
@@ -86,7 +88,7 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 - [ ] __Work Flow Monitor UI__: 
     - [ ] __Windows Desktop application (Winforms/WPF)__: Allows final users to monitor a single workflow or a set of them in some deplyment scenarios (see issues / ehacements section for more datails about this component). 
 
-*__REMARKS__: Please keep into account that because the system's building process is still in the architecture design level, all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed, added or redefined.*
+*__REMARKS__: This list will be updated periodically. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
 
 ### Basic Operation
 
