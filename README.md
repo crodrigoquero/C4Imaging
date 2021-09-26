@@ -79,6 +79,7 @@ Below you can see the system components list and the the current development sta
 
 - [ ] __WorkFlow__: A data structure / entity (Json) that hold a collection of workflow nodes and other related properties, which lives into the WorkFlow API domain, and is managed by it.
 - [X] __WorkFlow Node__: Windows Service with a particular structure and behavior. It is the main component of the Workflow.
+- [ ] __WorkFlow Node Installer (Windows)__: Allows end users to Install WorkFlows locally. Includes desktop win UI.
 - [ ] __WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
 - [ ] __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
 - [ ] __WorkFlow Scheduler__: Sets execution time for work orders / processes.
@@ -129,7 +130,24 @@ Output directories can referrence to categories or astertions into their names. 
 
 7. __Each WorkFlow must have its own Message Queue__: Such a queue must be managed by the proper workflow components (i.e. Workflow controller or WorkFlow observer).
 
-## Posible project evolution 
+8. __Every WorkFlow node can be installed independently__: Every WorkFlow node must have its own and idependent installer. This policy allows any user to be able to install locally any WorkFlow Node. The insllation proceess must be __extremely simple__.
+
+## Some Deployment Configurations
+[*CAUTION: I need to elaborate this section a little bit more*]
+
+1. Single User - Local PC: The user installs some WorkFlow nodes to execute large / complicated analysis processes over files. 
+2. LAN Server: Small TEAM in a LAN sharing a Workflow on a LAN server. Every TEAM Member has the Desktop app installed.
+3. P2P: A single user becomes server as well, sharing his WorkFlow Processing resources with other users (peers).
+4. Monolithic Web App: Where the web app delegates large processes or WorkFlows to the WorkFlow engine. 
+5. Microservices-based Web App: Where some microservices delegates large processes or WorkFlows to the WorkFlow engine. 
+
+### Deployment Configurations Combinations
+
+But some of these deployements can be combined in an interesting way. For example:
+- __DC1 and DC4__, which leads to better web server work load relief, if we can delegate in some __USERS__ certain processes. 
+- __DC2 and DC4__, which leads to better web server work load relief, if we can delegate in some __TEAMS__ certain processes. 
+
+## Possible project evolution 
 
 Perhaps in the medium term this will not continue to be the case, that is, in the future it is possible that there will be __a single API for all WorkFlows__. How is this possible? well, obviously the WorkFlow nodes will still exist, but an abstraction will be carried out such that a WorkFlow will be a data structure (probably using the __json__ format). Thus, a single main API can handle multiple WorkFlows. 
 
