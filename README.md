@@ -63,6 +63,7 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 
 - __WorkFlow Node__: Is just a Windows 10 Service with a particular structure and behaviour. 
 - __WorkFlow__: A series a WorkFlow Nodes working together, organised in a sequence which is intended to achieve a final result.
+- __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. 
 
 ## System Architecture
 
@@ -79,7 +80,8 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 - __WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
 - __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
 - __WorkFlow API__: API Rest that allow applications to use a given workflow. Each WorkFlow API is associated with one and just one WorkFlow.
-- __WorkFlow Task PlugIn__:
+- __WorkFlow Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible.
+- __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. These work orders are produced by the WorkFlow api when the calling app send a work request. Then, the WorkFlow api delivers the work order to the service by writing the work order file into the service InBox. 
 
 ### Basic Operation
 
@@ -100,6 +102,8 @@ Output directories can referrence to categories or astertions into their names. 
 3. __WorkFlow Nodes are moveable__: Services can occupy any position within the WorkFlow's chain. The position that a service occupies does not affect its internal operation; It is not necessary to make any changes to its internal structure if such service needs to be moved to a different position than its current one within the WorkFlow.
 
 4. __WorkFlow Nodes can be useful by themselves__: The general purpose WorkFlow nodes created in this project can be useful by themselves, without necessarily being integrated into a WorkFlow; Not only are they interesting in a miservices / monolithic architecture, but they can also be useful on a desktop computer that has Windows 10 Home Edition installed. 
+
+5. __Services can be configured to cahnge its processing behaviour__: The can be configured work with single files, groups of files (in zip format) or with work Orders. 
 
 #### Operational Premises
 
