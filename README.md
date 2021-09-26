@@ -84,7 +84,7 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 - __WorkFlow Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible.
 - __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. These work orders are produced by the WorkFlow api when the calling app send a work request. Then, the WorkFlow api delivers the work order to the service by writing the work order file into the service InBox. 
 - Work Flow Monitor UI: 
--- Windows Desktop application (Winforms/WPF): 
+    - Windows Desktop application (Winforms/WPF): 
 
 ### Basic Operation
 
