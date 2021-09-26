@@ -144,8 +144,8 @@ Output directories can referrence to categories or astertions into their names. 
 ### Deployment Configurations Combinations
 
 But some of these deployements can be combined in an interesting way. For example:
-- __DC1 and DC4__, which leads to better web server work load relief, if we can delegate in some __USERS__ certain processes. 
-- __DC2 and DC4__, which leads to better web server work load relief, if we can delegate in some __TEAMS__ certain processes. 
+- __DC1 and DC4__, which leads to some web server work load relief, if we can delegate in some __USERS__ certain processes. 
+- __DC2 and DC4__, which leads to some web server work load relief, if we can delegate in some __TEAMS__ certain processes. 
 
 ## Possible project evolution 
 
