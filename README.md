@@ -140,7 +140,7 @@ Output directories can referrence to categories or astertions into their names. 
 3. __(DC3) P2P__: A single user becomes server as well, sharing his WorkFlow Processing resources with other users (peers).
 4. __(DC4) Web Application__: Where the web app (microservices-based or not) delegates some large processes to a WorkFlow engine. 
 
-Below you can see a list of necessary system components for each Deployment Configuration:
+The below __table__ shows you a list of necessary system components for each Deployment Configuration:
 
 DC | Minimal Neccesary Components
 ----------------------- | ----------------------------
