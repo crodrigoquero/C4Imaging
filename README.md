@@ -135,29 +135,8 @@ Output directories can referrence to categories or astertions into their names. 
 ## Some Deployment Configurations
 [*CAUTION: I need to elaborate this section a little bit more*]
 
-The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs:
+The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs. Please have a loock at [this issue](/../../issues/7).
 
-1. __(DC1) Single User__: The user installs locally some WorkFlow nodes to execute large / complicated analysis processes over files. 
-2. __(DC2) LAN Team__: Small TEAM in a LAN sharing a Workflow on a LAN server. Every TEAM Member has the Desktop app installed.
-3. __(DC3) P2P__: A single user becomes server as well, sharing his WorkFlow Processing resources with other users (peers).
-4. __(DC4) Web Application__: Where the web app (microservices-based or not) delegates some large processes to a WorkFlow engine. 
-
-The below __table__ shows you a list of necessary system components for each Deployment Configuration:
-
-DC | Minimal Neccesary Components
------------------------ | ----------------------------
-DC1 - Single User | WorkFlow Node(s) + WorkFlow Desktop App (Win)
-DC2 - LAN Team |  WorkFlow + WorkFlow Node(s) + WorkFlow Desktop App (Win)
-DC3 - P2P | WorkFlow Node(s) + WorkFlow Desktop App (Win)
-DC4 - Web Application | WorFlow(s) API
-
-### Deployment Configurations Combinations
-
-But some of these deployements can be combined in an interesting way. For example:
-- __DC1 and DC4__, which leads to some web server work load relief, if we can delegate in some __USERS__ certain processes. 
-- __DC2 and DC4__, which leads to some web server work load relief, if we can delegate in some __TEAMS__ certain processes. 
-
-But remember that a WorkFlow node can be configured to __work with different file types__ at installation time by passing a list of file extensions as an argument. So you can create one independent instance of a WorkFlow Node to process separatelly each one of these file types, __which offers even more combinations__.
 
 ## Possible project evolution 
 
