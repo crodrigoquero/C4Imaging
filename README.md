@@ -90,6 +90,12 @@ Below you can see the system components list and the the current development sta
 
 *__REMARKS__: This list will be updated periodically. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
 
+#2
+crodrigoquero#1
+crodrigoquero/WorkFlow Node PlugIns#2
+
+https://github.com/crodrigoquero/C4Imaging/issues/2#issue-1006900323
+
 ### Basic Operation
 
 The workflow services work with files, that is, they accept files as input and produce files as output. The files in the output are grouped or categorized in directories. That is all. Both the input and output files can be images, MS Word documents, Json documents, XML documents, datasets, etc., or a combination of all of them, depending on the use case.
