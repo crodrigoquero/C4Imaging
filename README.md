@@ -93,7 +93,7 @@ Below you can see the system components list and the the current development sta
 
 ver el issue (/crodrigoquero/C4Imaging#2)
 
-see also [#2](/crodrigoquero/C4Imaging/issues/2)
+see also [#3](/../../issues/3)
 
 ### Basic Operation
 
