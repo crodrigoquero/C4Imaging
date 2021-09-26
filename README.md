@@ -110,7 +110,7 @@ Output directories can referrence to categories or astertions into their names. 
 
 4. __WorkFlow Nodes can be useful by themselves__: The general purpose WorkFlow nodes created in this project can be useful by themselves, without necessarily being integrated into a WorkFlow; Not only are they interesting in a miservices / monolithic architecture, but they can also be useful on a desktop computer that has Windows 10 Home Edition installed. 
 
-5. __Services can be configured to cahnge its processing behaviour__: The can be configured work with single files, groups of files (in zip format) or with work Orders. 
+5. __Services can be configured to change its behaviour__: They can be configured work with single files, groups of files (in zip format) or with work Orders. The default input an output directories can be configured too in order to facilitate its linking to other WorkFlows. Also, the accepted file type into the service's InBox can be configured too. 
 
 #### Operational Premises
 
