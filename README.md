@@ -135,6 +135,8 @@ Output directories can referrence to categories or astertions into their names. 
 ## Some Deployment Configurations
 [*CAUTION: I need to elaborate this section a little bit more*]
 
+The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs:
+
 1. __(DC1) Single User__: The user installs locally some WorkFlow nodes to execute large / complicated analysis processes over files. 
 2. __(DC2) LAN Team__: Small TEAM in a LAN sharing a Workflow on a LAN server. Every TEAM Member has the Desktop app installed.
 3. __(DC3) P2P__: A single user becomes server as well, sharing his WorkFlow Processing resources with other users (peers).
