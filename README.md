@@ -91,9 +91,7 @@ Below you can see the system components list and the the current development sta
 *__REMARKS__: This list will be updated periodically. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
 
 
-ver el issue (/crodrigoquero/C4Imaging#2)
-
-see also [#3](/../../issues/3)
+see also [#this issue](/../../issues/2)
 
 ### Basic Operation
 
