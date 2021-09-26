@@ -75,12 +75,12 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 
 ### System Components Summary
 
-- [ ]__WorkFlow__: A data structure / entity (Json) that hold a collection of workflow nodes and other related properties, which lives into the WorkFlow API domain, and is managed by it.
-- [X]__WorkFlow Node__: Windows Service with a particular structure or behavior. It is the main component of the Workflow.
-- [ ]__WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
-- [ ]__WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
-- [ ]__WorkFlow Scheduler__: Sets execution time for work orders / processes.
-- [ ]__WorkFlow API__: API Rest that allow applications to use a given workflow. Each WorkFlow API is associated with one and just one WorkFlow.
+- [ ] __WorkFlow__: A data structure / entity (Json) that hold a collection of workflow nodes and other related properties, which lives into the WorkFlow API domain, and is managed by it.
+- [X] __WorkFlow Node__: Windows Service with a particular structure or behavior. It is the main component of the Workflow.
+- [ ] __WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
+- [ ] __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
+- [ ] __WorkFlow Scheduler__: Sets execution time for work orders / processes.
+- [ ] __WorkFlow API__: API Rest that allow applications to use a given workflow. Each WorkFlow API is associated with one and just one WorkFlow.
 - __WorkFlow Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible.
 - __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. These work orders are produced by the WorkFlow api when the calling app send a work request. Then, the WorkFlow api delivers the work order to the service by writing the work order file into the service InBox. 
 - __Work Flow Monitor UI__: 
