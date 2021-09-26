@@ -83,15 +83,12 @@ Below you can see the system components list and the the current development sta
 - [ ] __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
 - [ ] __WorkFlow Scheduler__: Sets execution time for work orders / processes.
 - [ ] __WorkFlow API__: API Rest that allow applications to use a given workflow. Each WorkFlow API is associated with one and just one WorkFlow.
-- [ ] __WorkFlow Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible.
+- [ ] __WorkFlow Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible. Plase have a loock at [this issue](/../../issues/2)
 - [ ] __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. These work orders are produced by the WorkFlow api when the calling app send a work request. Then, the WorkFlow api delivers the work order to the service by writing the work order file into the service InBox. 
 - [ ] __Work Flow Monitor UI__: 
     - [ ] __Windows Desktop application (Winforms/WPF)__: Allows final users to monitor a single workflow or a set of them in some deplyment scenarios (see issues / ehacements section for more datails about this component). 
 
 *__REMARKS__: This list will be updated periodically. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
-
-
-see also [#this issue](/../../issues/2)
 
 ### Basic Operation
 
