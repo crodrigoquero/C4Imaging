@@ -73,7 +73,7 @@ Each WorkFlow node can be moved from one given location within the WorkFlow chai
 
 Each WorkFlow node is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
 
-## The Visual Studio Solution projects
+### The Visual Studio Solution projects
 
 1. __C4ImagingNetCore.Notifier.Logging__: Obstraction layer to decouple logging provider
 2. __C4ImagingNetCore__:  [removal inminent] All the project functionality will moved to "Helpers" project.
