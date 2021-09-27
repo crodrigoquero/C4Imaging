@@ -51,17 +51,17 @@ WorkFlows are a crucial part of the business process. So you have to be careful 
 
 This project implements a WorkFlow system that can execute business processes of various types and purposes and is mainly based on services / background workers for Windows 10 or Linux. It is developed with Visual Studio 2019 using the C # programming language. It is expected that its final version will allow end users to fully define any business process (WorkFlow) without having to resort to the development team.
 
-In the current state of the project, each workflow is made up of an indeterminate number of services, which are responsible for executing each phase or state of the workflow to which they belong. These elements are called "Workflow nodes" in the system domain vocabulary.
+In the current state of the project, each workflow is made up of an indeterminate number of services, which are responsible for executing each phase or state of the workflow to which they belong. These elements are called "states" or "workflow states" in the system domain vocabulary.
 
 To facilitate communication between the calling application and the workflow, each workflow has its own API. There are other software components involved at that level, which are described in the "System Architecture" section of this document.
 
-An example workflow is included that categorizes images in order to illustrate its operation with a practical case. Over time, other workflow nodes of general utility will be added that can be reused in a multitude of workflows.
+An example workflow is included that categorizes images in order to illustrate its operation with a practical case. Over time, other workflow states of general utility will be added that can be reused in a multitude of workflows.
 
 The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "Tipical WorkFlow Processes" section for more details).
 
 ## Project Domain Vocabulary
 
-- __WorkFlow Node__: In this project domain, a workflow node is just a Windows Service with a particular structure and behaviour. We can also call them as __WorkFlow States__.
+- __WorkFlow Node__: In this project domain, a workflow state is just a Windows Service with a particular structure and behaviour. We can also call them as __WorkFlow States__.
 - __WorkFlow__: A series a __WorkFlow States__ working together, organised in a sequence which is intended to achieve a final result.
 - __Work Order__: Text file containing a data structure in json format which describes a piece or sa sets of pieces of work or __tasks__ to be executed by a __state__ (service). 
 - __Activities__: Concrete actions execute inside a state. Each activity performs a different task, such as running a script, sending notifications, or requesting approvals. Activities can succeed or fail dependendng of the result of a task execution, which can result in actions performed by other activities. 
@@ -78,11 +78,11 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 
 ## System Architecture
 
-In this project, each workflow is composed by a series of services, which in the domain of this system are called __WorkFlow Nodes__. The functionality of each one of these nodes is very atomic and isolated, so a workflow node is reusable; such particular functionality can be useful in another WorkFlow.
+In this project, each workflow is composed by a series of services, which in the domain of this system are called __WorkFlow States__. The functionality of each one of these states is very atomic and isolated, so a workflow state is reusable; such particular functionality can be useful in another WorkFlow.
 
-Each WorkFlow node can be moved from one given location within the WorkFlow chain to another. This is possible because all of the WorkFlow nodes have exactly the same structure and behavior. A node that currently occupies the eighth place in the chain, can moved to the first place, and everything will continue to work perfectly without the need to make changes to any nodes' code.
+Each WorkFlow state can be moved from one given location within the WorkFlow chain to another. This is possible because all of the WorkFlow states have exactly the same structure and behavior. A workflow state that currently occupies the eighth place in the chain, can moved to the first place, and everything will continue to work perfectly without the need to make changes to any workflow state' code.
 
-Each WorkFlow node is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
+Each WorkFlow state is nothing more and nothing less than a Windows 10 service (or a Linux Daemon). Visual Studio 2019 offers a project template to create these services in DotNet Core 3.x (worker service template).
 
 ### The Visual Studio Solution projects
 
@@ -91,7 +91,7 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 3. __C4ImagingNetCore.BackEnd__: [removal inminent] All the project functionality will moved to "Helpers" project.
 4. __C4ImagingNetCore.Helpers__: Cotains a few helper classes and enums.
 5. __C4ImagingNetCore.UI__:[removal inminent] Console app for manual testing in the early stages of the project
-6. __C4ImagingNetCore.Workflow.Srv__: The first WorkFlow Node I've created.
+6. __C4ImagingNetCore.Workflow.Srv__: The first WorkFlow State I've created.
 
 *__REMARKS__: A better project naming convention must be applied (domain-based also). This list will be updated periodically.*
 
@@ -99,15 +99,15 @@ Each WorkFlow node is nothing more and nothing less than a Windows 10 service (o
 
 Below you can see the system components list and the the current development status of each of them: 
 
-- [ ] __WorkFlow__: A data structure / entity (Json) that hold a collection of workflow nodes and other related properties, which lives into the WorkFlow API domain, and is managed by it.
-- [X] __WorkFlow Node__: Windows Service with a particular structure and behavior. It is the main component of the Workflow.
-- [ ] __WorkFlow Node Installer (Windows)__: Allows end users to Install WorkFlows locally. Includes desktop win UI.
-- [ ] __WorkFlow Watcher__: Monitors the all the WorkFlow nodes and sends status messages to a message broker queue.
-- [ ] __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow Nodes.
+- [ ] __WorkFlow__: A data structure / entity (Json) that hold a collection of workflow states and other related properties, which lives into the WorkFlow API domain, and is managed by it.
+- [X] __WorkFlow State__: Windows Service with a particular structure and behavior. It is the main component of the Workflow.
+- [ ] __WorkFlow State Installer (Windows)__: Allows end users to Install WorkFlows locally. Includes desktop win UI.
+- [ ] __WorkFlow Watcher__: Monitors the all the WorkFlow states and sends status messages to a message broker queue.
+- [ ] __WorkFlow Manager__: Installs, starts, stops, remove and organises WorkFlow states.
 - [ ] __WorkFlow Scheduler__: Sets execution time for work orders / processes.
 - [ ] __WorkFlow API__: API Rest that allow applications to use a given workflow. Each WorkFlow API is associated with one and just one WorkFlow.
-- [ ] __WorkFlow Node Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible. Please have a loock at [this issue](/../../issues/2).
-- [ ] __WorkFlow Node Message Broker PlugIn__: Allows a WorkFlow Node to send status messages to a message broker queue. 
+- [ ] __WorkFlow State Task PlugIn__: A binary module that can be dinamically loaded at runtime by a given service. The plugIn has just one public method that executes a single task asyncronously. Is used to modiffy the behavior of a service. This a key system software component that makes the whole system versatile and flexible. Please have a loock at [this issue](/../../issues/2).
+- [ ] __WorkFlow State Message Broker PlugIn__: Allows a WorkFlow State to send status messages to a message broker queue. 
 - [ ] __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. These work orders are produced by the WorkFlow api when the calling app send a work request. Then, the WorkFlow api delivers the work order to the service by writing the work order file into the service InBox. 
 - [ ] __Work Flow Monitor UI__: 
     - [ ] __Windows Desktop application (Winforms/WPF)__: Allows final users to monitor a single workflow or a set of them in some deplyment scenarios (see issues / ehacements section for more datails about this component). Please have a loock at [this issue](/../../issues/6).
@@ -127,33 +127,33 @@ Output directories can referrence to categories or astertions into their names. 
 
 #### System caracteristics
 
-1. __WorkFlow Nodes are fault tolerant__: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
+1. __States are fault tolerant__: If the system crashes, the execution can be continued from the precise point where the system was stopped. This is so because the first thing each service does is look for files already present in its input directory to process them before continuing its normal execution. 
 
-2. __WorkFlow Nodes has a configurable startup__: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
+2. __States has a configurable startup__: Services can be configured at install time in order to modify certain operational behaviors, by passing some arguments from the cmmand line args array. For esample, a given service can be instructed to process only certain types of files by passing as an parameter/argument the list of allowed file extensions. You can also change the default input and output directory. 
 
-3. __WorkFlow Nodes are moveable__: Services can occupy any position within the WorkFlow's chain. The position that a service occupies does not affect its internal operation; It is not necessary to make any changes to its internal structure if such service needs to be moved to a different position than its current one within the WorkFlow.
+3. __States are moveable__: Services can occupy any position within the WorkFlow's chain. The position that a service occupies does not affect its internal operation; It is not necessary to make any changes to its internal structure if such service needs to be moved to a different position than its current one within the WorkFlow.
 
-4. __WorkFlow Nodes can be useful by themselves__: The general purpose WorkFlow nodes created in this project can be useful by themselves, without necessarily being integrated into a WorkFlow; Not only are they interesting in a miservices / monolithic architecture, but they can also be useful on a desktop computer that has Windows 10 Home Edition installed. 
+4. __States can be useful by themselves__: The general purpose WorkFlow states created in this project can be useful by themselves, without necessarily being integrated into a WorkFlow; Not only are they interesting in a miservices / monolithic architecture, but they can also be useful on a desktop computer that has Windows 10 Home Edition installed. 
 
-5. __Services can be configured to change its behaviour__: They can be configured work with single files, groups of files (in zip format) or with work Orders. The default input an output directories can be configured too in order to facilitate its linking to other WorkFlows. Also, the accepted file type into the service's InBox can be configured too. 
+5. __States can be configured to change its behaviour__: They can be configured work with single files, groups of files (in zip format) or with work Orders. The default input an output directories can be configured too in order to facilitate its linking to other WorkFlows. Also, the accepted file type into the service's InBox can be configured too. 
 
 #### Operational Premises
 
 1. __A backup copy of the input files must be made__: Some workflows can make modifications to the input files. So as norm, and in order to be able reverse or cancel the process, backup copies of the input files must be made before the service process begins if the service is going to make changes on those files. 
 
-2. __Each workflow must have its own API__: In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow node (or service). So through encapsualation concept, all those details will remain hidden for the calling application.
+2. __Each workflow must have its own API__: In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow state (or service). So through encapsualation concept, all those details will remain hidden for the calling application.
 
-3. __No database engine in services level__: At the service level there is no database engine directly involved. WorkFlow Nodes on this type of WorkFlow (data WorkFlow) doesn't need to use a Db for its internal functioning. But they can use indirectlya Db on its process in order to get the neccessary data to complete certain task. 
+3. __No database engine in services level__: At the service level there is no database engine directly involved. WorkFlow states on this type of WorkFlow (data WorkFlow) doesn't need to use a Db for its internal functioning. But they can use indirectlya Db on its process in order to get the neccessary data to complete certain task. 
 
 4. __Cannot install two services with the same name__: No comments. Windows will not let you to do such a thing. 
 
 5. __Services are isolated workers__: No Message Broker in services level; services can't comunicate to each other, or to any other system. They don't have external dependencies to carry out their main (and unique) task.
 
-6. __WokrFlow Nodes does just one thing and does it well__: The WokrFlow Nodes (services) only process files to parform a concrete task on them, and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. Using classic workflow vocabulary, we can say that workflow nodes are responsible for one state; their state. 
+6. __WokrFlow States does just one thing and does it well__: The WokrFlow States (services) only process files to parform a concrete task on them, and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. Using classic workflow vocabulary, we can say that workflow States are responsible for one state; their state. 
 
 7. __Each WorkFlow must have its own Message Queue__: Such a queue must be managed by the proper workflow components (i.e. Workflow controller or WorkFlow observer).
 
-8. __Every WorkFlow node can be installed independently__: Every WorkFlow node must have its own and idependent installer. This policy allows any user to be able to install locally any WorkFlow Node. The insllation proceess must be __extremely simple__.
+8. __Every WorkFlow states can be installed independently__: Every WorkFlow state must have its own and idependent installer. This policy allows any user to be able to install locally any WorkFlow state. The insllation proceess must be __extremely simple__.
 
 ### Some Deployment Configurations
 
@@ -162,8 +162,8 @@ The system components can be deployed __partially or totally__ in different ways
 ## Final Goals
 
 1. The final system must be able to futfill all the possible configurations (see "Some Deployment Configurations" section for more details), and be effcient in all of the possible use cases and scenarios. 
-2. A series o general purpose and always-useful WorkFlow Nodes will be constructed (on the main brnach of the project), for demonstration purpouses and to enrich the system. The list of those must grow over time. The most of them will futfill different general pupopurpose needs in the daily basis on any company, in a way that the project will gain value over time.
-3. All the WorkFlow Nodes must have its own release at GitHub, so the final user can install them independently.
+2. A series o general purpose and always-useful WorkFlow Sates will be constructed (on the main brnach of the project), for demonstration purpouses and to enrich the system. The list of those must grow over time. The most of them will futfill different general pupopurpose needs in the daily basis on any company, in a way that the project will gain value over time.
+3. All the WorkFlow Sates must have its own release at GitHub, so the final user can install them independently.
 4. Kubernetes scripts and Docker images must be available to carry out any deployment mentioned on the point #1. 
 5. Some Kubernetes scripts and Dcoker Images can be automatically generated by the corresponding [*undefined*] tool.
 
@@ -173,7 +173,7 @@ Perhaps in the medium term, there will be __a single API for all WorkFlows__. Ho
 
 That circunstance leads us to the possibility that will be the user who'll define the contents of such a structure through the aforementioned API, which is the same as saying that the users can define their own WorkFlows without any futher intervention from the software development team... Great.
 
-Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow Nodes can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow nodes (services).
+Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow States (services).
 
 
 
