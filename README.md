@@ -61,20 +61,20 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 
 ## Project Domain Vocabulary
 
-- __WorkFlow Node__: Is just a Windows 10 Service with a particular structure and behaviour. 
+- __WorkFlow Node__: In this project domain, a workflow node is just a Windows Service with a particular structure and behaviour. We can also call them as __WorkFlow States__.
 - __WorkFlow__: A series a WorkFlow Nodes working together, organised in a sequence which is intended to achieve a final result.
 - __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. 
 
 ## WorkFlow Vocabulary
 
 - __Activities__: Concrete actions execute inside a state. Each activity performs a different task, such as running a script, sending notifications, or requesting approvals. Activities can succeed or fail dependendng of the result of a task execution, which can result in actions performed by other activities. 
-- __States__: Workflow states are used for dividing workflows into smaller stages. In the domian in this project, a state is a windows service.
+- __States__: Workflow states are used for dividing workflows into smaller stages. In the domain in this project, a state is a windows service.  States represent stages in the lifecycle of a business process and can be named with any word that makes sense to you and your organization. Typical examples include Dispatched, Approved, Rejected, Completed, Confirmed, Pending, etc. So teny are __verbs in past tense__.
 - Transitions:
 - Commands: 
 - __Tasks__: Task is simple and atomic unit of work. Examples of task are running a script, sending notifications, or requesting approvals, etc. 
-- __Actors__: Users and groups of users
+- __Actors__: Users and groups of users (roles). A work order is usually associated to an actor.
 
-Recomiendo leer la teoria de [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows)
+Recomiendo leer la teoria de [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows) de Microsoft.
 
 ## System Architecture
 
