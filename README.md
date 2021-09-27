@@ -25,8 +25,8 @@ Many think only of APIs when they refer to microservices, but the truth is that 
 
 ### Tipical Workflow Processes
 
-- __Ducumental Approval / Human Aproval Process:__ Common business processes that require someone to sign off on the data at certain stage. An approval workflow is a logical sequence of tasks, including human approval and rejections, to process data.
-- __Data Processing:__ Data processing is a series of operations that are carroed out on data, files and documents. These operations are traceable and can be organized sequentially or in parallel. 
+- __Documental Approval / Human Aproval Process:__ Common business processes that require someone to sign off on the data at certain stage. An approval workflow is a logical sequence of tasks, including human approval and rejections, to process data.
+- __Data Processing:__ Data processing is a series of operations that are carried out on data, files and documents. These operations are traceable and can be organized sequentially or in parallel. __This project__ implement one of those. 
 - __Long Running Processes:__ A persistent workflow that can can last for hours, days or months. For example, the workflow send an order to an external system and waits for a response. The durantion is less important than the fact that you potentially have to wait, which is the case in almost any situation where remote users or remote communications are involved. 
 
 ### Exsisting Solutions
@@ -120,7 +120,7 @@ Output directories can referrence to categories or astertions into their names. 
 
 2. __Each workflow must have its own API__: In the scenario that I am trying to describe, each workflow is made up of a series of Background Workers. The workflow has an API that allows applications to interact with it. Such API does more than being the workflow entry point, it also manages other things. Perhaps the API can implement an endpoint called "ProcessStatus" that accepts the __token__ of a process as a parameter. I will describe the API WorkFlow structure later. So yes, to allow the calling aplication to interact with a given workflow, and in order to simplify the things, such a workflow must have an API on its side. Otherwise the calling application will must to know a lot of internal details about every single workflow node (or service). So through encapsualation concept, all those details will remain hidden for the calling application.
 
-3. __No database engine in services level__: At the service level there is no database engine involved.
+3. __No database engine in services level__: At the service level there is no database engine directly involved. WorkFlow Nodes on this type of WorkFlow (data WorkFlow) doesn't need to use a Db for its internal functioning. But they can use indirectlya Db on its process in order to get the neccessary data to complete certain task. 
 
 4. __Cannot install two services with the same name__: No comments. Windows will not let you to do such a thing. 
 
@@ -133,14 +133,17 @@ Output directories can referrence to categories or astertions into their names. 
 8. __Every WorkFlow node can be installed independently__: Every WorkFlow node must have its own and idependent installer. This policy allows any user to be able to install locally any WorkFlow Node. The insllation proceess must be __extremely simple__.
 
 ## Some Deployment Configurations
-[*CAUTION: I need to elaborate this section a little bit more*]
 
 The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs. Please have a loock at [this issue](/../../issues/7).
 
+## Final Goals
 
-## Possible project evolution 
+1. The final system must be able to futfill all the possible configurations (see "Some Deployment Configurations" section for more details), and be effcient in all of the possible use cases and scenarios. 
+2. A series o general purpose and always-useful WorkFlow Nodes will be constructed (on the main brnach of the project), for demonstration purpouses and to enrich the system. The list of those must grow over time. The most of them will futfill different general pupopurpose needs in the daily basis on any company, in a way that the project will gain value over time.  
 
-Perhaps in the medium term this will not continue to be the case, that is, in the future it is possible that there will be __a single API for all WorkFlows__. How is this possible? well, obviously the WorkFlow nodes will still exist, but an abstraction will be carried out such that a WorkFlow will be a data structure (probably using the __json__ format). Thus, a single main API can handle multiple WorkFlows. 
+## Next Steps
+
+Perhaps in the medium term this will not continue to be the case, that is, in the future it is possible that there will be __a single API for all WorkFlows__. How is this possible? well, obviously the WorkFlow nodes will still exist, but a new abstraction layer will be added in a way that a WorkFlow will become a data structure (probably using the __json__ format). Thus, a single main API can handle multiple WorkFlows. 
 
 That circunstance leads us to the possibility that will be the user who'll define the contents of these structures through the aforementioned API, which is the same as saying that the users can define their own WorkFlows without the need for intervention from the software development team... Great.
 
