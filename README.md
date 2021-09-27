@@ -65,6 +65,17 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 - __WorkFlow__: A series a WorkFlow Nodes working together, organised in a sequence which is intended to achieve a final result.
 - __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. 
 
+## WorkFlow Vocabulary
+
+- __Activities__: Concrete actions execute inside a state. Each activity performs a different task, such as running a script, sending notifications, or requesting approvals. Activities can succeed or fail dependendng of the result of a task execution, which can result in actions performed by other activities. 
+- __States__: Workflow states are used for dividing workflows into smaller stages. In the domian in this project, a state is a windows service.
+- Transitions:
+- Commands: 
+- __Tasks__: Task is simple and atomic unit of work. Examples of task are running a script, sending notifications, or requesting approvals, etc. 
+- __Actors__: Users and groups of users
+
+Recomiendo leer la teoria de [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows)
+
 ## System Architecture
 
 In this project, each workflow is composed by a series of services, which in the domain of this system are called __WorkFlow Nodes__. The functionality of each one of these nodes is very atomic and isolated, so a workflow node is reusable; such particular functionality can be useful in another WorkFlow.
@@ -102,7 +113,7 @@ Below you can see the system components list and the the current development sta
     - [ ] __Windows Desktop application (Winforms/WPF)__: Allows final users to monitor a single workflow or a set of them in some deplyment scenarios (see issues / ehacements section for more datails about this component). Please have a loock at [this issue](/../../issues/6).
     - [ ] __Console Application (Win/Linux)__: Text-based version of the aforementioned Windows Desktop App.
 
-*__REMARKS__: This list will be updated periodically. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
+*__REMARKS__: This list will be updated periodically, until the backend architecture will get fully defined and stable. Please keep into account that because the system's building process is still in the architecture design level, that all these components are still subjected to analisys and appraisal. So some of them can ptentially get removed, renamed or redefined. Also, new componenets can be added.*
 
 ### Basic Operation
 
@@ -138,7 +149,7 @@ Output directories can referrence to categories or astertions into their names. 
 
 5. __Services are isolated workers__: No Message Broker in services level; services can't comunicate to each other, or to any other system. They don't have external dependencies to carry out their main (and unique) task.
 
-6. __Services does just one thing and does it well__: The services only process files to parform a concrete task on them, and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. 
+6. __WokrFlow Nodes does just one thing and does it well__: The WokrFlow Nodes (services) only process files to parform a concrete task on them, and keep an operational log during their their lifes. They are not responsible for launching notifications of any kind, which is work for other components of the system, which are responsible for monitoring, configuring and managing the services of a certain WorkFlow. Using classic workflow vocabulary, we can say that workflow nodes are responsible for one state; their state. 
 
 7. __Each WorkFlow must have its own Message Queue__: Such a queue must be managed by the proper workflow components (i.e. Workflow controller or WorkFlow observer).
 
