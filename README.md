@@ -62,19 +62,19 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 ## Project Domain Vocabulary
 
 - __WorkFlow Node__: In this project domain, a workflow node is just a Windows Service with a particular structure and behaviour. We can also call them as __WorkFlow States__.
-- __WorkFlow__: A series a WorkFlow Nodes working together, organised in a sequence which is intended to achieve a final result.
-- __Work Order__: Text file containing a data structure in json format which describes a piece of work or job to be executed by a service. 
-
-## WorkFlow Vocabulary
-
+- __WorkFlow__: A series a __WorkFlow States__ working together, organised in a sequence which is intended to achieve a final result.
+- __Work Order__: Text file containing a data structure in json format which describes a piece or sa sets of pieces of work or __tasks__ to be executed by a __state__ (service). 
 - __Activities__: Concrete actions execute inside a state. Each activity performs a different task, such as running a script, sending notifications, or requesting approvals. Activities can succeed or fail dependendng of the result of a task execution, which can result in actions performed by other activities. 
-- __States__: Workflow states are used for dividing workflows into smaller stages. In the domain in this project, a state is a windows service.  States represent stages in the lifecycle of a business process and can be named with any word that makes sense to you and your organization. Typical examples include Dispatched, Approved, Rejected, Completed, Confirmed, Pending, etc. So teny are __verbs in past tense__.
-- Transitions:
-- Commands: 
-- __Tasks__: Task is simple and atomic unit of work. Examples of task are running a script, sending notifications, or requesting approvals, etc. 
+- __States__: Workflow states are used for dividing workflows into smaller stages. In the domain in this project, a state is a windows service.  States represent stages in the lifecycle of a business process and can be named with any word that makes sense to you and your organization. Typical examples include Dispatched, Approved, Rejected, Completed, Confirmed, Pending, etc. So they are __verbs in past tense__.
+- __Transitions__: The movement of a task from one state to another state is called a state transition. The number of states a task can move to, from a particular state is called possible state transitions. Transitions define the processing path of the workflow, depending on conditions defined in each activity. All conditions in an activity must have a transition and all transitions must have a connection to another activity or to the End activity. Transitions are used in complex workflows. They involves some sort of decision mechanism.
+- __Commands__: The commands are used to __move__ an Item (task) from one state to another. When I said "move" I meant that can be a coceptual move, not necessarily a phisical move. You can think of commands as links between states. Take all the states we already saw (_verbs in past tense__), turn them into simple present verbs, and you have all the possible commands of a given workflow. In programming terms, Commands are functions which can potentially send a state ina form of message to a mesage broker queue. 
+- __Tasks__: Task is simple and atomic unit of work. Examples of task are running a script, sending notifications, or requesting approvals, etc. You can conceptually and programatically divide a __Work Order__ into tasks.
 - __Actors__: Users and groups of users (roles). A work order is usually associated to an actor.
+- __Decision Tree__: According to wikipedia, a decision tree is *"a flowchart-like structure in which each internal node represents a "test" on an attribute (eg whether a coin flip comes up heads or tails), each branch represents the outcome of the test, and each leaf node represents a class label (decision taken after computing all attributes). The paths from root to leaf represent classification rules"*. You can think of workflows as a sort of decision trees.
 
-Recomiendo leer la teoria de [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows) de Microsoft.
+*REMARK: Perhaps you like to have a look on the theory of [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows) article from Microsoft.*
+
+*REMARK: In this early stages of the project development, I'm not going to implement all of these concepts, but is good to start getting familiar with them from now on. Any contribution or ammendment in the conceptual layer of this project will be appreciated.*
 
 ## System Architecture
 
