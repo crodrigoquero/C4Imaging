@@ -61,7 +61,7 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 
 ## Project Domain Vocabulary
 
-- __WorkFlow Node__: In this project domain, a workflow state is just a Windows Service with a particular structure and behaviour. We can also call them as __WorkFlow States__.
+- __WorkFlow Node__: [*deprecated concept*] In this project domain, a workflow state is just a Windows Service with a particular structure and behaviour. We can also call them as __WorkFlow States__.
 - __WorkFlow__: A series a __WorkFlow States__ working together, organised in a sequence which is intended to achieve a final result.
 - __Work Order__: Text file containing a data structure in json format which describes a piece or sa sets of pieces of work or __tasks__ to be executed by a __state__ (service). 
 - __Activities__: Concrete actions execute inside a state. Each activity performs a different task, such as running a script, sending notifications, or requesting approvals. Activities can succeed or fail dependendng of the result of a task execution, which can result in actions performed by other activities. 
