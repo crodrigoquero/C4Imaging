@@ -162,6 +162,8 @@ Output directories can referrence to categories or astertions into their names. 
 
 5. __States can be configured to change its behaviour__: They can be configured work with single files, groups of files (in zip format) or with work Orders. The default input an output directories can be configured too in order to facilitate its linking to other WorkFlows. Also, the accepted file type into the service's InBox can be configured too. 
 
+6. __States can be instantiated multiple times__: You can created multiple instances of the same state by passing different start up parameters to each instance, which gives you the additional benefit of be able to easily compartmentalize the original state process into several separate and independent threads executed by those new instances. For example, if I have a state that processes image files of the types bmp, jpg, png, gif, etc., maybe I could create an instance that processes only jpg files, which are the most numerous on my system. The only thing I have to do is pass just that file extension as a startup parameter to my new instance.
+
 #### Operational Premises
 
 1. __A backup copy of the input files must be made__: Some workflows can make modifications to the input files. So as norm, and in order to be able reverse or cancel the process, backup copies of the input files must be made before the service process begins if the service is going to make changes on those files. 
@@ -179,6 +181,8 @@ Output directories can referrence to categories or astertions into their names. 
 7. __Each WorkFlow must have its own Message Queue__: Such a queue must be managed by the proper workflow components (i.e. Workflow controller or WorkFlow observer).
 
 8. __Every WorkFlow states can be installed independently__: Every WorkFlow state must have its own and idependent installer. This policy allows any user to be able to install locally any WorkFlow state. The insllation proceess must be __extremely simple__.
+
+9. __Sates must not call external executable files__: All the state processes must run in the state application thread pool.
 
 ### Some Deployment Configurations
 
