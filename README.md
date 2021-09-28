@@ -189,13 +189,14 @@ The workflow state output directories can referrence to categories or assertions
 ### Some Deployment Configurations
 
 The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs. 
+
 Below you can see some deployment posibilities:
 
 ![Deployment Diagram for 2nd Sample Configuration](../main/Deployment_diagram_2nd_conf.png?raw=true "Deployment Diagram for 2nd Sample Configuration")
 
 
 
-Please have a loock at [this issue](/../../issues/7).
+For more information about this topic, please have a loock at [this issue](/../../issues/7).
 
 ## Final Goals
 
