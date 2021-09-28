@@ -206,7 +206,7 @@ That circunstance leads us to the possibility that will be the user who'll defin
 
 Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow States (services).
 
-![Alt text](../../Deployment_diagram_2nd_conf.png?raw=true "Title")
+![Alt text](../../C4Imaging/Deployment_diagram_2nd_conf.png?raw=true "Title")
 
 
 
