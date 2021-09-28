@@ -142,13 +142,13 @@ Below you can see the system components list and the the current development sta
 
 ### Basic Operation
 
-The workflow services work with files, that is, they accept files as input and produce files as output. The files in the output are grouped or categorized in directories. That is all. Both the input and output files can be images, MS Word documents, Json documents, XML documents, datasets, etc., or a combination of all of them, depending on the use case.
+The workflow states work with files, that is, they accept files as input and produce files as output. The files in the output gets grouped or categorized in directories. That is all. Both the input and output files can be images, MS Word documents, Json documents, XML documents, datasets, etc., or a combination of all of them, depending on the use case.
 
-Thus, and since the services work only with files, they monitor one or more directories in particular, each service monitors the output directory or directories of its predecessor in the WorkFlow chain. The first service monitors the workflow's Inbox directory, which always has the same name (inbox). When the first service is executed for the first time, it creates a directory that has the same name as the service assembly, and within that directory a subdirectory called "InBox" is created.
+Thus, and since the worklow states work only with files, they monitor one or more directories. In particular, each service monitors the output directory or directories of its predecessor in the WorkFlow chain. The first wokflow state monitors the workflow's inbox directory (which always has the same name i.e. inbox. When the first service is executed for the first time, it creates a directory that has the same name as the service assembly, and within that directory a subdirectory called "InBox" is created).
 
-As the WorkFlow execution progresses, these files move from one directory to another, that is, they disappear from the output directory of the previous WorkFlow service and appear in the output directory of the next WorkFlow service. In future versions of the system, this will not be always entirely true, since the system will progress in complexity and the output of a service can be redirected to another WorkFlow, if certain conditions are met. In such cases, there will be a new component in the middle of each service that will be in charge of making certain decisions and redirecting traffic accordingly.
+As the WorkFlow execution progresses, these files move from one directory to another, that is, they disappear from the output directory of the previous WorkFlow state and appear in the output directory of the next WorkFlow state. In future versions of the system, this will not be always entirely true, since the system will progress in complexity and the output of a service can be redirected to another WorkFlow, if certain conditions are met. In such cases, there will be a new component in the middle of each service that will be in charge of making certain decisions and redirecting traffic accordingly.
 
-Output directories can referrence to categories or astertions into their names. This gives an idea of the potential of the system.
+The workflow state output directories can referrence to categories or assertions into their names. 
 
 #### System caracteristics
 
