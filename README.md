@@ -103,7 +103,7 @@ Use a data workflow whenever you have to implement a process that has two or mor
 
 ## System Architecture
 
-In this project, each workflow is composed by a series of services, which in the domain of this system are called __WorkFlow States__. The functionality of each one of these states is very atomic and isolated, so a workflow state is reusable; such particular functionality can be useful in another WorkFlow.
+In this project, each workflow is composed by a series of services, which in the domain of this system are called __WorkFlow States__. The functionality of each one of these states is very concrete, humble and isolated, so a workflow state is reusable; such particular functionality can be useful in another WorkFlow.
 
 Each WorkFlow state can be moved from one given location within the WorkFlow chain to another. This is possible because all of the WorkFlow states have exactly the same structure and behavior. A workflow state that currently occupies the eighth place in the chain, can moved to the first place, and everything will continue to work perfectly without the need to make changes to any workflow state' code.
 
