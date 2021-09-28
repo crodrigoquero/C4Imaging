@@ -188,7 +188,14 @@ The workflow state output directories can referrence to categories or assertions
 
 ### Some Deployment Configurations
 
-The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs. Please have a loock at [this issue](/../../issues/7).
+The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs. 
+Below you can see some deployment posibilities:
+
+![Deployment Diagram for 2nd Sample Configuration](../main/Deployment_diagram_2nd_conf.png?raw=true "Deployment Diagram for 2nd Sample Configuration")
+
+
+
+Please have a loock at [this issue](/../../issues/7).
 
 ## Final Goals
 
@@ -205,14 +212,3 @@ Perhaps in the middle term, there will be __a single API for all WorkFlows__. Ho
 That circunstance leads us to the possibility that will be the user who'll define the contents of such a structure through the aforementioned API, which is the same as saying that the users can define their own WorkFlows without any futher intervention from the software development team... Great.
 
 Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow States (services).
-
-![Alt text](../main/Deployment_diagram_2nd_conf.png?raw=true "Title")
-
-
-
-
-
-
-
-
-
