@@ -63,9 +63,9 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 
 ### When to use a Data Workflow
 
-To explain when you want to consider to use a data workflow to carry out some sort o process, let me show you some examples from the real life:
+To explain when you want to consider to use a data workflow to carry out some sort o process, let me show you some examples (use cases) from the real life:
 
-1. A user needs to to __parse__ a large set of pdf __files__ to extract data from them. Once each file is parsed, the extracted data needs to get inserted in a database, in order to provide final user full text search capabilities in a cartain online document management facility.
+1. A user needs to __parse__ a large set of pdf __files__ to extract data from them. Once each file is parsed, the extracted data needs to get inserted in a database, in order to provide final user full text search capabilities in a cartain online document management facility.
 2. A list of files need to get physically organized or __categorized__ in directories every day. Once process is completed, the system can deduct any file's category hierarchy by getting its full path and spliting it by "\" character.
 3. A company needs to process periodically very __large files__ for wahtever reason. 
 4. Some company data scienctifist need to implement a __machine larning__ pipeline. Machine learning pipelines consist of multiple sequential steps that do everything from data extraction and preprocessing to model training and deployment.
