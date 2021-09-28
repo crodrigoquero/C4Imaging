@@ -76,7 +76,7 @@ To explain when you want to consider to use a data workflow to carry out some so
 9. A recruitment team needs to categorize all the received CV by dfferent criteria: applicants skills sets, applicants professional field, etc.
 10. A goverment agency need to validate and categorize sets of users documents like driving licenses, univerty credentials, and another paperwork. The system needs to use a tensorflow model to recogize all of these documents.  
 
-### Conclusion
+#### Conclusion
 
 So, hen to use a data workflow? Baically when you need to process data. Data processing is huge which include __validation, classification, sorting, calculation, organization and transformation__ of data. A data workflow is not iteractive, i.e. it doesn't need human intervention along its processing cicle. If a process need human inervention, lets say some kind of validation, then you need to implement a different workflow model. 
 
