@@ -57,7 +57,29 @@ To facilitate communication between the calling application and the workflow, ea
 
 An example workflow is included that categorizes images in order to illustrate its operation with a practical case. Over time, other workflow states of general utility will be added that can be reused in a multitude of workflows.
 
-The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "Tipical WorkFlow Processes" section for more details).
+## This project is about Data Workflows
+
+The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "Tipical WorkFlow Processes" section for more details). The implementation of other workflow type will be carried out through other projects (also based in Windows Services).
+
+### When to use a Data Workflow
+
+Baically when you need to process data. Data processing is huge which include __validation, classification, sorting, calculation, organization and transformation__ of data. A data workflow is not iteractive, i.e. it doesn't need human intervention along its processing cicles. If a process need human inervention, lets say some kind of validation, then you need to implement a different workflow model. 
+
+A data workflow is almost like a blackbox. However, a data workflow can report its processing progress and final state.
+
+To explain when you want to consider to use a data workflow to carry out some sort o process, let me show you some examples from the real life:
+
+1. A user needs to to __parse__ a large set of pdf __files__ to extract data from them. Once each file is parsed, the extracted data needs to get inserted in a database, in order to provide final user full text search capabilities in a cartain online document management facility.
+2. A list of files need to get physically organized or __categorized__ in directories every day. Once process is completed, the system can deduct any file's category hierarchy by getting its full path and spliting it by "\" character.
+3. A company needs to process periodically very __large files__ for wahtever reason. 
+4. Some company data scienctifist need to implement a __machine larning__ pipeline. Machine learning pipelines consist of multiple sequential steps that do everything from data extraction and preprocessing to model training and deployment.
+5. A company needs to create a web crawler to find some particular data from the internet, and once done, proceed to index such data and or perform certain actions.
+6. You want to produce image files with statistics and graphs based to datasets, the proceed to create presentation files.
+7. You need to __encode video__ from a series o image sets. 
+8. A energy supplier company needs to calculate the monthly charges based on customer’s service plan and the usage. To get usage for every single user, the company needs to access to several __external data providers__ in order to get the enery metter readings for example.
+9. A recruitment team needs to categorize all the received CV by dfferent criteria: applicants skills sets, applicants professional field, etc.
+10. A goverment agency need to validate and categorize sets of users documents like driving licenses, univerty credentials, and another paperwork. The system needs to use a tensorflow model to recogize all of these documents.  
+
 
 ## Project Domain Vocabulary
 
