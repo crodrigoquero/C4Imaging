@@ -63,10 +63,6 @@ The type of WorkFlow that this project implements is a __Data WorkFlow__ (see "T
 
 ### When to use a Data Workflow
 
-Baically when you need to process data. Data processing is huge which include __validation, classification, sorting, calculation, organization and transformation__ of data. A data workflow is not iteractive, i.e. it doesn't need human intervention along its processing cicles. If a process need human inervention, lets say some kind of validation, then you need to implement a different workflow model. 
-
-A data workflow is almost like a blackbox. However, a data workflow can report its processing progress and final state.
-
 To explain when you want to consider to use a data workflow to carry out some sort o process, let me show you some examples from the real life:
 
 1. A user needs to to __parse__ a large set of pdf __files__ to extract data from them. Once each file is parsed, the extracted data needs to get inserted in a database, in order to provide final user full text search capabilities in a cartain online document management facility.
@@ -80,6 +76,13 @@ To explain when you want to consider to use a data workflow to carry out some so
 9. A recruitment team needs to categorize all the received CV by dfferent criteria: applicants skills sets, applicants professional field, etc.
 10. A goverment agency need to validate and categorize sets of users documents like driving licenses, univerty credentials, and another paperwork. The system needs to use a tensorflow model to recogize all of these documents.  
 
+### Conclusion
+
+So, hen to use a data workflow? Baically when you need to process data. Data processing is huge which include __validation, classification, sorting, calculation, organization and transformation__ of data. A data workflow is not iteractive, i.e. it doesn't need human intervention along its processing cicle. If a process need human inervention, lets say some kind of validation, then you need to implement a different workflow model. 
+
+A data workflow is almost like a blackbox. However, a data workflow can report its processing progress and final state.
+
+Use a data workflow whenever you have to implement a process that has two or more steps (states). Otherwise, just implement a single windows service (or state).
 
 ## Project Domain Vocabulary
 
