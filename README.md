@@ -212,6 +212,8 @@ And here is state 1 output (images categorization by aspect ratio):
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 output for 1st Sample Configuration (multi-state version)")
 
+As you can see the output is so simple: just categorises images by aspect ratio.
+
 __Deployment Diagram for 1st Sample Configuration (multi-state version)__
 
 Next we can see some kind of basic deployment, but this time with some more states, which all together are going to do something a llitle bit more interesting:
@@ -222,7 +224,7 @@ And here is state 4 output:
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State4_output.png?raw=true "State 4 output for 1st Sample Configuration (multi-state version)")
 
-So, the workflow will conclude that your "Susan.jpg" file is an IMAX image, which was taken in Spain on 2019, and it has a resoution of 4000 x 3000 pixels. Great. 
+So, the workflow will conclude that your "Susan.jpg" file is an IMAX image, which was taken in Spain on 2019, and it has a resoution of 4000 x 3000 pixels. Great. And of course, we can change the order of the worklow states, and we will get a different categroization if it is needed. For instance, probably we want to categorize first by year, and then by location, leaving the image techical details to the lowest levels of the categories' hierachy. 
 
 __Deployment Diagram for 3th Sample Configuration (full-backend version)__
 ![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
