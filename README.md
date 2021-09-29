@@ -219,6 +219,8 @@ And here is state 4 output:
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State4_output.png?raw=true "State 4 output for 1st Sample Configuration (multi-state version)")
 
+So, the workflow will conclude that your "Susan.jpg" file is an IMAX image, which was taken in Spain on 2019, and it has a resoution of 4000 x 3000 pixels. Great. 
+
 ##### Deployment Diagram for 3th Sample Configuration (full-backend version)
 ![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
 
