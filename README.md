@@ -196,10 +196,10 @@ Below you can see some deployment posibilities.
 
 Lets say we have 4 worklow states:
 
-Workflow State 1: Categorises images by aspect ratio
-Workflow State 3: Categorises images by resolution
-Workflow State 4: Categorises images by year
-Workflow State 5: Categorises images by location (conuntry)
+- Workflow State 1: Categorises images by aspect ratio
+- Workflow State 3: Categorises images by resolution
+- Workflow State 4: Categorises images by year
+- Workflow State 5: Categorises images by location (conuntry)
 
 
 
