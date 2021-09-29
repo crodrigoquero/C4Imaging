@@ -192,9 +192,11 @@ The system components can be deployed __partially or totally__ in different ways
 
 Below you can see some deployment posibilities:
 
-![Deployment Diagram for 2nd Sample Configuration](../main/images/Deployment_diagram_2nd_conf.png?raw=true "Deployment Diagram for 2nd Sample Configuration")
+
+![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration")
 
 
+![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
 
 For more information about this topic, please have a loock at [this issue](/../../issues/7).
 
