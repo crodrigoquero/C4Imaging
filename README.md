@@ -208,7 +208,7 @@ Below I'm going to show several deployments with these states and its outputs.
 ##### Deployment Diagram for 1st Sample Configuration (single-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration (single-state version)")
 
-And here is state 1 output:
+And here is state 1 output (images categorization by aspect ratio):
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 output for 1st Sample Configuration (multi-state version)")
 
