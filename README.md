@@ -208,14 +208,14 @@ Below I'm going to show several deployments with these states and its outputs.
 ##### Deployment Diagram for 1st Sample Configuration (single-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration (single-state version)")
 
-##### State 1 Output:
+And here is state 1 output:
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 output for 1st Sample Configuration (multi-state version)")
 
 ##### Deployment Diagram for 1st Sample Configuration (multi-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deployment_Diagram_1st_config_v2.png?raw=true "Deployment Diagram for 1st Sample Configuration (multi-state version)")
 
-##### State 4  Output:
+And here is state 4 output:
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State4_output.png?raw=true "State 4 output for 1st Sample Configuration (multi-state version)")
 
