@@ -212,7 +212,7 @@ And here is state 1 output (images categorization by aspect ratio):
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 output for 1st Sample Configuration (multi-state version)")
 
-As you can see the output is so simple: just categorises images by aspect ratio.
+As you can see the output is so simple: just categorises images by aspect ratio. Things are going to get more promising in we combine some of these states together. Lets keep going.
 
 __Deployment Diagram for 1st Sample Configuration (multi-state version)__
 
