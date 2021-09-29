@@ -206,7 +206,7 @@ In the first two cases, the user drags and drop a set of images on the workflow 
 Below I'm going to show several deployments with these states and its outputs.
 
 __Deployment Diagram for 1st Sample Configuration (single-state version)__
-![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration (single-state version)")
+![UML Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "UML Deployment Diagram for 1st Sample Configuration (single-state version)")
 
 And here is state 1 output (images categorization by aspect ratio):
 
@@ -218,7 +218,7 @@ __Deployment Diagram for 1st Sample Configuration (multi-state version)__
 
 Next we can see some kind of basic deployment, but this time with some more states, which all together are going to do something a llitle bit more interesting:
 
-![Deployment Diagram for 1st Sample Configuration](../main/images/Deployment_Diagram_1st_config_v2.png?raw=true "Deployment Diagram for 1st Sample Configuration (multi-state version)")
+![UML Deployment Diagram for 1st Sample Configuration](../main/images/Deployment_Diagram_1st_config_v2.png?raw=true "UML Deployment Diagram for 1st Sample Configuration (multi-state version)")
 
 And here is state 4 output:
 
