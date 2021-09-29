@@ -208,16 +208,16 @@ Below I'm going to show several deployments with these states and its outputs.
 ##### Deployment Diagram for 1st Sample Configuration (single-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration (single-state version)")
 
-##### Output:
+##### State 1 Output:
 
-![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 Diagram for 1st Sample Configuration (multi-state version)")
+![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 output for 1st Sample Configuration (multi-state version)")
 
 ##### Deployment Diagram for 1st Sample Configuration (multi-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deployment_Diagram_1st_config_v2.png?raw=true "Deployment Diagram for 1st Sample Configuration (multi-state version)")
 
-##### Output:
+##### State 4  Output:
 
-![Deployment Diagram for 1st Sample Configuration](../main/images/State4_output.png?raw=true "State 4 Diagram for 1st Sample Configuration (multi-state version)")
+![Deployment Diagram for 1st Sample Configuration](../main/images/State4_output.png?raw=true "State 4 output for 1st Sample Configuration (multi-state version)")
 
 ##### Deployment Diagram for 3th Sample Configuration (full-backend version)
 ![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
