@@ -184,7 +184,7 @@ The workflow state output directories can referrence to categories or assertions
 
 8. __Every WorkFlow states can be installed independently__: Every WorkFlow state must have its own and idependent installer. This policy allows any user to be able to install locally any WorkFlow state. The insllation proceess must be __extremely simple__.
 
-9. __Sates must not call external executable files__: All the state processes must run in the state application thread pool.
+9. __States must not call external executable files__: All the state processes must run in the state application thread pool.
 
 ### Some Deployment Configurations
 
