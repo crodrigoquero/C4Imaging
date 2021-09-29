@@ -226,6 +226,7 @@ And here is state 4 output:
 
 So, the workflow will conclude that your "Susan.jpg" file is an IMAX image, which was taken in Spain on 2019, and it has a resoution of 4000 x 3000 pixels. Great. And of course, we can change the order of the worklow states, and we will get a different categroization if it is needed. For instance, probably we want to categorize first by year, and then by location, leaving the image techical details to the lowest levels of the categories' hierachy. 
 
+
 __Deployment Diagram for 3th Sample Configuration (full-backend version)__
 ![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
 
