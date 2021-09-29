@@ -190,7 +190,18 @@ The workflow state output directories can referrence to categories or assertions
 
 The system components can be deployed __partially or totally__ in different ways to fulfill different users and business scenarios needs. 
 
-Below you can see some deployment posibilities:
+Below you can see some deployment posibilities.
+
+#### Example
+
+Lets say we have 4 worklow states:
+
+Workflow State 1: Categorises images by aspect ratio
+Workflow State 3: Categorises images by resolution
+Workflow State 4: Categorises images by year
+Workflow State 5: Categorises images by location (conuntry)
+
+
 
 
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration (single-state version)")
