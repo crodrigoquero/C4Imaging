@@ -213,6 +213,9 @@ And here is state 1 output (images categorization by aspect ratio):
 ![Deployment Diagram for 1st Sample Configuration](../main/images/State1_output.png?raw=true "State 1 output for 1st Sample Configuration (multi-state version)")
 
 __Deployment Diagram for 1st Sample Configuration (multi-state version)__
+
+Next we can see some kind of basic deployment, but this time with some more states, which all together are going to do something a llitle bit more interesting:
+
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deployment_Diagram_1st_config_v2.png?raw=true "Deployment Diagram for 1st Sample Configuration (multi-state version)")
 
 And here is state 4 output:
@@ -221,8 +224,10 @@ And here is state 4 output:
 
 So, the workflow will conclude that your "Susan.jpg" file is an IMAX image, which was taken in Spain on 2019, and it has a resoution of 4000 x 3000 pixels. Great. 
 
-##### Deployment Diagram for 3th Sample Configuration (full-backend version)
+__Deployment Diagram for 3th Sample Configuration (full-backend version)__
 ![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
+
+The output of this of this last deployment will be identical to the previous one, i.e., the files are going to get organissed in the same way, but the difference here is the presence of the api. With the api involvement, we are in the workflow level; we are not going to interact  with any state directly any more. Through the api we can interact with the entire workflow, by sending workorders or files to the worklow inbox. The api will also return workflow esxecution progress data for every for every workflow state and the final worflow state result. The api can also return the worklow output in json format if it is needed. 
 
 For more information about this topic, please have a loock at [this issue](/../../issues/7).
 
