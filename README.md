@@ -196,20 +196,22 @@ Below you can see some deployment posibilities.
 
 Lets say we have 4 worklow states:
 
-- Workflow State 1: Categorises images by aspect ratio
-- Workflow State 3: Categorises images by resolution
-- Workflow State 4: Categorises images by year
-- Workflow State 5: Categorises images by location (country)
+- __Workflow State 1__: Categorises images by aspect ratio
+- __Workflow State 3__: Categorises images by resolution
+- __Workflow State 4__: Categorises images by year
+- __Workflow State 5__: Categorises images by location (country)
 
-Below I'm going to show you several deployments with these states and its outputs.
+In the first two cases, the user drags and drop a set of images on the workflow inbox directory. In the last case, this action will be performed by the workflow API.
 
-__Deployment Diagram for 1st Sample Configuration (single-state version)__
+Below I'm going to show several deployments with these states and its outputs.
+
+##### Deployment Diagram for 1st Sample Configuration (single-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deplyment_Diagram_1st_config.png?raw=true "Deployment Diagram for 1st Sample Configuration (single-state version)")
 
-__Deployment Diagram for 1st Sample Configuration (multi-state version)__
+##### Deployment Diagram for 1st Sample Configuration (multi-state version)
 ![Deployment Diagram for 1st Sample Configuration](../main/images/Deployment_Diagram_1st_config_v2.png?raw=true "Deployment Diagram for 1st Sample Configuration (multi-state version)")
 
-__Deployment Diagram for 3th Sample Configuration (full-backend version)__
+##### Deployment Diagram for 3th Sample Configuration (full-backend version)
 ![Deployment Diagram for 3th Sample Configuration](../main/images/Deployment_Diagram_3th_config.png?raw=true "Deployment Diagram for 3th Sample Configuration")
 
 For more information about this topic, please have a loock at [this issue](/../../issues/7).
