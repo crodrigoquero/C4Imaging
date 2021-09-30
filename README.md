@@ -79,7 +79,7 @@ To explain when you want to consider to use a data workflow to carry out some so
 3. A company needs to process periodically very __large files__ for wahtever reason. 
 4. Some company data scienctifist need to implement a __machine larning__ pipeline. Machine learning pipelines consist of multiple sequential steps that do everything from data extraction and preprocessing to model training and deployment.
 5. A company needs to create a web crawler to find some particular data from the internet, and once done, proceed to index such data and or perform certain actions.
-6. You want to produce image files with statistics and graphs based to datasets, the proceed to create presentation files.
+6. You want to produce image files with statistics and graphs based to datasets. And after that, be able to proceed to create presentation files based on the aforementioned image files.
 7. You need to __encode video__ from a series o image sets. 
 8. A energy supplier company needs to calculate the monthly charges based on customer’s service plan and the usage. To get usage for every single user, the company needs to access to several __external data providers__ in order to get the enery metter readings for example.
 9. A recruitment team needs to categorize all the received CV by dfferent criteria: applicants skills sets, applicants professional field, etc.
