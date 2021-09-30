@@ -7,6 +7,10 @@ A WorkFlow is like a kind of program or sequence of steps or phases, which is re
 
 ![The Animated_Social Media Workflow by Shinsaku Iwatachi](../main/images/The_Animated_Social_Media_Workflow.gif?raw=true "The Animated_Social Media Workflow by Shinsaku Iwatachi")
 
+<p align="center">
+  <img src="../main/images/The_Animated_Social_Media_Workflow.gif?raw=true" alt="Sublime's custom image"/>
+</p>
+
 ###### Illustration: The Animated_Social Media Workflow by [Shinsaku Iwatachi](https://www.behance.net/ShinsakuIwatachi)
 
 Another possible definition of WorkFlow (more formal) is that it is a coordinated sequence of tasks in which different processing entities participate. These processing entities can be at different layers or levels within the system architecture, so they can be background workers, APIs, etc.
