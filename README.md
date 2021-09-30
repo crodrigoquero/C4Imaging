@@ -83,7 +83,7 @@ To explain when you want to consider to use a data workflow to carry out some so
 7. You need to __encode video__ from a series o image sets. 
 8. A energy supplier company needs to calculate the monthly charges based on customer’s service plan and the usage. To get usage for every single user, the company needs to access to several __external data providers__ in order to get the enery metter readings for example.
 9. A recruitment team needs to categorize all the received CV by dfferent criteria: applicants skills sets, applicants professional field, etc.
-10. A goverment agency need to validate and categorize sets of users documents like driving licenses, univerty credentials, and another paperwork. The system needs to use a tensorflow model to recogize all of these documents.  
+10. A goverment agency need to validate and categorize sets of users documents like driving licenses, univerty credentials, and other similar paperwork. The system needs to use a tensorflow model to recogize all of these documents.  
 
 #### Conclusion
 
