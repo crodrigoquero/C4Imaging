@@ -106,8 +106,6 @@ Use a data workflow whenever you have to implement a process that has two or mor
 - __Actors__: Users and groups of users (roles). A work order is usually associated to an actor.
 - __Decision Tree__: According to wikipedia, a decision tree is *"a flowchart-like structure in which each internal node represents a "test" on an attribute (eg whether a coin flip comes up heads or tails), each branch represents the outcome of the test, and each leaf node represents a class label (decision taken after computing all attributes). The paths from root to leaf represent classification rules"*. You can think of workflows as a sort of decision trees.
 
-*REMARK: Perhaps you like to have a look on the theory of [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows) article from Microsoft.*
-
 *REMARK: In this early stages of the project development, I'm not going to implement all of these concepts, but is good to start getting familiar with them from now on. Any contribution or ammendment in the conceptual layer of this project will be appreciated.*
 
 ## System Architecture
@@ -256,3 +254,13 @@ Perhaps in the middle term, there will be __a single API for all WorkFlows__. Ho
 That circunstance leads us to the possibility that will be the user who'll define the contents of such a structure through the aforementioned API, which is the same as saying that the users can define their own WorkFlows without any futher intervention from the software development team... Great.
 
 Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Below I'll give you some ideas to develop some useful WorkFlow States (services).
+
+
+## Bibliography
+
+[State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows) article from Microsoft.
+
+[Using a Filesystem (Not a Database!) for Schemaless Data - Best Practices](https://stackoverflow.com/questions/4189898/using-a-filesystem-not-a-database-for-schemaless-data-best-practices/5771990) - Stack Overflow
+
+[Database vs File system storage](https://stackoverflow.com/questions/38120895/database-vs-file-system-storage) - Stack Overflow
+
