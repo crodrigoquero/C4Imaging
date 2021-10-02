@@ -25,7 +25,7 @@ If you're an experienced developer read this file
 
 ## How Can I Contribute?
 
-### Sharing Your Ideas about new workflow Nodes
+### Sharing Your Ideas about new workflow Nodes Development
 If you're on the belief that you have a great idea regaring a new workflow state, this section guides you through the process of sharing such types of idea for the project. 
 
 Before creating an a idea report, please check this [discussion](../../discussions/46) as you might find out that you don't need to create one. When you are creating an a idea report, please include as many details as possible. Fill out the required template, the information it asks for helps us to achieve a complete understanding about your proposal.
@@ -97,7 +97,7 @@ Note: If you find a Closed issue that seems like it is the same thing that you'r
 ### Suggesting Enhancements
 This section guides you through submitting an enhancement suggestion, including completely new system components and workflow nodes. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
 
-Before creating enhancement suggestions, please check this [list](../../EnhacemntsList.html) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include as many details as possible. Fill in the template, including the steps that you imagine you would take if the feature you're requesting existed.
+Before creating enhancement suggestions, please check this [discussion](../../EnhacemntsList.html) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include as many details as possible. Fill in the template, including the steps that you imagine you would take if the feature you're requesting existed. You can also suggest the adoption of a certain development pattern in any component through this [discussion](../../discussions/52).
 
 #### Before Submitting An Enhancement Suggestion
 - Check the debugging guide for tips — you might discover that the enhancement is already available. Most importantly, check if you're using the latest version of Atom and if you can get the desired behavior by changing Atom's or packages' config settings.
@@ -123,7 +123,7 @@ Unsure where to begin contributing? You can start by looking through these begin
 
 *REMARK: Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.*
 
-### Pull Requests
+## Pull Requests
 The process described here has several goals:
 
 - Maintain system's quality
@@ -139,7 +139,7 @@ Please follow these steps to have your contribution considered by the maintainer
 - What if the status checks are failing?
 - While the prerequisites above must be satisfied prior to having your pull request reviewed, the reviewer(s) may ask you to complete additional design work, tests, or other changes before your pull request can be ultimately accepted.
 
-#### Pull Request Procedure
+### Pull Request Procedure
 When you're done making the changes, open a pull request, often referred to as a PR, and:
 
 - Fill out the "Ready for review" template so we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request.
