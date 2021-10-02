@@ -1,4 +1,4 @@
-# Please, contribute
+# Welcome
 
 I'm really glad you're reading this, because we need volunteer developers and other types of collaborators to help this project come to fruition.
 
@@ -16,8 +16,10 @@ If you haven't already, come find us in ...
 
 Here are some important resources:
 
-- asdasdasd
-- asdasdasd
+- The [Conceptual Questions & Answers](../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
+- The [Techical Questions & Answers](../../discussions/53) discussion, can help you to solve doubts about any techical detail.
+- The [Basic GitHub Commands](../../discussions/still_does_not_exist) discussion, can help you to remember the basic GitHub commands your'e going to need in the daily basis.
+
 
 if you're a junior developer read this file
 If you're a sutudent read this file
@@ -97,7 +99,13 @@ Note: If you find a Closed issue that seems like it is the same thing that you'r
 ### Suggesting Enhancements
 This section guides you through submitting an enhancement suggestion, including completely new system components and workflow nodes. Following these guidelines helps maintainers and the community understand your suggestion and find related suggestions.
 
-Before creating enhancement suggestions, please check this [discussion](../../EnhacemntsList.html) as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include as many details as possible. Fill in the template, including the steps that you imagine you would take if the feature you're requesting existed. You can also suggest the adoption of a certain development pattern in any component through this [discussion](../../discussions/52).
+Before creating enhancement suggestions, please check the proper discussion as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include as many details as possible. Fill in the template, including the steps that you imagine you would take if the feature you're requesting existed. 
+
+- To suggest the adoption of a certain development pattern in any component through this [discussion](../../discussions/52).
+- For Workflow API Enhacements, have a look on this [discussion](../../discussions/47).
+- For Workflow Components Enhacements have a look on this [discussion](../../discussions/49).
+
+*REMARK: Other discussion will be added to this list in the future.*
 
 #### Before Submitting An Enhancement Suggestion
 - Check the debugging guide for tips — you might discover that the enhancement is already available. Most importantly, check if you're using the latest version of Atom and if you can get the desired behavior by changing Atom's or packages' config settings.
@@ -122,6 +130,13 @@ Unsure where to begin contributing? You can start by looking through these begin
 - Help wanted issues - issues which should be a bit more involved than beginner issues.
 
 *REMARK: Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.*
+
+### Improving the System Dcouemntation
+
+asdasdaSDAS
+ASDAsdasda
+sdfsadfasdf
+asdfasdfasdf
 
 ## Pull Requests
 The process described here has several goals:
