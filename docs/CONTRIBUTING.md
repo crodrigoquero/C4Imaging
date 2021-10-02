@@ -25,9 +25,9 @@ See the [README](../../README.md) to get an overview of the project. Here are so
 
 ## General Rules
 
-- We are commited to implment the S.O.L.I.D. principles... what it means?
+- We are commited to implment the SOLID principles... what it means?
 - We want all the projects having the same structure and naming convention.
-- We Use the domain naming convention to namimg projects
+- We Use the namespace and class name as naming convention for the system projects.
 
 ## How Can I Contribute?
 
