@@ -4,6 +4,10 @@ I'm really glad you're reading this, because we need volunteer developers and ot
 
 dfsdfasfasdff adsfasdfasf  asdfasdfasdf asdfasdf
 
+- if you're a junior developer read this file
+- If you're a sutudent read this file
+- If you're an experienced developer read this file
+
 Read our [Code of Coduct](../../page.html) to keep our community approachable and respectable.
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
@@ -12,18 +16,18 @@ In this guide you will get an overview of the contribution workflow from opening
 
 See the [README](../../README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
 
-If you haven't already, come find us in ...
-
-Here are some important resources:
+### Some important resources:
 
 - The [Conceptual Questions & Answers](../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
 - The [Techical Questions & Answers](../../discussions/53) discussion, can help you to solve doubts about any techical detail.
-- The [Basic GitHub Commands](../../discussions/still_does_not_exist) discussion, can help you to remember the basic GitHub commands your'e going to need in the daily basis.
+- The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the basic GitHub commands your're going to need in the daily basis.
+- The [Development Environment Setup](../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
 
+## General Rules
 
-if you're a junior developer read this file
-If you're a sutudent read this file
-If you're an experienced developer read this file
+- We are commited to implment the S.O.L.I.D. principles... what it means?
+- We want all the projects having the same structure and naming convention.
+- We Use the domain naming convention to namimg projects
 
 ## How Can I Contribute?
 
@@ -44,7 +48,7 @@ asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads
 asdasdasdASDASd asdasdaSDAsdASDasd 
 asdasdasd asd asdasda d
 
-### Investigation about Other C# Workflow packages
+### Investigating about Other C# Workflow packages
 
 asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
 asdasdasdASDASd asdasdaSDAsdASDasd 
