@@ -20,7 +20,7 @@ See the [README](../../README.md) to get an overview of the project. Here are so
 
 - The [Conceptual Questions & Answers](../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
 - The [Techical Questions & Answers](../../discussions/53) discussion, can help you to solve doubts about any techical detail.
-- The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the basic GitHub commands your're going to need in the daily basis.
+- The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
 
 ## General Rules
