@@ -249,11 +249,11 @@ For more information about this topic, please have a loock at [this issue](/../.
 
 ## Next Steps
 
-Perhaps in the middle term, there will be __a single API for all WorkFlows__. How is this possible? well, a new abstraction layer will be added in a way that a WorkFlow will become a data structure (probably using the __json__ format). Thus, a single main API can handle multiple WorkFlows. 
+Perhaps in the middle term, there will be __a single API for all WorkFlows__. How this will be done? Well, a new abstraction layer will be added in a way that a WorkFlow will become a data structure (probably using the __json__ format). Thus, a single main API can handle multiple WorkFlows. 
 
 That circunstance leads us to the possibility that will be the user who'll define the contents of such a structure through the aforementioned API, which is the same as saying that the users can define their own WorkFlows without any futher intervention from the software development team... Great.
 
-Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Plase have a look on this [discussion](../../discussions/46)] if you have a great idea regaring work flow satetes which you want to turn into something concrete. 
+Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Plase have a look on this [discussion](../../discussions/46) if believe that you have a great idea regaring work flow states which you want to turn into something concrete. 
 
 
 ## Bibliography
