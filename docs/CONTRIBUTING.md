@@ -69,7 +69,7 @@ In the below sections I will explain each of those in detail.
 
 All of these contributing ways are articulated by by the GitHub discussions facility. There's a lot of them. In below sections you're going to know when and how to use them.
 
-#### Discussion workflow and life cycle
+#### Discussion life cycle
 
 All discussion has a life cycle, i.e. they start for whatever reason, they have an evolution over time, and finally they must finish (ASAP), and they must lead us to a conclusion.
 
