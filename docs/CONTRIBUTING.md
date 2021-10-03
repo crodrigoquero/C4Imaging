@@ -123,12 +123,12 @@ Note: If you find a Closed issue that seems like it is the same thing that you'r
 #### How Do I Submit A (Good) Bug Report?
 - Bugs are tracked as GitHub issues. 
 - Explain the problem and include additional details to help maintainers reproduce the problem:
--   Use a clear and descriptive title for the issue to identify the problem.
--   Describe the exact steps which reproduce the problem in as many details as possible. 
--   Provide specific examples to demonstrate the steps. Include links to files or GitHub projects.
--   Describe the behavior you observed after following the steps and point out what exactly is the problem with that behavior.
--   Explain which behavior you expected to see instead and why.
--   Include screenshots which show you following the described steps to demonstrate the problem.
+    - Use a clear and descriptive title for the issue to identify the problem.
+    - Describe the exact steps which reproduce the problem in as many details as possible. 
+    - Provide specific examples to demonstrate the steps. Include links to files or GitHub projects.
+    - Describe the behavior you observed after following the steps and point out what exactly is the problem with that behavior.
+    - Explain which behavior you expected to see instead and why.
+    - Include screenshots which show you following the described steps to demonstrate the problem.
 - Include details about your configuration and environment by answering the following questions:
     - What's the name and version of the OS you're using?
     - Are you running the system in a virtual machine? If so, which VM software are you using?
