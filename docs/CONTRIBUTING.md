@@ -4,17 +4,17 @@ I'm really glad you're reading this, because we need volunteer developers and ot
 
 dfsdfasfasdff adsfasdfasf  asdfasdfasdf asdfasdf
 
-- if you're a junior developer read this file
-- If you're a sutudent read this file
-- If you're an experienced developer read this file
+- if you're a junior developer read [this](../../asas) file
+- If you're a sutudent read [this](../../asas) file
+- If you're an experienced developer read [this](../../asas) file
 
 Read our [Code of Coduct](../../page.html) to keep our community approachable and respectable.
 
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
+In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the Pull Request (PR).
 
 ## New contributor guide
 
-See the [README](../../README.md) to get an overview of the project. Here are some helpful resources to get you comfortable with open source contribution:
+See the [README](../../README.md) to get an overview of the project. See below some helpful resources to get you comfortable with the project.
 
 ### Some important resources:
 
@@ -23,13 +23,46 @@ See the [README](../../README.md) to get an overview of the project. Here are so
 - The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
 
-## General Rules
+## Full Stack Web Development Skillset 
+- A good level in .Net Core 3.x or newest versions and C# Language
+- Some basic experience with JavaScript and JQuery
+- Experience in Web Development with .Net MVC pattern 
+- Experience with Winforms or WPF
+- Experience builidng Rest APIs
+- Experience about basic user's authentication and authorization
+- Experience creating Background Workers or Windows Services
+- Familiarity or Understanding about a number of development patterns
+- Experience with API documentation with Swagger
+- Experience with most common API development tools like Postman
+- A good level in SQL, particularly with MS SQL Server
 
+## Extended skillset
+- User Experience (UX) expertise 
+- Graphic Design
+- Machine Learning with TensorFlow
+
+## Coding Rules
+
+- We code on Visual Studio (2019/2020)
+- We code in C# on .Net Core 
 - We are commited to implment the SOLID principles... what it means?
 - We want all the projects having the same structure and naming convention.
 - We Use the namespace and class name as naming convention for the system projects.
 
 ## How Can I Contribute?
+
+You can contribute in several ways:
+
+- Sharing Your Ideas about new workflow Nodes Development
+- Finding New Use Cases For Workflow Nodes
+- Reporting Bugs
+- Suggesting Enhancements
+- Investigating about Other C# Workflow packages
+- Improving the System Dcouemntation
+- Improving the System Dcouemntation Diagrams
+- Creating TensorFlow Models
+
+Below I will explain each of those in detail.
 
 ### Sharing Your Ideas about new workflow Nodes Development
 If you're on the belief that you have a great idea regaring a new workflow state, this section guides you through the process of sharing such types of idea for the project. 
@@ -141,6 +174,10 @@ asdasdaSDAS
 ASDAsdasda
 sdfsadfasdf
 asdfasdfasdf
+
+## If you are still unsure how to collaborate
+
+Have a look on the [Wishful Thinking](../../) discussion.
 
 ## Pull Requests
 The process described here has several goals:
