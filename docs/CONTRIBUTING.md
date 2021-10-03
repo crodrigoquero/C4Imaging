@@ -37,7 +37,7 @@ See the [README](../../README.md) to get an overview of the project. See below s
 - Experience with most common API development tools like Postman
 - A good level in SQL, particularly with MS SQL Server
 
-##### Extended skillset
+#### Extended skillset
 - User Experience (UX) expertise 
 - Graphic Design
 - Machine Learning with TensorFlow
