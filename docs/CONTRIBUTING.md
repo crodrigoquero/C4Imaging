@@ -146,7 +146,7 @@ Before creating enhancement suggestions, please check the proper discussion as y
 *REMARK: Other discussion will be added to this list in the future.*
 
 #### Before Submitting An Enhancement Suggestion
-- Check the debugging guide for tips — you might discover that the enhancement is already available. Most importantly, check if you're using the latest version of Atom and if you can get the desired behavior by changing Atom's or packages' config settings.
+- Check the debugging guide for tips — you might discover that the enhancement is already available. 
 - Check if there's already a system componenet which provides that enhancement.
 - Determine which project the enhancement should be suggested in.
 - Perform a cursory search to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
@@ -161,6 +161,13 @@ Enhancement suggestions are tracked as discussions. After you've determined whic
 - Include screenshots to demonstrate the steps or point out the part of the system which the suggestion is related to.
 - Explain why this enhancement would be useful to the system users.
 
+### Improving the System Dcouemntation
+
+asdasdaSDAS
+ASDAsdasda
+sdfsadfasdf
+asdfasdfasdf
+
 ### Your First Code Contribution
 Unsure where to begin contributing? You can start by looking through these beginner and help-wanted issues:
 
@@ -168,13 +175,6 @@ Unsure where to begin contributing? You can start by looking through these begin
 - Help wanted issues - issues which should be a bit more involved than beginner issues.
 
 *REMARK: Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.*
-
-### Improving the System Dcouemntation
-
-asdasdaSDAS
-ASDAsdasda
-sdfsadfasdf
-asdfasdfasdf
 
 ## If you are still unsure how to collaborate
 
