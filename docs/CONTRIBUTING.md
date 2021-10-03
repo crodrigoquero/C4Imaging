@@ -22,9 +22,18 @@ See the [README](../../README.md) to get an overview of the project. See below s
 - The [Techical Questions & Answers](../../discussions/53) discussion, can help you to solve doubts about any techical detail.
 - The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
+
 ### Skilsets
 
-#### Full Stack Web Development Skillset 
+Below you can see the recommended skill sets to carry out your collaboration at different level of the project.
+
+#### Workflow Nodes Development Skill Set 
+- A good level in .Net Core 3.x or newest versions and C# Language
+- Experience creating Background Workers or Windows Services
+- Familiarity or Understanding about a number of development patterns
+- A good understanding about multi-tasking and parallel programming. 
+
+#### Workflow Development Skill Set 
 - A good level in .Net Core 3.x or newest versions and C# Language
 - Some basic experience with JavaScript and JQuery
 - Experience in Web Development with .Net MVC pattern 
@@ -43,7 +52,6 @@ See the [README](../../README.md) to get an overview of the project. See below s
 - Machine Learning with TensorFlow
 
 ### Coding Rules
-
 - We code on Visual Studio (2019/2020)
 - We code in C# on .Net Core 
 - We are commited to implment the SOLID principles... what it means?
@@ -51,7 +59,6 @@ See the [README](../../README.md) to get an overview of the project. See below s
 - We Use the namespace and class name as naming convention for the system projects.
 
 ## How Can I Contribute?
-
 You can contribute in several ways:
 
 - Sharing Your Ideas about new workflow Nodes Development
@@ -66,11 +73,9 @@ You can contribute in several ways:
 In the below sections I will explain each of those in detail.
 
 ### discussions
-
 All of these contributing ways are articulated by by the GitHub discussions facility. There's a lot of them. In below sections you're going to know when and how to use them.
 
 #### Discussion life cycle
-
 All discussion has a life cycle, i.e. they start for whatever reason, they have an evolution over time, and finally they must finish (ASAP), and they must lead us to a conclusion.
 
 So, a discussion is unconcluded until there's a conclusion. A discussion can get closed without it meaning it was concluded. If we can find a lot of unconcluded discussions, that can mean that something is not working properly. Perhaps we are dealing with a very difficult issue which nobody can solve, indicating that we need to redirect our effort to another development area, trying to find a different approach.
@@ -83,19 +88,16 @@ If you're on the belief that you have a great idea regaring a new workflow state
 Before creating an a idea report, please check this [discussion](../../discussions/46) as you might find out that you don't need to create one. When you are creating an a idea report, please include as many details as possible. Fill out the required template, the information it asks for helps us to achieve a complete understanding about your proposal.
 
 #### Before Submitting A New Idea
-
 asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
 asdasdasdASDASd asdasdaSDAsdASDasd 
 asdasdasd asd asdasda d
 
 #### How Do I Submit A New Idea Properly?
-
 asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
 asdasdasdASDASd asdasdaSDAsdASDasd 
 asdasdasd asd asdasda d
 
 ### Investigating about Other C# Workflow packages
-
 asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
 asdasdasdASDASd asdasdaSDAsdASDasd 
 asdasdasd asd asdasda d
@@ -175,7 +177,6 @@ Enhancement suggestions are tracked as discussions. After you've determined whic
 - Explain why this enhancement would be useful to the system users.
 
 ### Improving the System Dcouemntation
-
 asdasdaSDAS
 ASDAsdasda
 sdfsadfasdf
@@ -190,7 +191,6 @@ Unsure where to begin contributing? You can start by looking through these begin
 *REMARK: Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.*
 
 ## If you are still unsure how to collaborate
-
 Have a look on the [Wishful Thinking](../../) discussion.
 
 ## Pull Requests
