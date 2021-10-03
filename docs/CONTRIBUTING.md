@@ -63,7 +63,19 @@ You can contribute in several ways:
 - Improving the System Dcouemntation Diagrams
 - Creating TensorFlow Models
 
-Below I will explain each of those in detail.
+In the below sections I will explain each of those in detail.
+
+### discussions
+
+All of these contributing ways are articulated by by the GitHub discussions facility. There's a lot of them. In below sections you're going to know when and how to use them.
+
+#### Discussion workflow and life cycle
+
+All discussion has a life cycle, i.e. they start for whatever reason, they have an evolution over time, and finally they must finish (ASAP), and they must lead us to a conclusion.
+
+So, a discussion is unconcluded until there's a conclusion. A discussion can get closed without it meaning it was concluded. If we can find a lot of unconcluded discussions, that can mean that something is not working properly. Perhaps we are dealing with a very difficult issue which nobody can solve, indicating that we need to redirect our effort to another development area, trying to find a different approach.
+
+The conclusion is the last entry in the discussion, and almost everybody must agree on it. Before the conclusion gets published, maybe a kind of survey must be carried out to retrieve everybody final opionion. 
 
 ### Sharing Your Ideas about new workflow Nodes Development
 If you're on the belief that you have a great idea regaring a new workflow state, this section guides you through the process of sharing such types of idea for the project. 
