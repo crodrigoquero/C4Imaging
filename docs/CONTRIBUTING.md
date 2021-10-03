@@ -23,7 +23,7 @@ See the [README](../../README.md) to get an overview of the project. See below s
 - The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
 
-## Full Stack Web Development Skillset 
+### Full Stack Web Development Skillset 
 - A good level in .Net Core 3.x or newest versions and C# Language
 - Some basic experience with JavaScript and JQuery
 - Experience in Web Development with .Net MVC pattern 
@@ -36,12 +36,12 @@ See the [README](../../README.md) to get an overview of the project. See below s
 - Experience with most common API development tools like Postman
 - A good level in SQL, particularly with MS SQL Server
 
-## Extended skillset
+### Extended skillset
 - User Experience (UX) expertise 
 - Graphic Design
 - Machine Learning with TensorFlow
 
-## Coding Rules
+### Coding Rules
 
 - We code on Visual Studio (2019/2020)
 - We code in C# on .Net Core 
