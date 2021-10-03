@@ -117,6 +117,7 @@ Not only by writting code that you can contribute; you can also contribute to im
 - Include some grahical representaitions (flow diagrams) to illustrate the workflow general proccess.
 - Specific examples to illustrate each workflow state. 
 - Include some details about the involved human roles.
+- Include a glossary of terms from the domain of the business, corporation, agency or work environment in which the workflow is or should be executed.
 - Include screenshots to demonstrate the steps or point out the part of the system which the suggestion is related to.
 - Explain why this new use case would be useful to the system users.
 
