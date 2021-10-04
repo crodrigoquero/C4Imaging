@@ -200,7 +200,7 @@ Unsure where to begin contributing? You can start by looking through these begin
 *REMARK: Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.*
 
 ## If you are still unsure how to collaborate
-Have a look on the [Wishful Thinking](../../) discussion.
+You have an idea that is complex but at the same time infeasible, unstructured... If that is the case, please have a look on the [Wishful thinking?](../../discussions/55) discussion.
 
 ## Pull Requests
 The process described here has several goals:
