@@ -2,7 +2,15 @@
 
 I'm really glad you're reading this, because we need volunteer developers and other types of collaborators to help this project come to fruition.
 
-dfsdfasfasdff adsfasdfasf  asdfasdfasdf asdfasdf
+The project was started on September 15, 2021, and it is still very young. It does little, but it has great potential. Right now, there are only four workflow modes that categorize image files under different criteria (aspect ratio, resolution, year and localtion). These workflow nodes have been created mainly as an example.
+
+But you can create many more to do all kinds of things.
+
+I believe that any complex process, more or less long, that can be broken down into a series of steps and that must be carried out behind the scenes on a file, without compromising the usability of a given website, is liable to become one or more workflow nodes.
+
+With the help of people like you, it can deliver an incredible amount of functionality over time. 
+
+And please,
 
 - if you're a junior developer read [this](../../asas) file
 - If you're a sutudent read [this](../../asas) file
