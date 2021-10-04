@@ -12,9 +12,9 @@ With the help of people like you, it can deliver an incredible amount of functio
 
 And please,
 
-- if you're a junior developer read [this](../asas) file
-- If you're a sutudent read [this](../asas) file
-- If you're an experienced developer read [this](../asas) file
+- if you're a junior developer read [this](/../HI_JUNIOR_DEVELOPER.md) file
+- If you're a sutudent read [this](/../HI_STUDENT.md) file
+- If you're an experienced developer read [this](/../HI_EXPERIENCED_DEVELOPER.md) file
 
 Read our [Code of Coduct](/../../page.html) to keep our community approachable and respectable.
 
