@@ -18,9 +18,10 @@ And please,
 
 Read our [Code of Coduct](../../page.html) to keep our community approachable and respectable.
 
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the Pull Request (PR).
 
 ## New contributor guide
+
+In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the Pull Request (PR).
 
 See the [README](../../README.md) to get an overview of the project. See below some helpful resources to get you comfortable with the project.
 
