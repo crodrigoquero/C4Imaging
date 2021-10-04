@@ -12,25 +12,25 @@ With the help of people like you, it can deliver an incredible amount of functio
 
 And please,
 
-- if you're a junior developer read [this](../../asas) file
-- If you're a sutudent read [this](../../asas) file
-- If you're an experienced developer read [this](../../asas) file
+- if you're a junior developer read [this](../asas) file
+- If you're a sutudent read [this](../asas) file
+- If you're an experienced developer read [this](../asas) file
 
-Read our [Code of Coduct](../../page.html) to keep our community approachable and respectable.
+Read our [Code of Coduct](/../../page.html) to keep our community approachable and respectable.
 
 
 ## New contributor guide
 
 In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the Pull Request (PR).
 
-See the [README](../../README.md) to get an overview of the project. See below some helpful resources to get you comfortable with the project.
+See the [README](/../../README.md) to get an overview of the project. See below some helpful resources to get you comfortable with the project.
 
 ### Some important resources:
 
-- The [Conceptual Questions & Answers](../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
-- The [Techical Questions & Answers](../../discussions/53) discussion, can help you to solve doubts about any techical detail.
-- The [Basic GitHub Commands](../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
-- The [Development Environment Setup](../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
+- The [Conceptual Questions & Answers](/../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
+- The [Techical Questions & Answers](/../../discussions/53) discussion, can help you to solve doubts about any techical detail.
+- The [Basic GitHub Commands](/../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
+- The [Development Environment Setup](/../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
 
 ### Skilsets
 
@@ -94,7 +94,7 @@ The conclusion is the last entry in the discussion, and almost everybody must ag
 ### Sharing Your Ideas about new workflow Nodes Development
 If you're on the belief that you have a great idea regaring a new workflow state, this section guides you through the process of sharing such types of idea for the project. 
 
-Before creating an a idea report, please check this [discussion](../../discussions/46) as you might find out that you don't need to create one. When you are creating an a idea report, please include as many details as possible. Fill out the required template, the information it asks for helps us to achieve a complete understanding about your proposal.
+Before creating an a idea report, please check this [discussion](/../../discussions/46) as you might find out that you don't need to create one. When you are creating an a idea report, please include as many details as possible. Fill out the required template, the information it asks for helps us to achieve a complete understanding about your proposal.
 
 #### Before Submitting A New Idea
 asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
@@ -116,7 +116,7 @@ Not only by writting code that you can contribute; you can also contribute to im
 
 #### Before Submitting A New Use Case Report
 - Make sure you completelly understand the sytem and what it does. 
-- Check the proper [discussion](../../discussions/50) to make sure that a similar use case was not reported before by someone else.
+- Check the proper [discussion](/../../discussions/50) to make sure that a similar use case was not reported before by someone else.
 - Do not get confused about a use case and a New Workflow Node Idea. The main differences between these both are that New Use Case Report is about an entire worklow and doesn't cover any techical details.
 
 #### How Do I Submit A New Use Case Report Properly?
@@ -163,9 +163,9 @@ This section guides you through submitting an enhancement suggestion, including 
 
 Before creating enhancement suggestions, please check the proper discussion as you might find out that you don't need to create one. When you are creating an enhancement suggestion, please include as many details as possible. Fill in the template, including the steps that you imagine you would take if the feature you're requesting existed. 
 
-- To suggest the adoption of a certain development pattern in any component through this [discussion](../../discussions/52).
-- For Workflow API Enhacements, have a look on this [discussion](../../discussions/47).
-- For Workflow Components Enhacements have a look on this [discussion](../../discussions/49).
+- To suggest the adoption of a certain development pattern in any component through this [discussion](/../../discussions/52).
+- For Workflow API Enhacements, have a look on this [discussion](/../../discussions/47).
+- For Workflow Components Enhacements have a look on this [discussion](/../../discussions/49).
 
 *REMARK: Other discussion will be added to this list in the future.*
 
