@@ -243,7 +243,7 @@ For more information about this topic, please have a loock at [this issue](/../.
 ## Final Goals
 
 1. The final system must be able to futfill all the possible configurations (see "Some Deployment Configurations" section for more details), and be effcient in all of the possible use cases and scenarios. 
-2. A series o general purpose and always-useful WorkFlow Sates will be constructed (on the main branch of the project), for demonstration purpouses and to enrich the system. The list of those must grow over time. 
+2. A series o general purpose and always-useful WorkFlow Sates will be constructed (on the main branch of the project), for demonstration purposes and to enrich the system. The list of those must grow over time. 
 3. Web applications must get reduced to a series of CRUD operations; i.e., in the final and ideal state of the system, no direct communication with any message broker like RabbitMq must be allowed at web app or rest API level. These components can only interact with the workflow engine by sending work orders and requesting work order statuses and its results. This strategy will eliminate the existing coupling between the mentioned levels and the behavior of the system.
 3. All the WorkFlow Sates must have its own release at GitHub, so the final user can install them independently.
 4. Kubernetes scripts and Docker images must be available to carry out any deployment mentioned on the point #1. 
