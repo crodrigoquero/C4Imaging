@@ -86,7 +86,7 @@ You can contribute in several ways:
 - [ ] Helping to create Kubernetes deployments and Github releases
 - [ ] Helping to implement or update components continuous delivery with Jenkins or similar tools
 
-*REMARK: The already documented _ ways of contribution has been marked witch a checkbox on the previous list.*
+*REMARK: The already documented __ways of contribution__ has been marked witch a checkbox on the previous list.*
 
 In the below sections I will explain each of those in detail.
 
