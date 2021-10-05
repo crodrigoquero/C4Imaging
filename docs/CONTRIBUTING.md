@@ -2,21 +2,21 @@
 
 I'm really glad you're reading this, because we need volunteer developers and other types of collaborators to help this project come to fruition.
 
-The project was started on September 15, 2021, and it is still very young. It does little, but it has great potential. Right now, there are only four workflow modes that categorize image files under different criteria (aspect ratio, resolution, year and localtion). These workflow nodes have been created mainly as an example.
-
-But you can create many more to do all kinds of things.
-
 I believe that any complex process, more or less long, that can be broken down into a series of steps and that must be carried out behind the scenes on a file, without compromising the usability of a given website, is liable to become one or more workflow nodes.
 
-With the help of people like you, it can deliver an incredible amount of functionality over time. 
+The project was started on September 15, 2021, and it is still very young. It does little, but it has great potential. Right now, there are only four workflow modes that categorize image files under different criteria (aspect ratio, resolution, year and localtion). These workflow nodes have been created mainly as an example.
+
+But you can create a many more of them to do all kinds of things. If all goes well, this project has the prospect of massive growth; In fact, we may have to create separate Github projects to keep all workflows and workflow nodes organized in a manageable way.
+
+With the help of people like you, this project can deliver an incredible amount of functionality over time to large list of roles and stakeholders.
 
 And please,
 
 - if you're a junior developer read [this](./HI_JUNIOR_DEVELOPER.md) file
-- If you're a sutudent read [this](./HI_STUDENT.md) file
+- If you're a sutudent or self-taught invididual read [this](./HI_STUDENT.md) file
 - If you're an experienced developer read [this](./HI_EXPERIENCED_DEVELOPER.md) file
 
-Read our [Code of Coduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Finally, plase read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 
 ## New contributor guide
@@ -27,6 +27,7 @@ See the [README](../README.md) to get an overview of the project. See below some
 
 ### Some important resources:
 
+- The [Welcome to C4Imaging Discussions!](/../../discussions/43) discussion, will keep you update about any project developments and events.
 - The [Conceptual Questions & Answers](/../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
 - The [Techical Questions & Answers](/../../discussions/53) discussion, can help you to solve doubts about any techical detail.
 - The [Basic GitHub Commands](/../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
