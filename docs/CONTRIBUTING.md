@@ -16,6 +16,8 @@ And please,
 - If you're a sutudent or self-taught invididual read [this](./HI_STUDENT.md) file
 - If you're an experienced developer read [this](./HI_EXPERIENCED_DEVELOPER.md) file
 
+But regardless of who you are and what your personal circumstance is at the moment, this project will substantially increase your personal codebase and your skills' toolbox in order to be better prepared to face all kinds of situations in terms of workflows or unattended (Fire-and-Forget) jobs. 
+
 Finally, plase read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 
@@ -71,16 +73,20 @@ Below you can see the recommended skill sets to carry out your collaboration at 
 ## How Can I Contribute?
 You can contribute in several ways:
 
-- Sharing Your Ideas about new workflow Nodes Development
-- Finding New Use Cases For Workflow Nodes
-- Reporting Bugs
-- Suggesting Enhancements
-- Investigating about Other C# Workflow packages
-- Improving the System Dcouemntation
-- Improving the System Dcouemntation Diagrams
-- Creating TensorFlow Models
-- Providing advice to code migration to newer C# versions 
-- Providing sample data / files to help to test new workflow nodes and new system features
+- [X] Sharing Your Ideas about new workflow Nodes Development
+- [X] Finding New Use Cases For Workflow Nodes
+- [X] Reporting Bugs
+- [X] Suggesting Enhancements
+- [ ] Investigating about Other C# Workflow packages
+- [X] Improving the System Dcouemntation
+- [ ] Improving the System Dcouemntation Diagrams
+- [ ] Creating TensorFlow Models
+- [ ] Providing advice to code migration to newer C# versions 
+- [ ] Providing sample data / files to help to test new workflow nodes and new system features
+- [ ] Helping to create Kubernetes deployments and Github releases
+- [ ] Helping to implement or update components continuous delivery with Jenkins or similar tools
+
+*REMARK: The already documented _ ways of contribution has been marked witch a checkbox on the previous list.*
 
 In the below sections I will explain each of those in detail.
 
@@ -200,10 +206,11 @@ Unsure where to begin contributing? You can start by looking through these begin
 - Beginner issues - issues which should only require a few lines of code, and a test or two.
 - Help wanted issues - issues which should be a bit more involved than beginner issues.
 
+#### If you are still unsure about how to collaborate
+You have an idea that is complex but at the same time infeasible, unstructured... If that is the case, please have a look on the [Wishful thinking?](/../../discussions/55) discussion.
+
 *REMARK: Both issue lists are sorted by total number of comments. While not perfect, number of comments is a reasonable proxy for impact a given change will have.*
 
-## If you are still unsure about how to collaborate
-You have an idea that is complex but at the same time infeasible, unstructured... If that is the case, please have a look on the [Wishful thinking?](/../../discussions/55) discussion.
 
 ## Pull Requests
 The process described here has several goals:
