@@ -79,6 +79,8 @@ You can contribute in several ways:
 - Improving the System Dcouemntation
 - Improving the System Dcouemntation Diagrams
 - Creating TensorFlow Models
+- Providing advice to code migration to newer C# versions 
+- Providing sample data / files to help to test new workflow nodes and new system features
 
 In the below sections I will explain each of those in detail.
 
