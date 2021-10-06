@@ -85,6 +85,7 @@ You can contribute in several ways:
 - [ ] Providing sample data / files to help to test new workflow nodes and new system features
 - [ ] Helping to create Kubernetes deployments and Github releases
 - [ ] Helping to implement or update components' continuous delivery with Jenkins or similar tools
+- [ ] Creating automated test for different projects
 
 *REMARK: The already documented __ways of contribution__ has been marked witch a checkbox on the previous list.*
 
