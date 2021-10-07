@@ -14,3 +14,5 @@ Your expertiese will be spacially valuable in the following topics:
 6. You can show us __new application scenarios__ where deploy and use the system.
 7. And plaase, help us to remove __memory leaks__ and code __bad smells__!
 
+Additionally, someone like you must be able to find many other ways to contribute!
+
