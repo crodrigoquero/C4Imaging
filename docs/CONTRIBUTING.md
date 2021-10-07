@@ -34,7 +34,7 @@ See the [README](../README.md) to get an overview of the project. See below some
 - The [Techical Questions & Answers](/../../discussions/53) discussion, can help you to solve doubts about any techical detail.
 - The [Basic GitHub Commands](/../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](/../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
-- The [Resources for Developers](/../../docs/still_does_not_exist) document, will give you some useful resources an tools you can use.
+- The [Resources for Developers](/../../discussions/58)  document, will give you some useful resources an tools you can use.
 
 ### Skilsets
 
