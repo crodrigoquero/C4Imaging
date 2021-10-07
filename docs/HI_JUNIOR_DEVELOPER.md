@@ -20,6 +20,8 @@ Take your time to choose your contribution path; There's a lot of them. Perhaps 
 
 And perhaps, soon you're going to discover that you are no longer a junior developer.
 
+This project can excite your creativity in an incredible way, since its use scenarios as well as the problems it can solve are practically unlimited; It can grown progressively fot futfil all your needs, but the best of all is that you are going to have fun.
+
 I hope this document helps you to clarify the benefits you are about to get from this projects.
 
 Good luck and lets code!
