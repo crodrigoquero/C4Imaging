@@ -1,10 +1,12 @@
 # Welcome to the Project
 
-If you are a __junior developer__, first of all I want to give you special thanks for your interest in this project.
+If you are a __Junior Developer__, first of all I want to give you special thanks for your interest in this project.
 
 I hope this document helps you to clarify the benefits you are about to get from this project.
 
 This project is __not difficult__ at all as it has many entry levels. Creating a windows service (a workflow node in the terminology of this project) is not rocket science. You can achieve it with a medium level in C #, depending of course, on what you want that service to carry out.
+
+## Why To Contrbute
 
 In short, keep in mind that:
 
@@ -38,6 +40,8 @@ Since one of the the main missions of any software engineer is to try to reduce 
 
 That is why many people give up after being hired. They left the company or they get fired; Over complicated systems and low code-reading skills are an explosive mix.
 
+## Some Useful Resources
 
+You may want to have a look to the [Developer Resources](/../../discussions/58) discussion, to be aware about interesting online resources and C# Libraries to make your life easier.
 
 Good luck and lets code!
