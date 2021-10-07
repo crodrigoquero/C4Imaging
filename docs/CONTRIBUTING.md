@@ -34,10 +34,11 @@ See the [README](../README.md) to get an overview of the project. See below some
 - The [Techical Questions & Answers](/../../discussions/53) discussion, can help you to solve doubts about any techical detail.
 - The [Basic GitHub Commands](/../../docs/still_does_not_exist) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](/../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
+- The [Resources for Developers](/../../docs/still_does_not_exist) document, will give you some useful resources an tools you can use.
 
 ### Skilsets
 
-Below you can see the recommended skill sets to carry out your collaboration at different level of the project.
+Below you can see the recommended skill sets to carry on your collaboration at different project levels.
 
 #### Workflow Nodes Development Skill Set 
 - A good level in .Net Core 3.x or newest versions and C# Language
@@ -50,25 +51,37 @@ Below you can see the recommended skill sets to carry out your collaboration at 
 - Some basic experience with JavaScript and JQuery
 - Experience in Web Development with .Net MVC pattern 
 - Experience with Winforms or WPF
-- Experience builidng Rest APIs
+- Experience builidng Rest APIs with authentication and authorisation by using JWT
 - Experience about basic user's authentication and authorization
 - Experience creating Background Workers or Windows Services
-- Familiarity or Understanding about a number of development patterns
+- The familiarity or understanding about a number of development patterns can be handy but not absolutely necessary.
 - Experience with API documentation with Swagger
 - Experience with most common API development tools like Postman
 - A good level in SQL, particularly with MS SQL Server
 
-#### Extended skillset
+#### Frontend skillset
 - User Experience (UX) expertise 
 - Graphic Design
+
+#### Other Skills
 - Machine Learning with TensorFlow
 
 ### Coding Rules
-- We code on Visual Studio (2019/2020)
-- We code in C# on .Net Core 
-- We are commited to implment the SOLID principles... what it means?
-- We want all the projects having the same structure and naming convention.
-- We Use the namespace and class name as naming convention for the system projects.
+1. We use Visual Studio (2019/2020).
+2. We code in C# on .Net Core 3.x and NET 5.
+3. We are commited to implment the SOLID principles.
+4. Use development patterns only when is absolutely necessary. Keep it simple.
+5. Use camel notation for variable names.
+6. Use Pascal notation for class names.
+7. Implement a clear separation of functionalities in your projects, using external classes. 
+8. Take into account the reusability concept in your code.
+9. If you implement a new math function, share it with other developers by placing it in the project's "Maths" library.
+10. Sufficiently document your code by adding comments where necessary.
+11. Produce unit tests if you can do it.
+12. Be wise at naming functions, classes, variables, data entities and API endpoints (That is the best development pattern ever).
+13. We want all the projects having the same structure and naming convention.
+14. We Use the namespace and class name as naming convention for the system projects.
+15. Add a README.md file to your project explaining what is does and how it does (with code samples)
 
 ## How Can I Contribute?
 You can contribute in several ways:
