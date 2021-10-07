@@ -59,7 +59,7 @@ Below you can see the recommended skill sets to carry on your collaboration at d
 - Experience with most common API development tools like Postman
 - A good level in SQL, particularly with MS SQL Server
 
-#### Frontend skillset
+#### Web Apps Frontend skillset
 - User Experience (UX) expertise 
 - Graphic Design
 
