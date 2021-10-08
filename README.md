@@ -262,8 +262,6 @@ Whichever direction the architecture takes, what is clear now is that some gener
 
 [State Machine WorkFlows](https://docs.microsoft.com/en-us/dotnet/framework/windows-workflow-foundation/state-machine-workflows) article from Microsoft.
 
-[Database vs File system storage](https://stackoverflow.com/questions/38120895/database-vs-file-system-storage) - Stack Overflow
-
 [About Workflow analysis](https://www.lucidchart.com/blog/how-workflow-analysis-improves-productivity)
 
 [Microservices and Background-jobs](https://medium.com/creditorwatch/microprocesses-a-new-architectural-design-pattern-for-background-jobs-on-a-microservice-172a8a19ba8f)
@@ -273,6 +271,7 @@ Whichever direction the architecture takes, what is clear now is that some gener
 [Task Queues](https://www.fullstackpython.com/task-queues.html)
 
 ### Stack Overflow Discussions
+[Database vs File system storage](https://stackoverflow.com/questions/38120895/database-vs-file-system-storage)
 
 [Background Jobs in Microservices Architecture](https://stackoverflow.com/questions/38328727/what-is-the-best-way-to-design-background-jobs-in-microservices-architecture)
 
