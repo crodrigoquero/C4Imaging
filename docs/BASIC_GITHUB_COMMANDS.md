@@ -16,7 +16,9 @@ $ git add <filename>
 ```
 Commit and write what changes you have made in the commit message using:
 
+```s
 $ git commit -m "<YOUR NAME>: <TASK>" e.g. commit -m "Anndo: Add css code to style the buttons"
+```
 
 ## How to use branch to collaborate
 Make a new branch to work on each of your tasks, and then push it to GitHub and create a pull request once you have it done. The purpose of using branches is to avoid messing up with the master branch.
@@ -35,10 +37,12 @@ Switch to the branch you just created using:
 ```s
 $ git checkout <BRANCH NAME> 
 ```
+
 After you complete the task, switch to your master branch using:
 ```s
 $ git checkout master
 ```
+
 Push your branch using:
 ```s
 $ git push origin <BRANCH NAME>
