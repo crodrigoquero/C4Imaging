@@ -257,6 +257,8 @@ That circunstance leads us to the possibility that will be the user who'll defin
 
 Whichever direction the architecture takes, what is clear now is that some general purpose WorkFlow States can be developed right now. Plase have a look on this [discussion](../../discussions/46) if you're on the belief that you have a great idea regaring work flow states which you want to turn into something concrete. 
 
+Do not forget to read the [contributing](./CONTRIBUTING.md) file to learn more about how you can contribute to the project.
+
 
 ## Bibliography
 
