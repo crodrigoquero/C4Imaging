@@ -47,7 +47,7 @@ See the [README](../README.md) to get an overview of the project. See below some
 - The [Welcome to C4Imaging Discussions!](/../../discussions/43) discussion, will keep you update about any project developments and events.
 - The [Conceptual Questions & Answers](/../../discussions/53) discussion, can help you to understand some basic concepts and vocabulary.
 - The [Techical Questions & Answers](/../../discussions/53) discussion, can help you to solve doubts about any techical detail.
-- The [Basic GitHub Commands](/../../docs/BASIC_GITHUB_COMMANDS.md) document, can help you to remember the most commonly used GitHub commands.
+- The [Basic GitHub Commands](./docs/BASIC_GITHUB_COMMANDS.md) document, can help you to remember the most commonly used GitHub commands.
 - The [Development Environment Setup](/../../docs/still_does_not_exist) document, explains the tools your'e going to need and how to get ready to code.
 - The [Resources for Developers](/../../discussions/58)  discussion, will give you some useful resources and tools you can use during development.
 
