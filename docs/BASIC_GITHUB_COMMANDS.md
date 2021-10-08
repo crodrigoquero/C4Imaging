@@ -15,7 +15,6 @@ or
 $ git add <filename>
 ```
 Commit and write what changes you have made in the commit message using:
-
 ```s
 $ git commit -m "<YOUR NAME>: <TASK>" e.g. commit -m "Anndo: Add css code to style the buttons"
 ```
