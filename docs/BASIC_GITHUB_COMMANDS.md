@@ -18,14 +18,15 @@ $ git commit -m "<YOUR NAME>: <TASK>" e.g. commit -m "Anndo: Add css code to sty
 Make a new branch to work on each of your tasks, and then push it to GitHub and create a pull request once you have it done. The purpose of using branches is to avoid messing up with the master branch.
 
 Update your master branch using:
-
 ```s
 $ git pull origin master
 ```
+
 Create a new branch using:
-```s
+```javascript
 $ git branch <TASK NAME> 
 ```
+
 Switch to the branch you just created using:
 ```s
 $ git checkout <BRANCH NAME> 
