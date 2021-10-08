@@ -34,7 +34,7 @@ This project aims to create a robust, easily maintainable and scalable workflow 
 
 Putting all the system work load in the operating system services is a safe bet. Windows services and windows daemons are strategic pieces of their respective operating systems and are going to be there for a long time. We can expect with confidence that the services we develop today, will be still compatible with the new operating version versions to come. 
 
-I've been working with Windows services for many years and I can say that the services now have the same structure as they did years ago, meaning they are a very stable OS asset. 
+I've been working with Windows services for many years and I can say that the services now have the same structure as they did years ago, meaning they are a very stable OS asset.
 
 ## New contributor guide
 
@@ -61,22 +61,30 @@ Below you can see the recommended skill sets to carry on your collaboration at d
 - Familiarity or Understanding about a number of development patterns
 - A good understanding about multi-tasking and parallel programming. 
 - GitHub basic commands familiarity
+- Experience creating Background Workers or Windows Services
 
 #### Workflow Development Skill Set 
 - A good level in .Net Core 3.x or newest versions and C# Language
 - Some basic experience with JavaScript and JQuery
 - Experience in Web Development with .Net MVC pattern 
-- Experience with Winforms or WPF
+- Experience creating Background Workers or Windows Services
 - Experience builidng Rest APIs with authentication and authorisation by using JWT
 - Experience about basic user's authentication and authorization
-- Experience creating Background Workers or Windows Services
 - The familiarity or understanding about a number of development patterns can be handy but not absolutely necessary.
 - Experience with API documentation with Swagger
 - Experience with most common API development tools like Postman
 - A good level in SQL, particularly with MS SQL Server
 - GitHub basic commands familiarity
 
-#### Web Apps Frontend skillset
+#### Desktop client Apps
+- Experience with Winforms or WPF
+- GitHub basic commands familiarity
+- Experience consuming Rest APIs 
+- Experience creating Background Workers or Windows Services
+- The familiarity or understanding about a number of development patterns can be handy but not absolutely necessary.
+- GitHub basic commands familiarity
+
+#### Desktop and Web Apps Frontend skillset
 - User Experience (UX) expertise 
 - Graphic Design
 
