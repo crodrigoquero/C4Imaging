@@ -1,6 +1,6 @@
 # GitHub Basic Commands
 
-This documents is just a reminder about the most frquetly used GitHub usedcommands; It doesn't explain every command in detail :+1:. 
+This documents is just a reminder about the most frquetly used GitHub usedcommands; It doesn't explain every command in detail :+1: 
 
 If you are not familiar with GitHub and its commands, I do recommend to you to have a look on the GitHub documentation.
 
