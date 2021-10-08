@@ -7,9 +7,13 @@ Be sure to commit your change every now and then so that others can track your c
 ## How to commit your change
 
 Add the file(s) you have modified to the staging area using:
-
-$ git add . $ git add <filename>
-
+```s
+$ git add . 
+```
+or
+```s
+$ git add <filename>
+```
 Commit and write what changes you have made in the commit message using:
 
 $ git commit -m "<YOUR NAME>: <TASK>" e.g. commit -m "Anndo: Add css code to style the buttons"
