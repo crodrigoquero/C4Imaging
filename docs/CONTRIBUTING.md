@@ -20,6 +20,9 @@ But regardless of who you are and what your personal circumstance is at the mome
 
 Finally, plase read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
+## Why to Contribute
+
+
 
 ## New contributor guide
 
@@ -84,6 +87,9 @@ Below you can see the recommended skill sets to carry on your collaboration at d
 13. We want all the projects having the same structure and naming convention.
 14. We Use the namespace and class name as naming convention for the system projects.
 15. Add a README.md file to your project explaining what is does and how it does (with code samples)
+
+#### Bibliography
+[Best Practices for Rest Api Design](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/) article from Stack Overflow
 
 ## How Can I Contribute?
 You can contribute in several ways:

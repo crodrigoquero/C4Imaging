@@ -270,6 +270,9 @@ Whichever direction the architecture takes, what is clear now is that some gener
 
 [Task Queues](https://www.fullstackpython.com/task-queues.html)
 
+[Api Design Guidance For Long Running Background Jobs](https://tyk.io/blog/api-design-guidance-long-running-background-jobs/)
+
+
 ### Stack Overflow Discussions
 [Database vs File system storage](https://stackoverflow.com/questions/38120895/database-vs-file-system-storage)
 
