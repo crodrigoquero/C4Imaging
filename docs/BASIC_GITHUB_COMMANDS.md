@@ -29,7 +29,7 @@ $ git pull origin master
 ```
 
 Create a new branch using:
-```javascript
+```s
 $ git branch <TASK NAME> 
 ```
 
