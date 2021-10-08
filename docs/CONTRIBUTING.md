@@ -45,6 +45,7 @@ Below you can see the recommended skill sets to carry on your collaboration at d
 - Experience creating Background Workers or Windows Services
 - Familiarity or Understanding about a number of development patterns
 - A good understanding about multi-tasking and parallel programming. 
+- GitHub basic commands familiarity
 
 #### Workflow Development Skill Set 
 - A good level in .Net Core 3.x or newest versions and C# Language
@@ -58,6 +59,7 @@ Below you can see the recommended skill sets to carry on your collaboration at d
 - Experience with API documentation with Swagger
 - Experience with most common API development tools like Postman
 - A good level in SQL, particularly with MS SQL Server
+- GitHub basic commands familiarity
 
 #### Web Apps Frontend skillset
 - User Experience (UX) expertise 
@@ -70,7 +72,7 @@ Below you can see the recommended skill sets to carry on your collaboration at d
 1. We use Visual Studio (2019/2020).
 2. We code in C# on .Net Core 3.x and NET 5.
 3. We are commited to implment the SOLID principles.
-4. Use development patterns only when is absolutely necessary. Keep it simple.
+4. Use development patterns only when is absolutely necessary. Keep it simple, specialy when you are prototyping your software.
 5. Use camel notation for variable names.
 6. Use Pascal notation for class names.
 7. Implement a clear separation of functionalities in your projects, using external classes. 
