@@ -44,4 +44,10 @@ That is why many people give up after being hired. They left the company or they
 
 You may want to have a look to the [Developer Resources](/../../discussions/58) discussion, to be aware about interesting online resources and C# Libraries to make your life easier.
 
+## Bibliography
+
+[Practical Uses of Windows Services](https://softwareengineering.stackexchange.com/questions/132798/what-are-the-practical-uses-of-windows-services)
+
+
+
 Good luck and lets code!

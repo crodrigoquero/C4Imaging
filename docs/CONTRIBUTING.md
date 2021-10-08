@@ -22,7 +22,19 @@ Finally, plase read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our comm
 
 ## Why to Contribute
 
+There is often a high degree of coupling between business rules and microservices, since such rules are implemented within the aforementioned microservices. For example, it is typical to see within a microservice that when a new user is registered, one more emails is sent to that user immediately, and the call to the mail service is made from the same endpoint or method that is responsible for the registration of users.
 
+In other applications, the situation may be somewhat better, and instead, the user registration endpoint can send a message to a message broker to inform another service (the email service), that a new user is just registered. 
+
+In the two cases presented here, there is a certain degree of coupling between the business rule "send a welcome email to new users" and the microservice or application; every time such business rule changes for any reason, the code of the endpoint  mentioned above will have to be modified ... and things can get worse with more complex business rules.
+
+In my humble opinion, the responsibility for implementing business rules should rest exclusively with the workflow engine. In other words, microservices should only execute CRUD operations; where things should actually occur in the workflow engine. This means that somewhere there is an observer who is dedicated to launching events that cause the activation (directly or indirectly) of one or more workflows.
+
+This project aims to create a robust, easily maintainable and scalable workflow engine. In addition, it will also produce a long series of general purpose workflows that can be very useful in a large number of scenarios.
+
+Putting all the system work load in the operating system services is a safe bet. Windows services and windows daemons are strategic pieces of their respective operating systems and are going to be there for a long time. We can expect with confidence that the services we develop today, will be still compatible with the new operating version versions to come. 
+
+I've been working with Windows services for many years and I can say that the services now have the same structure as they did years ago, meaning they are a very stable OS asset. 
 
 ## New contributor guide
 
@@ -109,6 +121,8 @@ You can contribute in several ways:
 - [ ] Creating automated test for different projects
 
 *REMARK: The already documented __ways of contribution__ has been marked witch a checkbox on the previous list.*
+
+*REMARK: In order to facilitate some of these ways of contribution, I still need to create some new templates.*
 
 In the below sections I will explain each of those in detail.
 
