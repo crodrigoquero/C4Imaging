@@ -1,10 +1,9 @@
 # GitHub Basic Commands
 
-Add comments to every commit so that others can read your code more easily.
-
-Be sure to commit your change every now and then so that others can track your changes more easily.
+This documents is just a reminder about the most frquetly used GitHub usedcommands; It doesn't explain every command in detail. If you are not familiar with GitHub and its commands, I do recommend to you to have a look on the GitHub documentation.
 
 ## How to commit your change
+Remember to add comments to every commit so that others can read your code more easily and be sure to commit your change every now and then so that others can track your changes.
 
 Add the file(s) you have modified to the staging area using:
 ```s
