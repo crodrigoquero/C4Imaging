@@ -110,6 +110,8 @@ If the name of the workflow state is well established, it gives us all an exact 
 
 I would like to develop some more functions before moving to version 2:
 
+I have an [issue](../issues/59) that need to be removed in order to continue the development.
+
 - Send images in batches using zip files for parallel processing.
 - Develop other similar services to catalog images with other criteria and thus be able to generate a complete image categorization workflow as an example.
 - API for workflow control.
