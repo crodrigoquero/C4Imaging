@@ -40,7 +40,7 @@ For example, the following structure can be used:
 				- [Workflow n]
 				- Generic WorkFlow Sates
 					- [Generic WorkFlow State category]
-						- [WorkFlow State Name] --> Put your workflow state here!
+						- [WorkFlow State Name] --> __Put your workflow state here!__
 			- [Other services (non workflows / workflow states)]
 
 
