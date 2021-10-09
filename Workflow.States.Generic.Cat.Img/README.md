@@ -102,9 +102,9 @@ __Workflows.states.Generic.cat.Img.ByDateYear__
 
 ## The importance of properly naming things
 
-Notice the "Generic" word in the workflow state name, which indicates that this state does not satisfies any particular company or corporation requirement but can be useful everywhere. In other words; if the "generic" word was no there, it means that the workflow node has been created to fulfill a particular business or processing requirement.
+Notice the __"Generic" word__ in the workflow state name, which indicates that this state does not satisfies any particular company or corporation requirement but can be useful everywhere. In other words; if the "generic" word was no there, it means that the workflow node has been created to fulfill a particular business or processing requirement.
 
-If the name of the workflow state is well established, it gives us all an exact idea of what it is doing. In the previous examples, we can conclude that this state categorizes image files by aspct ratio. If instead of the acronym "Img" we had placed the acronym "Doc", we could know that this state can process MS-Word documents, XML, JSON, etc., which gives us a fairly clear idea of what the state is. doing internally.
+If the name of the workflow state is well established, it gives us all an exact idea of what it is doing. In the previous examples, we can conclude that this state categorizes image files by aspct ratio. If instead of the __acronym "Img"__ we had placed the __acronym "Doc"__, we could know that this state can process __MS-Word documents, XML, JSON, etc.__, which gives us a fairly clear idea of what the state is. doing internally.
 
 ## Next Steps
 
