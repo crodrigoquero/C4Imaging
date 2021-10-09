@@ -34,10 +34,10 @@ For example, the following structure can be used:
 	- Applications
 		- Services
 			- WorkFlows
-				[Workflow #1]
-				[Workflow #2]
-				[ ... ]
-				[Workflow n]
+				- [Workflow #1]
+				- [Workflow #2]
+				- [ ... ]
+				- [Workflow n]
 				- Generic WorkFlow Sates
 					- [Generic WorkFlow State category]
 						- [WorkFlow State Name] --> Put your workflow state here!
