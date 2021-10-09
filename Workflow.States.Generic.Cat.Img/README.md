@@ -50,11 +50,11 @@ sc.exe create C4Monitor binpath= "C:\Temp\workerservice\C4imagingNetCore.Workflo
 ```
 As can be seen, the name of the service and the parameters necessary for the workflow state to start (the same ones that we write on the command line when we run the service as a console application) are passed in the same string.
 
-## Start Up
+## To Start Up the Workflow node
 ```ssh
 start-service C4Monitor
 ```
-## Stop
+## To Stop the Workflow node
 ```ssh
 stop-service C4Monitor
 ```
