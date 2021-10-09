@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.Backend", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.Helpers", "..\C4ImagingNetCore.MathsHelper\C4ImagingNetCore.Helpers.csproj", "{21284A52-9094-496B-870A-48A51AF5D5A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img", "..\C4imagingNetCore.Workflow.Srv\Workflow.States.Generic.Cat.Img.csproj", "{B8A50D51-1C8B-4E93-85BE-E4F7078CED99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img", "..\Workflow.States.Generic.Cat.Img\Workflow.States.Generic.Cat.Img.csproj", "{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{21284A52-9094-496B-870A-48A51AF5D5A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21284A52-9094-496B-870A-48A51AF5D5A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21284A52-9094-496B-870A-48A51AF5D5A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8A50D51-1C8B-4E93-85BE-E4F7078CED99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8A50D51-1C8B-4E93-85BE-E4F7078CED99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8A50D51-1C8B-4E93-85BE-E4F7078CED99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8A50D51-1C8B-4E93-85BE-E4F7078CED99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
