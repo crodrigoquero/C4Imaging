@@ -1,110 +1,115 @@
-﻿# Acerca de este servicio
+﻿# About this Workflow State
 
-Este servicio categoriza imagenes por aspect ratio. Una vez instalado y en funcionamiento,
-cada vez que se cree o se mueva una imagen a su directorio de trabajo (InBox) desde otro directorio, esta sera categorizada de forma inmediata por Aspect Ratio. El servicio crea una carpeta para cada uno de estos ratios y va colocando en cada una de ellas las imagines que se depositan en el mencioando directorio de trabajo.
+This worklow state __categorizes images by aspect ratio__. Once installed and running, every time an image is created or moved to your working directory (InBox) from another directory, it will be immediately categorized by Aspect Ratio. The worklow state creates a folder for each of these ratios and places in each one of them the images that are deposited in the mentioned working directory.
 
-En esta version, el directorio de trabajo o InBox es C:\Temp\workerservice. Este directorio puedeser configurado al instalar el servicio en Windows.
+In this first version, the working directory or InBox is C:\Temp\workerservice. This directory can be configured when installing the service on Windows.
 
-## Que tiene de especial este servicio?
+## What is special about this workflow state?
+__This workflow state is the first in a long series of states that I plan to develop__. In its current version it can be used as a Visual Studio 2019 project template to create other services.
 
-Este servicio es le primero de una larga serie de servicios que tengo pensado desarrollar. En su estado actual puede ser empleado como plantilla de proyecto Visual Studio 2019 para crear otros servicios. 
+Its structure and internal behavior allow a series of workflow states like this one to be __concatenated to create a much more complex workflow or process__. It will not be necessary to apply changes to each workflow state in the chain whatever position the state occupies in the workflow satates chain, since the structure provided by this state will adapt to all situations, whether the workflow state in question was placed at the beginning, in the middle, or at the end of the chain.
 
-Su estructura y comportamiento interno permite que una serie de servicios como este puedan
-ser concatenados para crear un workflow o proceso mucho mas complejo. No sera necesario aplicar cambios en cada servicio de la cadena, ya que la estructura provista por este servicio se adaptara a todas las situaciones, tanto si el servicio en cuestion esta al principio, en medio o al final de la cadena.
+This workflow state carries out a very specific action: categorization of images by aspect ratio, nothing special. The main action is executed inside an asynchronous function (ProcessFileAsync). But in future versions, such action may be replaced through __workflow node's plugins__, which means that the behavior, mission and utility of the workflow state can be dynamically modified through an api, without the need to install state again.
 
-El servicio lleva a cabo una accion muy concreta: categrozacion de imagenes por ratio de aspecto, nada especial. La accion principal se ejecuta dentro de una funcion asincrona (ProcessFileAsync). Pero en versiones futuras, tal accion podra ser sustituida por otra a traves de plugins, lo cual quiere decir que se podra modificar el comportamiento, la mision y la utilidad del servicio de forma dinamica a traves de una api, sin ncesidad de tener que instalar el servicio de nuevo. 
-
-Tal caracterisica simplificara el proceso de desarrollo de cualquier workFlow, por extenso o complejo que sea. Permitira tambien a los usuarios poder configurar un workFlow segun sus necesidades concretas mediante una interfaz de usuario basada en web. Esto ultimo implica la generacion y compilacion dinamica de codigo, y una vez llegados a ese punto, puedo intuir que se podran hacer cosas verdaderamente interesantes. 
+Such a feature will __simplify the development process of any workFlow__, no matter how extensive or complex it may be. It will also allow users to configure a workFlow according to their specific needs through a desktop or web-based user interface. The latter implies the dynamic generation and compilation of code, and once we have reached that point, I can guess that really interesting things can be done.
 
 
-## Publicar el servicio
+## Publish the workflow state
 
-1. En visual studio 2019, seleccione la opccion "Publish" del menu "Build".
-2. Selccione la opccion pulicar en una carpeta.
-3. Seleccione la ubicacion de la carpeta. 
-4. Pulse el boton "Publish"
+1. In visual studio 2019, select the "Publish" option from the "Build" menu.
+2. Select the "Publish to folder" option.
+3. Select the folder location. 
+4. Press the "Publish" button.
 
 Visual studio generara los binarios del servicio necesarios para su instalacion en windows.
-Los comandos de isntalacion deben apuntar al directorio en el que residen los archivos 
-generados durante este proceso de publicacion.
 
-Es recomendable dedicar una carpeta especial para paquetes de sofrtware y dentro de esta, crear una carpeta para los servicios.
+Keep into account that ...
+- The installation commands __must point__ to the directory in which the files generated during this publishing process reside.
+- It is advisable to dedicate a __special folder__ for software packages and within this, create a folder for services.
+- The __notation__ used to assign names to services is very important.
 
-La notacion empleada para asignar nombres a los serrvicios es muy importante.
+For example, the following structure can be used:
 
-Por ejemplo se puede emplear la siguiente estructura:
+- [Company Name]
+	- Applications
+		- Services
+			- WorkFlows
+				[Workflow #1]
+				[Workflow #2]
+				[ ... ]
+				[Workflow n]
+				- Generic WorkFlow Sates
+					- [Generic WorkFlow State category]
+						- [WorkFlow State Name] --> Put your workflow state here!
+			- [Other services (non workflows / workflow states)]
 
-- [Nombre del compania]
-	- Aplicaciones
-		- Servicios
-			- [nombre del servicio]
 
-
-## Instalar el servicio
+## Installation 
 ```ssh
 sc.exe create C4Monitor binpath= "C:\Temp\workerservice\C4imagingNetCore.Workflow.Srv.exe C:\Temp\workerservice\WorkerInbox C:\Temp\workerservice\WorkerOutbox"
 ```
-Como puede verse, el nombre del servicio y los parametros necesarios para que el servicio arranque (los mismos que escribimos en la linea de comandos cuando ejecutamos el servicio como aplicacion de consola) se pasan en la misma cadena.
+As can be seen, the name of the service and the parameters necessary for the workflow state to start (the same ones that we write on the command line when we run the service as a console application) are passed in the same string.
 
-## Arrancar el servicio
+## Start Up
 ```ssh
 start-service C4Monitor
 ```
-## Parar el servicio
+## Stop
 ```ssh
 stop-service C4Monitor
 ```
-## Borrar el servicio
+## Workflow node removal
 ```ssh
 sc.exe delete C4Monitor
 ```
-## Configuar el servicio para auto-arranque automatico despues de error
+## Configure the service for automatic autostart after failure
 
-Este servicio debe ser configurado para que arranque automaticamente tras un error de ejecucion. El servicio fallara cada vez que encuentre una nueva categoria de imagen. Esto es absolutamente normal.
+This service must be configured to start automatically after a runtime error. The service will "crash" every time it finds a new image category. This is absolutely normal.
 
-Este comportamiento ha sido establecido intencionalmente de forma que cada vez que se encuentreuna nueva categoria el servicio vuelva a arrancar para poder asi establecer los watchers para cada nueva categroia.
+This behavior has been intentionally established so that each time a new category is found the service will restart in order to establish the watchers for each new category (This strategy simplifies the internal logic of the state, by taking advantage of the automatic autostart feature of Windows services).
 
-El mencionado comportamiento debe ser establecido al isntalar el servicio en windows, mediante el siguiente comando:
+The aforementioned behavior must be established when installing the service on windows, using the following command:
 ```ssh
 SC.exe failure C4Monitor reset= 86400 actions= restart/1000/restart/1000/restart/1000
 ```
-Como se puede ver, el comando establece el comportamiento del servicio ante los fallos. El
-servicio volvera arrancar de nuevo inmediatamente tras porducirse un error de ejecucion.
+As you can see, the command establishes the behavior of the service in the event of failures. The service will start again immediately after a runtime error occurs.
 
 
-## Asignar una categoria al servicio
+## Assign "workflows" category to the Workflow State:
 ```ssh
 sc.exe config c4Monitor group= workflows
 ```
 
-# Considreaciones acerca de los nombres del los servicios
+# Considerations about service names
 
-Sea cuidadoso en la asignacion de nombres de los servicios, procure que el nombre del servicio sea consistente 
-con los otros servicios existnetetes usando notacion de dominio:
+Be careful when naming the services, make sure the name of the service is consistent with the other existing services using domain notation:
 
-**_[nombre compania]_.wf.srv._[categoria]_._[funcionalidad/nombre servicio]_**
+**Workflows.states.Generic.[functionality group acronym].[low state name]_**
 
-o bien:
+Examples:
 
-**Workflows.srv._[categoria].[funcionalidad/nombre servicio]_**
+__Workflows.states.Generic.cat.Img.ByAspectRatio__
 
-Ejemplos:
+__Workflows.states.Generic.cat.Img.ByResolution__
 
-__miCompania.wf.srv.img.categorization.byAspectRatio__
+__Workflows.states.Generic.cat.Img.BySizeGroup__
 
-__workFlow.srv.img.categorization.byAspectRatio__
+__Workflows.states.Generic.cat.Img.ByLocation__
 
-Y asi, subsiguientes servicios prodrian ser nombrados como:
+__Workflows.states.Generic.cat.Img.ByDateYear__
 
-__workFlow.srv.img.categorization.bySizeGroups__
+... and so on and so forth.
 
-__workFlow.srv.img.categorization.byCountry__
 
-## Proximos pasos
+## Next Steps
 
-Me gustaria desarrollar algunas funciones mas antes de pasar a la version 2.
+I would like to develop some more functions before moving to version 2:
 
-- Enviar imagenes por lotes usando archivos zip para su proceso en paralelo.
-- Desarrollar otros servicios parecidos para catalogar imagenes con tros criterios y asi poder generar un workflow de cetegorizacion de imagenes completo a modo de ejemplo.
-- Carga dinamica de plugins de proceso.
-- API para el control del workflow. 
+- Send images in batches using zip files for parallel processing.
+- Develop other similar services to catalog images with other criteria and thus be able to generate a complete image categorization workflow as an example.
+- API for workflow control.
+
+### What the version 2 is about
+
+- Implementation of dynamic loading of process plugins (i.e. extendable plugIns).
+- Then, I'll proceed migrate the already existing workflow states to that new paradigm.
