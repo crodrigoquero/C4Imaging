@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.Backend", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C4ImagingNetCore.Helpers", "..\C4ImagingNetCore.MathsHelper\C4ImagingNetCore.Helpers.csproj", "{21284A52-9094-496B-870A-48A51AF5D5A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img", "..\Workflow.States.Generic.Cat.Img\Workflow.States.Generic.Cat.Img.csproj", "{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img.ByAspectRatio", "..\Workflow.States.Generic.Cat.Img\Workflow.States.Generic.Cat.Img.ByAspectRatio.csproj", "{7CF76D72-D4F4-40E7-9DC6-DC42E60D595B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

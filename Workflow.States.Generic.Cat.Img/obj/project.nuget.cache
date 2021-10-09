@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nZyCSXAXG7BVj9tYWEv2hHqEw6J/rklD3UrRISC+MyFN8YYwsHarDwmi6bZ5bf5EBMDmtIZh9LxBoMnsGj7FYg==",
+  "dgSpecHash": "3eRfzHmUCD7RqGpqT1+eUL950YImjqVEj3NZzkYp7OUeG8RHRQA/TQcHGUYGMm7ZJLQQnR9V0t25skm88RedZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\Workflow.States.Generic.Cat.Img.csproj",
+  "projectFilePath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\Workflow.States.Generic.Cat.Img.ByAspectRatio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\commandlineparser\\2.8.0\\commandlineparser.2.8.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

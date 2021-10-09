@@ -8,7 +8,7 @@ using Serilog;
 using Serilog.Events;
 using CommandLine;
 
-namespace Workflow.States.Generic.Cat.Img
+namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 {
     public class Program
     {

@@ -4717,9 +4717,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\Workflow.States.Generic.Cat.Img.csproj",
-      "projectName": "Workflow.States.Generic.Cat.Img",
-      "projectPath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\Workflow.States.Generic.Cat.Img.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\Workflow.States.Generic.Cat.Img.ByAspectRatio.csproj",
+      "projectName": "Workflow.States.Generic.Cat.Img.ByAspectRatio",
+      "projectPath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\Workflow.States.Generic.Cat.Img.ByAspectRatio.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\Workflow.States.Generic.Cat.Img\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace Workflow.States.Generic.Cat.Img
+namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 {
     /// <summary>
     /// This class is one the pieces from the CommandLineParser nuget package 
