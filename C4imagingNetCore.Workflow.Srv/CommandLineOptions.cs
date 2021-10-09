@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace C4imagingNetCore.Workflow.Srv
+namespace Workflow.States.Generic.Cat.Img
 {
     /// <summary>
     /// This class is one the pieces from the CommandLineParser nuget package 

@@ -8,7 +8,7 @@ using Serilog;
 using Serilog.Events;
 using CommandLine;
 
-namespace C4imagingNetCore.Workflow.Srv
+namespace Workflow.States.Generic.Cat.Img
 {
     public class Program
     {

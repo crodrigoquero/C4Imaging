@@ -10,7 +10,7 @@ using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
 using System.Collections.Generic;
 
-namespace C4imagingNetCore.Workflow.Srv
+namespace Workflow.States.Generic.Cat.Img
 {
     public class Worker : BackgroundService
     {

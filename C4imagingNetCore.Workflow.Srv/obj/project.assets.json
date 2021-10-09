@@ -4717,9 +4717,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Source\\repos\\C4Imaging\\C4imagingNetCore.Workflow.Srv\\C4imagingNetCore.Workflow.Srv.csproj",
-      "projectName": "C4imagingNetCore.Workflow.Srv",
-      "projectPath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\C4imagingNetCore.Workflow.Srv\\C4imagingNetCore.Workflow.Srv.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Source\\repos\\C4Imaging\\C4imagingNetCore.Workflow.Srv\\Workflow.States.Generic.Cat.Img.csproj",
+      "projectName": "Workflow.States.Generic.Cat.Img",
+      "projectPath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\C4imagingNetCore.Workflow.Srv\\Workflow.States.Generic.Cat.Img.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user\\Source\\repos\\C4Imaging\\C4imagingNetCore.Workflow.Srv\\obj\\",
       "projectStyle": "PackageReference",
