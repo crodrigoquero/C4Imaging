@@ -16,6 +16,9 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
         [Value(index: 1, MetaName ="OutputPath", Required = true, HelpText = "Output directory.")]
         public string OutputPath { get; set; }
 
+        [Value(index: 2, MetaName = "ExecOrder", Required = true, HelpText = "Execution Order into the workflow nodes chain.")]
+        public string ExecOrder { get; set; }
+
         [Option(shortName: 'e', longName: "extensions", Required = false, HelpText = "Valid image extensions.", Default = new[] { "png", "jpg", "jpeg" })]
         public string[] Extensions { get; set; }
 
