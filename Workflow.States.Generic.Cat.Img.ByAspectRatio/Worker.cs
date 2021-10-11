@@ -77,7 +77,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             if (subDirectories.Length > 0) _workerStartupInputType = WorkerStartupInputType.multicategory;
             _logger.LogInformation("Assumend " + _workerStartupInputType.ToString() + " input");
 
-            //root directory
+            //root directory wactcher
             using FileSystemWatcher watcher = new FileSystemWatcher
             {
                 Path = _commandLineOptions.Path,
