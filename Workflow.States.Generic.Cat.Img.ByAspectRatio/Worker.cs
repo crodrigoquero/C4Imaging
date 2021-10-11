@@ -156,10 +156,11 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 watcher.Filters.Add($"*.{extension}");
             }
 
-            watcher.EnableRaisingEvents = true; //activating the fieWatcher for root subdirectory
+            // Proceed to activate the fieWatcher for root subdirectory
+            watcher.EnableRaisingEvents = true; 
             _logger.LogInformation($"Listening for images created in \"{_commandLineOptions.Path}\"...");
 
-
+            // Fianlly, setup the task
             var tcs = new TaskCompletionSource<bool>();
             stoppingToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
             await tcs.Task;
@@ -182,7 +183,6 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
             return count;
         }
-
 
         private Task<bool> ProcessFileAsync(string filePath)
         {
