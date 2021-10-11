@@ -66,7 +66,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
             ///var rootDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            //averiguar si el directorio raiz tiene subsdirectorios
+            // Figure out if the previous state has produced output (subdirectories)
             DirectoryInfo directory = new DirectoryInfo(_commandLineOptions.Path);
             DirectoryInfo[] subDirectories = directory.GetDirectories();
 
