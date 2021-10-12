@@ -44,27 +44,46 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
         {
             _logger.LogInformation("Service started");
 
+            // Figure out if the MAIN WorkFlow state INBOX directory exist
             if (!Directory.Exists(_commandLineOptions.Path))
             {
                 _logger.LogError($"Inbox Directory \"{_commandLineOptions.Path}\" does not exist.");
                 return;
             }
 
+            // Figure out if the MAIN WorkFlow state OUTBOX directory exist
             if (!Directory.Exists(_commandLineOptions.OutputPath))
             {
                 _logger.LogError($"Outbox Directory \"{_commandLineOptions.OutputPath}\" does not exist.");
                 return;
             }
 
+            // TODO:    Check for rw permissions on directories
+            //          REM: This is not strictly necessary right now.
+
+            // Figure out which ones are the INPUT DIRECTORIES FOR THIS WORKFLOW STATE
+            // based on its EXECUTION ORDER (non-optional command line parameter).
+            // (ie. where to start working)
+            // some var's declarations...
+            WorkFlowStateHelper workFlowStateHelper = new WorkFlowStateHelper(_commandLineOptions.Path);
+            string[] inputDirectoriesForCurrentState = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder, true);
+
+
             // CRUCIAL: PROCESS PRE-EXISTING/REMAINING FILES FROM PREVIOUS EXECUTIONS
             string[] fileEntries = Directory.GetFiles(_commandLineOptions.Path);
             foreach (string fileEntry in fileEntries) // get all the files from the inbox ...
             {
                 // and process them, one by one
+                // BUT IF THE WORKFLOW STATE ORDER IS GREATER THAN 1, MOVE THEM BACK TO THE INBOX 
                await ProcessFileAsync(fileEntry);
             }
 
             ///var rootDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+
+            // start refactoring here
+
+
 
             // Figure out if the previous state has produced output (subdirectories)
             DirectoryInfo directory = new DirectoryInfo(_commandLineOptions.Path);
@@ -77,11 +96,13 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             if (subDirectories.Length > 0) _workerStartupInputType = WorkerStartupInputType.multicategory;
             _logger.LogInformation("Assumend " + _workerStartupInputType.ToString() + " input");
 
-            //root directory wactcher
+            // root directory wactcher
+            // It is necessary to monitor folder creation everywhere. Each workflow node must
+            // consider only events behind its own level (from father's folders).
             using FileSystemWatcher watcher = new FileSystemWatcher
             {
                 Path = _commandLineOptions.Path,
-                IncludeSubdirectories = false // important to avoid file IO exceptions
+                IncludeSubdirectories = true // important to be able to re-start the service
             };
 
             //the watcher is for monitor new directories created in the root directory
