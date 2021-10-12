@@ -42,7 +42,8 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("Service started");
+            _logger.LogInformation("Service started.");
+            _logger.LogInformation("Workflow State number: {0}.", _commandLineOptions.ExecOrder);
 
             // Figure out if the MAIN WorkFlow state INBOX directory exist
             if (!Directory.Exists(_commandLineOptions.Path))
@@ -86,8 +87,8 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
 
             // Figure out if the previous state has produced output (subdirectories)
-            DirectoryInfo directory = new DirectoryInfo(_commandLineOptions.Path);
-            DirectoryInfo[] subDirectories = directory.GetDirectories();
+            ///////////////////////////////////////// DirectoryInfo directory = new DirectoryInfo(_commandLineOptions.Path);
+            string[] subDirectories = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder); //directory.GetDirectories();
 
             _logger.LogInformation(_commandLineOptions.Path + " has "+ subDirectories.Length + " subdirectories:" );
  
@@ -146,9 +147,9 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
             // create a directory watchers list
             List<FileSystemWatcher> watchersList = new List<FileSystemWatcher>();
-            foreach (DirectoryInfo dir in subDirectories)
+            foreach (string dir in subDirectories)
             {
-                watchersList.Add(new FileSystemWatcher { Path = _commandLineOptions.Path + @"\"   + dir.Name, IncludeSubdirectories = false });
+                watchersList.Add(new FileSystemWatcher { Path = dir, IncludeSubdirectories = false });
             };
 
             //add file extensions filter and an eventhandler to each subfolder watcher
