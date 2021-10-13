@@ -2,7 +2,7 @@
   "profiles": {
     "C4imagingNetCore.Workflow.Srv": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Temp\\workerservice\\WorkerInbox\" \"C:\\Temp\\workerservice\\WorkerOutbox\"",
+      "commandLineArgs": "\"C:\\Temp\\workerservice\\WorkerInbox\" \"C:\\Temp\\workerservice\\WorkerOutbox\"  2",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }
