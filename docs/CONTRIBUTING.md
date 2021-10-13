@@ -134,7 +134,7 @@ You can contribute in several ways:
 
 In the below sections I will explain each of those in detail.
 
-### Ok, But... where to start extactly?
+### Ok, But... where to start exactly?
 You can start by creating workflow states' plugins. In this project a plugin receives a single file and generates an output after it proceeds to analise it. Such output can be a another file containing a json structure or any other kind of data, or a label  which defines a category; That's it. Although the concept is extraordinarily simple, the aforementioned process can be very complex; not always, by the way.
 
 So you don't need to create the entire workflow node / service structure; you can go right to the point and concentrate in the functionality, in the file's processing. The project framework takes care for you about what happs before and after such process get executed.  
