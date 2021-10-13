@@ -165,19 +165,13 @@ If you're on the belief that you have a great idea regaring a new workflow state
 Before creating an a idea report, please check this [discussion](/../../discussions/46) as you might find out that you don't need to create one. When you are creating an a idea report, please include as many details as possible. Fill out the required template, the information it asks for helps us to achieve a complete understanding about your proposal.
 
 #### Before Submitting A New Idea
-asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
-asdasdasdASDASd asdasdaSDAsdASDasd 
-asdasdasd asd asdasda d
+[TODO]
 
 #### How Do I Submit A New Idea Properly?
-asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
-asdasdasdASDASd asdasdaSDAsdASDasd 
-asdasdasd asd asdasda d
+[TODO]
 
 ### Investigating about Other C# Workflow packages
-asdasdasdasdasd asdasdaSDasd ASDasdASDadASDads 
-asdasdasdASDASd asdasdaSDAsdASDasd 
-asdasdasd asd asdasda d
+[TODO]
 
 ### Finding New Use Cases For Workflow Nodes
 Not only by writting code that you can contribute; you can also contribute to improve the project documentation. Perhaps your're a final user in a company or you're involved in a workflows-related project of any kind at the moment, or you was involved in one of those in the past. So you can tell us what you think is, or was, a good use case.
@@ -254,10 +248,7 @@ Enhancement suggestions are tracked as discussions. After you've determined whic
 - Explain why this enhancement would be useful to the system users.
 
 ### Improving the System Dcouemntation
-asdasdaSDAS
-ASDAsdasda
-sdfsadfasdf
-asdfasdfasdf
+[TODO]
 
 ### Your First Code Contribution
 Unsure where to begin contributing? You can start by looking through these beginner and help-wanted issues:
