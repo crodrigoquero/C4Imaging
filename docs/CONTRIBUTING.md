@@ -134,6 +134,19 @@ You can contribute in several ways:
 
 In the below sections I will explain each of those in detail.
 
+### Ok, But... where to start extactly?
+You can start by creating workflow states' plugins. In this project a plugin receives a single file and generates an output after it proceeds to analise it. Such output can be a another file containing a json structure or any other kind of data, or a label  which defines a category; That's it. Although the concept is extraordinarily simple, the aforementioned process can be very complex; not always, by the way.
+
+So you don't need to create the entire workflow node / service structure; you can go right to the point and concentrate in the functionality, in the file's processing. The project framework takes care for you about what happs before and after such process get executed.  
+
+In this [document](../../PLUGINS_QUICKSTART_GUIDE.md) you can find a quickstar guide to create your first plugin.
+
+Once you get bored about creating plugIns, you can start creating entire workflows; so, you're a going to put some workflow nodes together into a chain to carry out a more complex process. A workflow is nothing more than a windows service with a particular structure and behavior, which is capable of communicating with the workflow nodes that you created before.
+
+In this [document](../../WORKFLOWS_QUICKSTART_GUIDE.md) you can find a quickstar guide to create your first workflow.
+
+And once you have created your first workflow, you need to provide users with an entry point to use it, i.e. a rest api or a desktop app, so you can then develop one of those.
+
 ### discussions
 All of these contributing ways are articulated by by the GitHub discussions facility. There's a lot of them. In below sections you're going to know when and how to use them.
 
