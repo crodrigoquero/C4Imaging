@@ -43,8 +43,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("Service started.");
-            _logger.LogInformation("Workflow State number: {0}.", _commandLineOptions.ExecOrder);
-
+   
             // Figure out if the MAIN WorkFlow state INBOX directory exist
             if (!Directory.Exists(_commandLineOptions.Path))
             {
@@ -71,7 +70,8 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
             // Figure out if the previous state has produced output (subdirectories)
             string[] subDirectories = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder,true);
-
+   
+            _logger.LogInformation("Workflow State number: {0}, of {1} active states", _commandLineOptions.ExecOrder, workFlowStateHelper.GetworkFlowActiveStates());
             _logger.LogInformation("I do have "+ subDirectories.Length + " entry point-s" );
  
   
