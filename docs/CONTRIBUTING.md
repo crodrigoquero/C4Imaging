@@ -34,7 +34,9 @@ This project aims to create a robust, easily maintainable and scalable workflow 
 
 Putting all the system work load in the operating system services is a safe bet. Windows services and windows daemons are strategic pieces of their respective operating systems and are going to be there for a long time. We can expect with confidence that the services we develop today, will be still compatible with the new operating version versions to come. 
 
-I've been working with Windows services for many years and I can say that the services now have the same structure as they did years ago, meaning they are a very stable OS asset.
+I've been working with Windows services for many years and I can say that the services now have the same structure as they did years ago, meaning they are a very stable OS asset. Whatever you develop as a OS service is going to give many years of reliable service, and will be reusable thotogh many programing languages and techonologies for many years.
+
+But depending of your personal circunstances you can have many other reasons to contribute. Please see the the __Welcome section__ to larn more.
 
 ## New contributor guide
 
