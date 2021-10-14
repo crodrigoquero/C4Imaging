@@ -77,14 +77,14 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             _logger.LogInformation("I do have "+ subDirectories.Length + " entry point-s" );
  
   
-            // add, configure and set ready file watchers...
+            // ADD, CONFIGURE AND SET READY ALL FILE WATCHERS...
             List<FileSystemWatcher> fileWatchers = new List<FileSystemWatcher>();
             foreach (string dir in subDirectories)
             {
                 // CRUCIAL: First of all, we must process remaining files from past executions
                 // which got frozen when the service was restarted
-                DirectoryInfo d = new DirectoryInfo(@dir); //Assuming Test is your Folder
-                FileInfo[] Files = d.GetFiles(); //Getting Text files
+                DirectoryInfo d = new DirectoryInfo(@dir); 
+                FileInfo[] Files = d.GetFiles(); //Getting files
                
                 // proceesing the remaining files
                 foreach(FileInfo file in Files)
@@ -99,7 +99,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     IncludeSubdirectories = false // it is CRITICAL to be able to restart the service when new categories can potentially arise
                 };
 
-                // asign eventHandler to earch watcher
+                // asign eventHandler to each FILE WATCHER
                 fileWatcher.Created += async (object sender, FileSystemEventArgs e) =>
                 {
                     await Task.Delay(1000);
@@ -120,19 +120,18 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             }
 
 
-            // the watcher is for monitor new directories created from the root directory
+            // WORKFLOW ROOT DIRECTORY WATCHER
+            // It is necessary to monitor folder creation & deletion everywhere. 
+            // Once a new folder creation is detected, this workflow must be restarted to be able
+            // to setup ncessary watchs for these new folders, otherwise the files received on these new 
+            // folders will not get processed.
+            // the watcher is for monitor new directories created from the workflow root directory
             // (including subdirectories)
             using FileSystemWatcher newFolderWatcher = new FileSystemWatcher
             {
                 Path = _commandLineOptions.Path,
                 IncludeSubdirectories = true // important to be able to detect any new folder everywhere
             };
-
-            // WORKFLOW ROOT DIRECTORY WATCHER
-            // It is necessary to monitor folder creation & deletion everywhere. 
-            // Once a new folder creation is detected, this workflow must be restarted to be able
-            // to setup ncessary watchs for these new folders, otherwise the files received on these new 
-            // folders will not get processed
 
             // setup the watcher to watch for new directories only...
             newFolderWatcher.NotifyFilter = NotifyFilters.Attributes
@@ -216,7 +215,6 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             };
             // and fianlly, activate the subfolder watcher
             newFolderWatcher.EnableRaisingEvents = true;
-
 
             // Fianlly, setup the task
             var tcs = new TaskCompletionSource<bool>();
