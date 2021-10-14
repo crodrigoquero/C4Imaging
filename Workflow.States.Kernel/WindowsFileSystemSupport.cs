@@ -95,5 +95,25 @@ namespace Workflow.States.Kernel
             return workFlowStateDirectories.OrderByDescending(x => x.Level).Select(x => x.Level).FirstOrDefault();
         }
 
+        public static void MoveFileToFolder(string filePath, string folderName)
+        {
+            var directory = Path.GetDirectoryName(filePath);
+            var fileName = Path.GetFileName(filePath);
+            var destinationDirectory = Path.Combine(directory, folderName);
+
+            Directory.CreateDirectory(destinationDirectory);
+
+            try
+            {
+                File.Move(filePath, Path.Combine(destinationDirectory, fileName), false);
+            }
+            catch (Exception ex)
+            {
+                File.Delete(filePath);
+                throw ex; // passing the exception to higher level (for logging it)
+            }
+
+        }
+
     }
 }

@@ -277,7 +277,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                         Directory.CreateDirectory(imgCategoryzationResult.ImageCategory).ToString();
                     }
 
-                    MoveFileToFolder(filePath, imgCategoryzationResult.ImageCategory);
+                    Kernel.WindowsFileSystemSupport.MoveFileToFolder(filePath, imgCategoryzationResult.ImageCategory);
 
                     // and log it
                     _logger.LogInformation("AN IMAGE HAS BEEN MOVED: " + filePath + " TO .\\" + imgCategoryzationResult.ImageCategory);
@@ -297,26 +297,6 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             }
 
         }
-
-        private void MoveFileToFolder(string filePath, string folderName)
-        {
-            var directory = Path.GetDirectoryName(filePath);
-            var fileName = Path.GetFileName(filePath);
-            var destinationDirectory = Path.Combine(directory, folderName);
-
-            Directory.CreateDirectory(destinationDirectory);
-
-            try
-            {
-                File.Move(filePath, Path.Combine(destinationDirectory, fileName), false);
-            }
-            catch (Exception ex)
-            {
-                File.Delete(filePath);
-                throw ex; // passing the exception to higher level (for logging it)
-            }
-
-         }
 
     }
 }
