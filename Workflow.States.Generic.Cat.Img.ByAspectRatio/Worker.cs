@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
 using System.Collections.Generic;
+using Workflow.States.Kernel;
+
 
 namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 {
@@ -65,7 +67,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             // based on its EXECUTION ORDER (non-optional command line parameter).
             // (ie. where to start working)
             // some var's declarations...
-            WorkFlowStateHelper workFlowStateHelper = new WorkFlowStateHelper(_commandLineOptions.Path);
+            WindowsFileSystemSupport workFlowStateHelper = new WindowsFileSystemSupport(_commandLineOptions.Path);
             string[] inputDirectoriesForCurrentState = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder, true);
 
             // Figure out if the previous state has produced output (subdirectories)

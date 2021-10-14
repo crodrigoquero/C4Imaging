@@ -20,5 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\C4ImagingNetCore.Backend\C4ImagingNetCore.Backend.csproj" />
+    <ProjectReference Include="..\Workflow.States.Kernel\Workflow.States.Kernel.csproj" />
   </ItemGroup>
 </Project>
