@@ -155,14 +155,9 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if new folder has been created on the output folder of the previous state
                 // then that is DIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, workFlowExecOrder - 1))
-                {
-                    // ... and must be logged
-                    _logger.LogWarning("NEW SUBCATEGORY FOUND: '" + e.Name + "' (Subdirectory created) ");
-                    // Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
-                }
 
                 // WARNING: Now, we need to restart the service (!) otherwise, new incoming files in such new category 
+ 
                 // will not get processed, because thre are not event handler for them.
                 // This situation is going to occur very often at the first workflow executions, until
                 // the workflow have been "learned" all the possible categories:
@@ -196,12 +191,6 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if a folder has been deleted on the output folder of the previous state
                 // then that is DIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, workFlowExecOrder - 1))
-                {
-                    // ... and must be logged
-                    _logger.LogWarning("NEW SUBCATEGORY DELETED: '" + e.Name + "' (Subdirectory created) ");
-                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
-                }
 
                 // WARNING: Now, we need to restart the service (!) otherwise, we have an unused directory watcher working
 
@@ -209,7 +198,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 // then that is INDIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
                 if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) == (workFlowExecOrder - 1))
                 {
-                    _logger.LogWarning("NEW CATEGORY DELETED in MY level: " + e.FullPath);
+                    _logger.LogWarning("CATEGORY DELETED in MY level: " + e.FullPath);
 
                     // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
                     Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
@@ -217,7 +206,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (workFlowExecOrder - 1))
                 {
-                    _logger.LogWarning("NEW CATEGORY DELETED in higher level: " + e.FullPath);
+                    _logger.LogWarning("CATEGORY DELETED in higher level: " + e.FullPath);
 
                     // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
                     Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
