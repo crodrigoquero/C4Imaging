@@ -20,9 +20,6 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
         private HttpClient client;
         private readonly CommandLineOptions _commandLineOptions;
 
-        private enum WorkerStartupInputType { standard=1, multicategory}
-        WorkerStartupInputType _workerStartupInputType = WorkerStartupInputType.standard;
-
         public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
         {
             _logger = logger;
