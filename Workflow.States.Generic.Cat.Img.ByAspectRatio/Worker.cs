@@ -10,7 +10,7 @@ using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
 using System.Collections.Generic;
 using Workflow.States.Kernel;
-
+using System.Linq.Expressions;
 
 namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 {
@@ -63,7 +63,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             // TODO:    Check for rw permissions on directories
             //          REM: This is not strictly necessary right now.
 
-            await InitAsync();
+            await InitWatchersAsync(_commandLineOptions.Path, _commandLineOptions.Extensions, _commandLineOptions.ExecOrder, ProcessFileAsync);
 
             // Fianlly, setup the task
             var tcs = new TaskCompletionSource<bool>();
@@ -72,19 +72,19 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
         }
 
-        private async Task InitAsync()
+        private async Task InitWatchersAsync<T>(string workFlowInboxPath, string[] allowedFileExtensions, int workFlowExecOrder, Func<string, Task<T>> enventHandler)
         {
             // Figure out which ones are the INPUT DIRECTORIES FOR THIS WORKFLOW STATE
             // based on its EXECUTION ORDER (non-optional command line parameter).
             // (ie. where to start working)
             // some var's declarations...
-            WindowsFileSystemSupport workFlowStateHelper = new WindowsFileSystemSupport(_commandLineOptions.Path);
-            string[] inputDirectoriesForCurrentState = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder, true);
+            WindowsFileSystemSupport workFlowStateHelper = new WindowsFileSystemSupport(workFlowInboxPath);
+            string[] inputDirectoriesForCurrentState = workFlowStateHelper.GetworkFlowStateInputDirectories(workFlowExecOrder, true);
 
             // Figure out if the previous state has produced output (subdirectories)
-            string[] subDirectories = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder, true);
+            string[] subDirectories = workFlowStateHelper.GetworkFlowStateInputDirectories(workFlowExecOrder, true);
 
-            _logger.LogInformation("Workflow State number: {0}, of {1} active states", _commandLineOptions.ExecOrder, workFlowStateHelper.GetworkFlowActiveStates());
+            _logger.LogInformation("Workflow State number: {0}, of {1} active states", workFlowExecOrder, workFlowStateHelper.GetworkFlowActiveStates());
             _logger.LogInformation("I do have " + subDirectories.Length + " entry point-s");
 
 
@@ -100,7 +100,8 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 // proceesing the remaining files
                 foreach (FileInfo file in Files)
                 {
-                    await ProcessFileAsync(file.FullName);
+                    //await eventHandler(file.FullName);
+                    await enventHandler(file.FullName);
                 }
 
                 // the we can continue setting up the watchers....
@@ -116,7 +117,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     await Task.Delay(1000);
                     await ProcessFileAsync(e.FullPath);
                 };
-                foreach (var extension in _commandLineOptions.Extensions)
+                foreach (var extension in allowedFileExtensions)
                 {
                     fileWatcher.Filters.Add($"*.{extension}");
                 }
@@ -140,7 +141,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             // (including subdirectories)
             FileSystemWatcher newFolderWatcher = new FileSystemWatcher
             {
-                Path = _commandLineOptions.Path,
+                Path = workFlowInboxPath,
                 IncludeSubdirectories = true, // important to be able to detect any new folder everywhere
 
                 // setup the watcher to watch for new directories only...
@@ -157,7 +158,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if new folder has been created on the output folder of the previous state
                 // then that is DIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, _commandLineOptions.ExecOrder - 1))
+                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, workFlowExecOrder - 1))
                 {
                     // ... and must be logged
                     _logger.LogWarning("NEW SUBCATEGORY FOUND: '" + e.Name + "' (Subdirectory created) ");
@@ -171,7 +172,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if new folder has been created on the output folder of ANY previous state
                 // then that is INDIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) == (_commandLineOptions.ExecOrder - 1))
+                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) == (workFlowExecOrder - 1))
                 {
                     _logger.LogWarning("NEW CATEGORY CREATED in MY level: " + e.FullPath);
 
@@ -179,7 +180,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
-                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (_commandLineOptions.ExecOrder - 1))
+                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (workFlowExecOrder - 1))
                 {
                     _logger.LogWarning("NEW CATEGORY CREATED in higher level: " + e.FullPath);
 
@@ -198,7 +199,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if a folder has been deleted on the output folder of the previous state
                 // then that is DIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, _commandLineOptions.ExecOrder - 1))
+                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, workFlowExecOrder - 1))
                 {
                     // ... and must be logged
                     _logger.LogWarning("NEW SUBCATEGORY DELETED: '" + e.Name + "' (Subdirectory created) ");
@@ -209,7 +210,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if a folder has been deleted on the output folder of ANY previous state
                 // then that is INDIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) == (_commandLineOptions.ExecOrder - 1))
+                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) == (workFlowExecOrder - 1))
                 {
                     _logger.LogWarning("NEW CATEGORY DELETED in MY level: " + e.FullPath);
 
@@ -217,7 +218,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
-                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (_commandLineOptions.ExecOrder - 1))
+                if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (workFlowExecOrder - 1))
                 {
                     _logger.LogWarning("NEW CATEGORY DELETED in higher level: " + e.FullPath);
 

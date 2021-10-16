@@ -13,7 +13,6 @@ namespace Workflow.States.Kernel
         {
             _workflowStateInboxPath = workflowStateInboxPath;
         }
-
         public bool DiretoryPathIsTheOutputOfToWorkflowState(string diretoryPath, int workFlowStateNumber)
         {
             string[] directoryList = GetworkFlowStateOutputDirectories(workFlowStateNumber, true);
