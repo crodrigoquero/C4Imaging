@@ -63,6 +63,17 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             // TODO:    Check for rw permissions on directories
             //          REM: This is not strictly necessary right now.
 
+            await InitAsync();
+
+            // Fianlly, setup the task
+            var tcs = new TaskCompletionSource<bool>();
+            stoppingToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
+            await tcs.Task;
+
+        }
+
+        private async Task InitAsync()
+        {
             // Figure out which ones are the INPUT DIRECTORIES FOR THIS WORKFLOW STATE
             // based on its EXECUTION ORDER (non-optional command line parameter).
             // (ie. where to start working)
@@ -71,23 +82,23 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             string[] inputDirectoriesForCurrentState = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder, true);
 
             // Figure out if the previous state has produced output (subdirectories)
-            string[] subDirectories = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder,true);
-   
+            string[] subDirectories = workFlowStateHelper.GetworkFlowStateInputDirectories(_commandLineOptions.ExecOrder, true);
+
             _logger.LogInformation("Workflow State number: {0}, of {1} active states", _commandLineOptions.ExecOrder, workFlowStateHelper.GetworkFlowActiveStates());
-            _logger.LogInformation("I do have "+ subDirectories.Length + " entry point-s" );
- 
-  
+            _logger.LogInformation("I do have " + subDirectories.Length + " entry point-s");
+
+
             // ADD, CONFIGURE AND SET READY ALL FILE WATCHERS...
             List<FileSystemWatcher> fileWatchers = new List<FileSystemWatcher>();
             foreach (string dir in subDirectories)
             {
                 // CRUCIAL: First of all, we must process remaining files from past executions
                 // which got frozen when the service was restarted
-                DirectoryInfo d = new DirectoryInfo(@dir); 
+                DirectoryInfo d = new DirectoryInfo(@dir);
                 FileInfo[] Files = d.GetFiles(); //Getting files
-               
+
                 // proceesing the remaining files
-                foreach(FileInfo file in Files)
+                foreach (FileInfo file in Files)
                 {
                     await ProcessFileAsync(file.FullName);
                 }
@@ -114,7 +125,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 fileWatcher.EnableRaisingEvents = true;
 
                 _logger.LogInformation($"Listening for images created in \"{dir}\"...");
-   
+
 
                 fileWatchers.Add(fileWatcher);
             }
@@ -127,16 +138,17 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             // folders will not get processed.
             // the watcher is for monitor new directories created from the workflow root directory
             // (including subdirectories)
-            using FileSystemWatcher newFolderWatcher = new FileSystemWatcher
+            FileSystemWatcher newFolderWatcher = new FileSystemWatcher
             {
                 Path = _commandLineOptions.Path,
-                IncludeSubdirectories = true // important to be able to detect any new folder everywhere
-            };
+                IncludeSubdirectories = true, // important to be able to detect any new folder everywhere
 
-            // setup the watcher to watch for new directories only...
-            newFolderWatcher.NotifyFilter = NotifyFilters.Attributes
+                // setup the watcher to watch for new directories only...
+                NotifyFilter = NotifyFilters.Attributes
                                  | NotifyFilters.CreationTime
-                                 | NotifyFilters.DirectoryName;
+                                 | NotifyFilters.DirectoryName
+
+            };
 
             // ... and assign an event handler to it
             newFolderWatcher.Created += async (object sender, FileSystemEventArgs e) =>
@@ -145,7 +157,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
                 // if new folder has been created on the output folder of the previous state
                 // then that is DIRECTLY RELEVANT FOR THIS WORKFLOW NODE...
-                if(workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, _commandLineOptions.ExecOrder  -1))
+                if (workFlowStateHelper.DiretoryPathIsTheOutputOfToWorkflowState(e.FullPath, _commandLineOptions.ExecOrder - 1))
                 {
                     // ... and must be logged
                     _logger.LogWarning("NEW SUBCATEGORY FOUND: '" + e.Name + "' (Subdirectory created) ");
@@ -164,7 +176,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     _logger.LogWarning("NEW CATEGORY CREATED in MY level: " + e.FullPath);
 
                     // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
-                    // Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
+                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
                 if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (_commandLineOptions.ExecOrder - 1))
@@ -172,10 +184,12 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     _logger.LogWarning("NEW CATEGORY CREATED in higher level: " + e.FullPath);
 
                     // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
-                    // Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
+                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
             };
+
+
 
             // WORKFLOW ROOT DIRECTORY WATCHER FOR DELETED FOLDERS
             newFolderWatcher.Deleted += async (object sender, FileSystemEventArgs e) =>
@@ -188,7 +202,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 {
                     // ... and must be logged
                     _logger.LogWarning("NEW SUBCATEGORY DELETED: '" + e.Name + "' (Subdirectory created) ");
-                    // Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
+                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
                 // WARNING: Now, we need to restart the service (!) otherwise, we have an unused directory watcher working
@@ -200,7 +214,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     _logger.LogWarning("NEW CATEGORY DELETED in MY level: " + e.FullPath);
 
                     // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
-                    // Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
+                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
                 if (workFlowStateHelper.GetWorkFlowStateOrderNumberFromDirectoryPath(e.FullPath) < (_commandLineOptions.ExecOrder - 1))
@@ -208,19 +222,14 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     _logger.LogWarning("NEW CATEGORY DELETED in higher level: " + e.FullPath);
 
                     // YOU CAN COMMENT THE FOLLOWING LINE IN DEBUG TIME (to make your life eassier):
-                    // Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
+                    Environment.Exit(1); // CRUCIAL: this, will make the service to restart automatically
                 }
 
 
             };
+
             // and fianlly, activate the subfolder watcher
             newFolderWatcher.EnableRaisingEvents = true;
-
-            // Fianlly, setup the task
-            var tcs = new TaskCompletionSource<bool>();
-            stoppingToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
-            await tcs.Task;
-
         }
 
         private async Task<int> ProcessAllExistingFilesAsync()
