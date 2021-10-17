@@ -112,7 +112,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 fileWatcher.Created += async (object sender, FileSystemEventArgs e) =>
                 {
                     await Task.Delay(1000);
-                    await ProcessFileAsync(e.FullPath);
+                    await enventHandler(e.FullPath);
                 };
                 foreach (var extension in allowedFileExtensions)
                 {
