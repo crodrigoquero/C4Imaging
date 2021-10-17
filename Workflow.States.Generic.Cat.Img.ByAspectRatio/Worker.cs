@@ -17,7 +17,6 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private HttpClient client;
         private readonly CommandLineOptions _commandLineOptions;
 
         public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
@@ -28,13 +27,11 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            client = new HttpClient();
             return base.StartAsync(cancellationToken);
         }
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            client.Dispose();
             _logger.LogInformation("The service has been stopped at " + DateTimeOffset.Now);
             return base.StopAsync(cancellationToken);
         }
