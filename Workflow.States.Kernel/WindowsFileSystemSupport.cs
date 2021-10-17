@@ -93,7 +93,6 @@ namespace Workflow.States.Kernel
 
             return workFlowStateDirectories.OrderByDescending(x => x.Level).Select(x => x.Level).FirstOrDefault();
         }
-
         public static void MoveFileToFolder(string filePath, string folderName)
         {
             var directory = Path.GetDirectoryName(filePath);
@@ -115,6 +114,5 @@ namespace Workflow.States.Kernel
         }
 
     }
-
 
 }
