@@ -18,6 +18,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
     {
         private readonly ILogger<Worker> _logger;
         private readonly CommandLineOptions _commandLineOptions;
+        private Kernel.Setup _workFlowStateKernel;
 
         public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
         {
@@ -58,9 +59,9 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             //          REM: This is not strictly necessary right now.
 
             // CONFIGURATION OF THE WORKFLOW STATE PROCESS
-            Kernel.Setup workFlowStateKernel = new Kernel.Setup(_logger, _commandLineOptions.Path, _commandLineOptions.Extensions, _commandLineOptions.ExecOrder);
-            await workFlowStateKernel.InitWatchersAsync(ProcessFileAsync);
-
+            _workFlowStateKernel = new Kernel.Setup(_logger, _commandLineOptions.Path, _commandLineOptions.Extensions, _commandLineOptions.ExecOrder);
+            await _workFlowStateKernel.InitWatchersAsync(ProcessFileAsync);
+            
             // Fianlly, setup the task
             var tcs = new TaskCompletionSource<bool>();
             stoppingToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
@@ -106,6 +107,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                     }
                     else
                     {
+                        _workFlowStateKernel.Status.TotalFiles += 1; //update session file counter
                         _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY ASPECT RATIO: " + Path.GetFileName(filePath) + " IS " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
                     }
                 }
