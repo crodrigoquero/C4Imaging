@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
 using System.Collections.Generic;
-using Workflow.States.Kernel;
+using Workflow.States.Kernel.IO.FileSys.Win;
 using System.Linq.Expressions;
 
 namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
@@ -18,7 +18,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
     {
         private readonly ILogger<Worker> _logger;
         private readonly CommandLineOptions _commandLineOptions;
-        private Kernel.Setup _workFlowStateKernel;
+        private Setup _workFlowStateKernel;
 
         public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
         {
@@ -59,7 +59,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             //          REM: This is not strictly necessary right now.
 
             // CONFIGURATION OF THE WORKFLOW STATE PROCESS
-            _workFlowStateKernel = new Kernel.Setup(_logger, _commandLineOptions.Path, _commandLineOptions.Extensions, _commandLineOptions.ExecOrder);
+            _workFlowStateKernel = new Setup(_logger, _commandLineOptions.Path, _commandLineOptions.Extensions, _commandLineOptions.ExecOrder);
             await _workFlowStateKernel.InitWatchersAsync(ProcessFileAsync);
             
             // Fianlly, setup the task
@@ -122,7 +122,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                         Directory.CreateDirectory(imgCategoryzationResult.ImageCategory).ToString();
                     }
 
-                    Kernel.WindowsFileSystemSupport.MoveFileToFolder(filePath, imgCategoryzationResult.ImageCategory);
+                    WinFileSys.MoveFileToFolder(filePath, imgCategoryzationResult.ImageCategory);
 
                     // and log it
                     _logger.LogInformation("AN IMAGE HAS BEEN MOVED: " + filePath + " TO .\\" + imgCategoryzationResult.ImageCategory);
