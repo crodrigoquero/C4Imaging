@@ -1,6 +1,6 @@
 # Welcome to the Project
 
-If you are a __Junior Developer__, first of all I want to give you special thanks for your interest in this project.
+If you're a __Junior Developer__, first of all I want to give you special thanks for your interest in this project.
 
 I hope this document helps you to clarify the benefits you are about to get from this project.
 
