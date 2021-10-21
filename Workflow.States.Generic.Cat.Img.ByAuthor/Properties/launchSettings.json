@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "Workflow.States.Generic.Cat.Img.ByAuthor": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -58,6 +58,8 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             // TODO:    Check for rw permissions on directories
             //          REM: This is not strictly necessary right now.
 
+            // TODO: LOAD PLUGIN / WORKFLOW STATE SKILL here!
+
             // CONFIGURATION OF THE WORKFLOW STATE PROCESS
             _workFlowStateKernel = new Setup(_logger, _commandLineOptions.Path, _commandLineOptions.Extensions, _commandLineOptions.ExecOrder);
             await _workFlowStateKernel.InitWatchersAsync(ProcessFileAsync);
