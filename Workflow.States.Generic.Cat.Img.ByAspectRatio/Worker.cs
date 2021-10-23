@@ -2,15 +2,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
-using System.Net.Http;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using C4ImagingNetCore.Backend;
-using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
-using System.Collections.Generic;
+using static C4ImagingNetCore.Backend.ImageAnaliser;
 using Workflow.States.Kernel.IO.FileSys.Win;
-using System.Linq.Expressions;
+using System.Collections.Generic;
 
 namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 {
@@ -90,8 +87,9 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
 
         private Task<bool> ProcessFileAsync(string filePath)
         {
-            ImageCategorizationResults imgCategoryzationResults = new ImageCategorizationResults();
-
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+            List<ImageCategorizationResult> re = new List<ImageCategorizationResult>();
+              
             try
             {
                 _logger.LogInformation("AN IMAGE HAS BEEN RECEIVED:" + filePath);
@@ -99,24 +97,24 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
                 // call the Backend dll and ctegorize the received file
                 imgCategoryzationResults = GetImageAspectRatio(filePath);
 
+                //// test
+                //re = GetImageCountryTaken(filePath);
+                //foreach (ImageCategorizationResult imgCategoryzationResult in re)
+                //{
+                //    _logger.LogInformation("latitude: " + imgCategoryzationResult.Latitude.ToString());
+                //}
+
                 // analise the categaroization results and log them
-                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults.List)
+                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
                 {
-                    // Image analysis, exception handling and logging
-                    if (imgCategoryzationResult.HasException)
-                    {
-                        _logger.LogWarning("Exception: " + imgCategoryzationResult.ExceptionDescription);
-                    }
-                    else
-                    {
-                        _workFlowStateKernel.Status.TotalFiles += 1; //update session file counter
-                        _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY ASPECT RATIO: " + Path.GetFileName(filePath) + " IS " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
-                    }
+                    // Image analysis and logging
+                    _workFlowStateKernel.Status.TotalFiles += 1; //update session file counter
+                    _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY ASPECT RATIO: " + Path.GetFileName(filePath) + " IS " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
                 }
 
                 // proceed to move the images to its correspondent folders based on
                 // its category, by analisysng the ImageCategorizationResults
-                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults.List)
+                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
                 {
                     // Create folder
                     if (!Directory.Exists(imgCategoryzationResult.ImageCategory))
@@ -139,7 +137,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAspectRatio
             }
             catch (Exception ex)
             {
-                _logger.LogError( "FILE EXCEPTION: " + ex.Message + ": FILE NAME: " + Path.GetFileName(filePath), $"Error when processing file {filePath}");
+                _logger.LogError( "FILE EXCEPTION. " + ex.Message + ": FILE NAME: " + Path.GetFileName(filePath), $"Error when processing file {filePath}" );
                 return Task.FromResult(false);
             }
 

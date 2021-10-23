@@ -4,8 +4,9 @@ using C4ImagingNetCore.Backend;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using static C4ImagingNetCore.Backend.AspectRatioAnaliser;
+using static C4ImagingNetCore.Backend.ImageAnaliser;
 
 namespace C4ImagingNetCore.UI
 {
@@ -14,7 +15,7 @@ namespace C4ImagingNetCore.UI
         static void Main(string[] args)
         {
             // var declaration
-            ImageCategorizationResults imgCategoryzationResults = new ImageCategorizationResults();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
             var services = new ServiceCollection();
 
             // proceed to configure app services
@@ -42,19 +43,13 @@ namespace C4ImagingNetCore.UI
 
             imgCategoryzationResults = GetImageAspectRatio(imagePath);
 
-            foreach(ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults.List)
+            foreach(ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
             {
-                // Image analysis, exception handling and logging
-                if (imgCategoryzationResult.HasException)
-                {
-                    app.SendWarning("Exception: " + imgCategoryzationResult.ExceptionDescription);
-                }
-                else
-                {
-                    app.SendNotification("It seems that the current image has " + imgCategoryzationResult.ImageCategory + " aspect ratio", imgCategoryzationResult.LogId);
-                }
+                // Image analysis and logging
+                app.SendNotification("It seems that the current image has " + imgCategoryzationResult.ImageCategory + " aspect ratio", imgCategoryzationResult.LogId);
+
             }
-           
+
             status = app.SendNotification("APPLICATION ENDED at " + DateTime.Now);
         }
 
