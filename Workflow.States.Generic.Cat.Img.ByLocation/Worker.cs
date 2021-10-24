@@ -94,6 +94,8 @@ namespace Workflow.States.Generic.Cat.Img.ByLocation
                 _logger.LogInformation("AN IMAGE HAS BEEN RECEIVED:" + filePath);
 
                 // call the Backend dll and categorize the received file
+                // In this case, an api key for google geocode api is required; such key
+                // must reside in the config file
                 imgCategoryzationResults = GetImageCountryTaken(filePath, "[apikey]");
 
                 // test
