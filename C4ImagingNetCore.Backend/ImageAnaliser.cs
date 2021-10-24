@@ -149,7 +149,7 @@ namespace C4ImagingNetCore.Backend
                 }
                 else
                 {
-                    return jsonResult.status;
+                    throw new Exception("Unable to access to Google Geocode Api");
                 }
 
             }
