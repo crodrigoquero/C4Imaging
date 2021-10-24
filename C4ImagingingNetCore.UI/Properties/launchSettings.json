@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "C4ImagingingNetCore.UI": {
-      "commandName": "Project",
-      "commandLineArgs": "\"The IT Crowd 4x3.jpg\""
-    }
-  }
-}
