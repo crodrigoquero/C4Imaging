@@ -13,13 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Kernel", "Workflow.States.Kernel\Workflow.States.Kernel.csproj", "{E1D93906-7ECF-4BD0-B4B8-8609F268BD14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.States.Generic.Cat.Img.ByLocation", "Workflow.States.Generic.Cat.Img.ByLocation\Workflow.States.Generic.Cat.Img.ByLocation.csproj", "{4EF7F5B5-3EDE-4495-8505-B0CF7715F0E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img.ByLocation", "Workflow.States.Generic.Cat.Img.ByLocation\Workflow.States.Generic.Cat.Img.ByLocation.csproj", "{4EF7F5B5-3EDE-4495-8505-B0CF7715F0E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.States.Generic.Cat.Img.ByYearTaken", "Workflow.States.Generic.Cat.Img.ByYearTaken\Workflow.States.Generic.Cat.Img.ByYearTaken.csproj", "{059BDE98-C81E-4CE6-8203-0956F4F79439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img.ByYearTaken", "Workflow.States.Generic.Cat.Img.ByYearTaken\Workflow.States.Generic.Cat.Img.ByYearTaken.csproj", "{059BDE98-C81E-4CE6-8203-0956F4F79439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.States.Generic.Cat.Img.ByResolution", "Workflow.States.Generic.Cat.Img.ByResolution\Workflow.States.Generic.Cat.Img.ByResolution.csproj", "{D4106288-7F84-4042-BF2F-5F4EE95D798F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img.ByResolution", "Workflow.States.Generic.Cat.Img.ByResolution\Workflow.States.Generic.Cat.Img.ByResolution.csproj", "{D4106288-7F84-4042-BF2F-5F4EE95D798F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.States.Generic.Cat.Img.ByAuthor", "Workflow.States.Generic.Cat.Img.ByAuthor\Workflow.States.Generic.Cat.Img.ByAuthor.csproj", "{C8E59417-6BE6-40F6-B9C3-7F810A4CA8AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workflow.States.Generic.Cat.Img.ByAuthor", "Workflow.States.Generic.Cat.Img.ByAuthor\Workflow.States.Generic.Cat.Img.ByAuthor.csproj", "{C8E59417-6BE6-40F6-B9C3-7F810A4CA8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.UI.Desktop.Win.Monitor", "Workflow.UI.Desktop.Win\Workflow.UI.Desktop.Win.Monitor\Workflow.UI.Desktop.Win.Monitor.csproj", "{14963F39-13AC-4119-9AB2-F7551DD38EC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflow.UI.Desktop.Win", "Workflow.UI.Desktop.Win", "{D9BAD86B-ED12-40CE-9C19-3E86B9CCB01B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,9 +67,16 @@ Global
 		{C8E59417-6BE6-40F6-B9C3-7F810A4CA8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8E59417-6BE6-40F6-B9C3-7F810A4CA8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8E59417-6BE6-40F6-B9C3-7F810A4CA8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14963F39-13AC-4119-9AB2-F7551DD38EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14963F39-13AC-4119-9AB2-F7551DD38EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14963F39-13AC-4119-9AB2-F7551DD38EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14963F39-13AC-4119-9AB2-F7551DD38EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14963F39-13AC-4119-9AB2-F7551DD38EC1} = {D9BAD86B-ED12-40CE-9C19-3E86B9CCB01B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4172455E-6BE3-45F7-9705-B9BB2BCA6977}
