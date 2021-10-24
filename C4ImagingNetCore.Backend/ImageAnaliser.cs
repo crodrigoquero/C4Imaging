@@ -5,12 +5,14 @@ using System.Linq;
 using static C4ImagingNetCore.ImageAnalyser;
 using static C4ImagingNetCore.Helpers.Maths;
 using C4ImagingNetCore.Helpers;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace C4ImagingNetCore.Backend
 {
     public class ImageAnaliser
     {
-        public static List<ImageCategorizationResult> GetImageCountryTaken(string imagePath)
+        public static List<ImageCategorizationResult> GetImageCountryTaken(string imagePath, string apiKey)
         {
             ImageAnalyser imgAnalyser = new ImageAnalyser();
 
@@ -29,6 +31,8 @@ namespace C4ImagingNetCore.Backend
 
                 imgCategoryzationResult.Latitude = coords.Latitude;
                 imgCategoryzationResult.Longitude = coords.Longitude;
+
+                imgCategoryzationResult.ImageCategory = GetDataFromGoogle(imgCategoryzationResult.Latitude, imgCategoryzationResult.Longitude, apiKey);
             }
             catch (Exception ex) 
             {
@@ -120,5 +124,37 @@ namespace C4ImagingNetCore.Backend
 
         }
 
+        private static string GetDataFromGoogle(float latitude, float longitude, string ApiKey)
+        {
+  
+            using (var webclient = new WebClient()) 
+            {
+                string baseUrl = @"https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + ApiKey;
+                string json = webclient.DownloadString(baseUrl);
+
+                GoogleGeoCodeResponse jsonResult = JsonConvert.DeserializeObject<GoogleGeoCodeResponse>(json);
+
+                if (jsonResult.status == "OK")
+                {
+                    for (int i = 0; i < jsonResult.results.Length; i++)
+                    {
+                        string country = jsonResult.results[i].address_components[1].types[0];
+                        if (country == "country")
+                        {
+                            return jsonResult.results[i].address_components[1].short_name;
+                        }
+                    }
+
+                    return "unknow";
+                }
+                else
+                {
+                    return jsonResult.status;
+                }
+
+            }
+
+
+        }
     }
 }

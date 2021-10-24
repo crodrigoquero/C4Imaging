@@ -88,20 +88,20 @@ namespace Workflow.States.Generic.Cat.Img.ByLocation
         private Task<bool> ProcessFileAsync(string filePath)
         {
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
-            List<ImageCategorizationResult> re = new List<ImageCategorizationResult>();
-
+ 
             try
             {
                 _logger.LogInformation("AN IMAGE HAS BEEN RECEIVED:" + filePath);
 
-                // call the Backend dll and ctegorize the received file
-                //imgCategoryzationResults = GetImageAspectRatio(filePath);
+                // call the Backend dll and categorize the received file
+                imgCategoryzationResults = GetImageCountryTaken(filePath, "[apikey]");
 
                 // test
-                re = GetImageCountryTaken(filePath);
-                foreach (ImageCategorizationResult imgCategoryzationResult in re)
+                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
                 {
-                    _logger.LogInformation("Latitude: " + imgCategoryzationResult.Latitude.ToString() + " Longitude:" + imgCategoryzationResult.Longitude.ToString());
+                    _logger.LogInformation("Latitude: " + imgCategoryzationResult.Latitude.ToString() + 
+                        " Longitude:" + imgCategoryzationResult.Longitude.ToString() + 
+                        " Country: " + imgCategoryzationResult.ImageCategory);
                 }
 
                 // analise the categaroization results and log them
@@ -109,24 +109,24 @@ namespace Workflow.States.Generic.Cat.Img.ByLocation
                 {
                     // Image analysis and logging
                     _workFlowStateKernel.Status.TotalFiles += 1; //update session file counter
-                    _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY LOCATION: " + Path.GetFileName(filePath) + " IS " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
+                    _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY LOCATION: " + Path.GetFileName(filePath) + " WAS TAKEN IN " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
                 }
 
                 // proceed to move the images to its correspondent folders based on
                 // its category, by analisysng the ImageCategorizationResults
-                //foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
-                //{
-                //    // Create folder
-                //    if (!Directory.Exists(imgCategoryzationResult.ImageCategory))
-                //    {
-                //        Directory.CreateDirectory(imgCategoryzationResult.ImageCategory).ToString();
-                //    }
+                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
+                {
+                    // Create folder
+                    if (!Directory.Exists(imgCategoryzationResult.ImageCategory))
+                    {
+                        Directory.CreateDirectory(imgCategoryzationResult.ImageCategory).ToString();
+                    }
 
-                //    WinFileSys.MoveFileToFolder(filePath, imgCategoryzationResult.ImageCategory);
+                    WinFileSys.MoveFileToFolder(filePath, imgCategoryzationResult.ImageCategory);
 
-                //    // and log it
-                //    _logger.LogInformation("AN IMAGE HAS BEEN MOVED: " + filePath + " TO .\\" + imgCategoryzationResult.ImageCategory);
-                //}
+                    // and log it
+                    _logger.LogInformation("AN IMAGE HAS BEEN MOVED: " + filePath + " TO .\\" + imgCategoryzationResult.ImageCategory);
+                }
 
                 // now, the categorized images are ready for another and more accurate
                 // categorization performed by another background worker like this one, which can live in the
