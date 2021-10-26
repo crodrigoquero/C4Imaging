@@ -8,6 +8,8 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace C4ImagingNetCore.Backend
 {
@@ -15,7 +17,7 @@ namespace C4ImagingNetCore.Backend
     {
         public static List<ImageCategorizationResult> GetImageCountryTaken(string imagePath, string apiKey)
         {
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
+            //ImageAnaliser imgAnalyser = new ImageAnaliser();
 
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
@@ -48,6 +50,21 @@ namespace C4ImagingNetCore.Backend
 
             return imgCategoryzationResults;
 
+        }
+
+        public static List<ImageCategorizationResult> GetImageYearTaken(string imagePath)
+        {
+            ImageAnaliser imgAnalyser = new ImageAnaliser();
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.ImageCategory = GetImageDateInfo(imagePath).Year.ToString();
+            imgCategoryzationResult.DateAndTime = GetImageDateInfo(imagePath);
+
+            imgCategoryzationResults.Add(imgCategoryzationResult);
+
+            return imgCategoryzationResults;
         }
         public static List<ImageCategorizationResult> GetImageAspectRatio(string imagePath)
         {
@@ -141,7 +158,7 @@ namespace C4ImagingNetCore.Backend
             imgCategoryzationResult.FilePath = imagePath;
             imgCategoryzationResult.LogId = 2000001; // we are in another logging level (more detail)
 
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
+           // ImageAnaliser imgAnalyser = new ImageAnaliser();
             Size currentImageSize = GetImageSize(imagePath);
 
             ImgAspectRatio CurrentImageAspectRatio = new ImgAspectRatio(); // helper entity to hold the current image aspect ratio
@@ -255,6 +272,28 @@ namespace C4ImagingNetCore.Backend
             if (gpsRef == "S" || gpsRef == "W")
                 coorditate = 0 - coorditate;
             return coorditate;
+        }
+        private static DateTime GetImageDateInfo(string imageFileLocation)
+        {
+            ImageGeoCoordinates geoCoords = new ImageGeoCoordinates();
+            Regex r = new Regex(":");
+
+            using (Stream stream = File.Open(imageFileLocation, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+                try
+                {
+                    PropertyItem propItem = image.GetPropertyItem(36867);
+                    string dateTaken = r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
+                    return DateTime.Parse(dateTaken);
+                }
+                catch
+                {
+                    throw new Exception("Date & Time info not found.");
+                }
+
+            }
+
         }
 
         #region Exceptions

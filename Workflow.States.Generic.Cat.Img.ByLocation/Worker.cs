@@ -98,20 +98,16 @@ namespace Workflow.States.Generic.Cat.Img.ByLocation
                 // must reside in the config file
                 imgCategoryzationResults = GetImageCountryTaken(filePath, "[apikey]");
 
-                // test
-                foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
-                {
-                    _logger.LogInformation("Latitude: " + imgCategoryzationResult.Latitude.ToString() + 
-                        " Longitude:" + imgCategoryzationResult.Longitude.ToString() + 
-                        " Country: " + imgCategoryzationResult.ImageCategory);
-                }
-
                 // analise the categaroization results and log them
                 foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
                 {
                     // Image analysis and logging
                     _workFlowStateKernel.Status.TotalFiles += 1; //update session file counter
                     _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY LOCATION: " + Path.GetFileName(filePath) + " WAS TAKEN IN " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
+
+                    _logger.LogInformation("Latitude: " + imgCategoryzationResult.Latitude.ToString() +
+                        " Longitude:" + imgCategoryzationResult.Longitude.ToString() +
+                        " Country: " + imgCategoryzationResult.ImageCategory);
                 }
 
                 // proceed to move the images to its correspondent folders based on
