@@ -10,6 +10,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace C4ImagingNetCore.Backend
 {
@@ -51,6 +52,51 @@ namespace C4ImagingNetCore.Backend
             return imgCategoryzationResults;
 
         }
+        public static List<ImageCategorizationResult> GetImageMonthNameTaken(string imagePath)
+        {
+            ImageAnaliser imgAnalyser = new ImageAnaliser();
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.ImageCategory = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(GetImageDateInfo(imagePath).Month);
+            imgCategoryzationResult.DateAndTime = GetImageDateInfo(imagePath);
+
+            imgCategoryzationResults.Add(imgCategoryzationResult);
+
+            return imgCategoryzationResults;
+        }
+        public static List<ImageCategorizationResult> GetImageSeasonTaken(string imagePath)
+        {
+            ImageAnaliser imgAnalyser = new ImageAnaliser();
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+            int season = getSeason(GetImageDateInfo(imagePath)); // get season number
+
+            // get the season name from its season number
+            switch (season)
+            {
+                case 0:
+                    imgCategoryzationResult.ImageCategory = "Spring";
+                    break;
+                case 1:
+                    imgCategoryzationResult.ImageCategory = "Summer";
+                    break;
+                case 2:
+                    imgCategoryzationResult.ImageCategory = "Winter";
+                    break;
+                case 3:
+                    imgCategoryzationResult.ImageCategory = "Autumn";
+                    break;
+            };
+
+            imgCategoryzationResults.Add(imgCategoryzationResult);
+
+            return imgCategoryzationResults;
+        }
+
 
         public static List<ImageCategorizationResult> GetImageYearTaken(string imagePath)
         {
@@ -294,6 +340,14 @@ namespace C4ImagingNetCore.Backend
 
             }
 
+        }
+        private static int getSeason(DateTime date)
+        {
+            float value = (float)date.Month + date.Day / 100f;  // <month>.<day(2 digit)>    
+            if (value < 3.21 || value >= 12.22) return 3;   // Winter
+            if (value < 6.21) return 0; // Spring
+            if (value < 9.23) return 1; // Summer
+            return 2;   // Autumn
         }
 
         #region Exceptions

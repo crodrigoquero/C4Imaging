@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "C4imagingNetCore.Workflow.Srv": {
+    "Workflow.States.Generic.Cat.Img.BySeasonTaken": {
       "commandName": "Project",
       "commandLineArgs": "\"C:\\Temp\\workerservice\\WorkerInbox\" \"C:\\Temp\\workerservice\\WorkerOutbox\"  1",
       "environmentVariables": {
