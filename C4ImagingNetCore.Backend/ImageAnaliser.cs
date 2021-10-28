@@ -357,64 +357,6 @@ namespace C4ImagingNetCore.Backend
             }
 
         }
-        //public static string GetImageCopyright(string imagePath)
-        //{
-
-        //    using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-        //    using (Image image = Image.FromStream(stream))
-        //    {
-        //        string copyright = "Unknow Copyright";
-
-        //        try
-        //        {
-        //            PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Copyright).FirstOrDefault();
-
-        //            if (propItem == null)
-        //            {
-        //                return copyright;
-        //            }
-
-        //            copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
-        //            return copyright;
-        //        }
-        //        catch
-        //        {
-        //            throw new Exception("Copyright info not found.");
-        //        }
-
-
-        //    }
-
-        //}
-        //public static string GetImageArtist(string imagePath)
-        //{
-
-        //    using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-        //    using (Image image = Image.FromStream(stream))
-        //    {
-        //        string copyright = "Unknow Artist";
-
-        //        try
-        //        {
-        //            PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Artist).FirstOrDefault();
-
-        //            if (propItem == null)
-        //            {
-        //                return copyright;
-        //            }
-
-        //            copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
-        //            return copyright;
-        //        }
-        //        catch
-        //        {
-        //            throw new Exception("Artist info not found.");
-        //        }
-
-
-        //    }
-
-        //}
 
         #endregion
 
