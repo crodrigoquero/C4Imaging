@@ -11,6 +11,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using C4ImagingNetCore.Backend.Enums;
 
 namespace C4ImagingNetCore.Backend
 {
@@ -349,6 +350,56 @@ namespace C4ImagingNetCore.Backend
             if (value < 9.23) return 1; // Summer
             return 2;   // Autumn
         }
+
+        public static List<ImageCategorizationResult> GetImageCopyright(string imagePath)
+        {
+            ImageAnaliser imgAnalyser = new ImageAnaliser();
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+ 
+
+            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+                try
+                {
+                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Copyright).FirstOrDefault();
+                    
+                    if (propItem != null)
+                    {
+                        imgCategoryzationResult.ImageCategory = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
+                        
+                        // but...
+                        // if it seems that there is not company / author name because the copyright infor is too long
+                        // we must assume that the property contains only a long copyrght notice, so we will discard
+                        // the property and assume an aunknow author
+                        
+                        if (imgCategoryzationResult.ImageCategory.Length >= 100)
+                        {
+                            imgCategoryzationResult.ImageCategory = "Unknow";
+                        }
+                    }
+                    else
+                    {
+                        imgCategoryzationResult.ImageCategory = "Unknow";
+                    }
+                    
+                     
+                }
+                catch
+                {
+                    throw new Exception("copyright info not found.");
+                }
+
+                imgCategoryzationResults.Add(imgCategoryzationResult);
+                return imgCategoryzationResults;
+            }
+
+        }
+
+
 
         #region Exceptions
 
