@@ -201,18 +201,24 @@ namespace C4ImagingNetCore.Backend
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
             imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.ImageCategory = GetImageCopyright(imagePath);
+            imgCategoryzationResult.ImageCategory = "Unknow Author";
 
-            if (imgCategoryzationResult.ImageCategory == "Unknow Copyright")
+            try
             {
-                // Then try to find artist data...
-                imgCategoryzationResult.ImageCategory = GetImageArtist(imagePath);
+                PropertyItem propItem = GetImageProperty(imagePath, EXIFTags.Copyright);
+
+                if (propItem == null)
+                {
+                    imgCategoryzationResults.Add(imgCategoryzationResult);
+                    return imgCategoryzationResults;
+                }
+
+                imgCategoryzationResult.ImageCategory = Encoding.UTF8.GetString(GetImageProperty(imagePath, EXIFTags.Copyright).Value).ToString().Replace("\0", "").Trim();
 
             }
-
-            if (imgCategoryzationResult.ImageCategory == "Unknow Artist")
+            catch (Exception ex)
             {
-                imgCategoryzationResult.ImageCategory = "Unknow Author";
+                throw ex;
             }
 
             if (imgCategoryzationResult.ImageCategory.Length >= 100) // we must assume that copyright info doesn't contain an author / Company name
@@ -221,7 +227,6 @@ namespace C4ImagingNetCore.Backend
             }
 
             imgCategoryzationResults.Add(imgCategoryzationResult);
-
             return imgCategoryzationResults;
         }
 
@@ -352,64 +357,64 @@ namespace C4ImagingNetCore.Backend
             }
 
         }
-        public static string GetImageCopyright(string imagePath)
-        {
+        //public static string GetImageCopyright(string imagePath)
+        //{
 
-            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (Image image = Image.FromStream(stream))
-            {
-                string copyright = "Unknow Copyright";
+        //    using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        //    using (Image image = Image.FromStream(stream))
+        //    {
+        //        string copyright = "Unknow Copyright";
 
-                try
-                {
-                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Copyright).FirstOrDefault();
+        //        try
+        //        {
+        //            PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Copyright).FirstOrDefault();
 
-                    if (propItem == null)
-                    {
-                        return copyright;
-                    }
+        //            if (propItem == null)
+        //            {
+        //                return copyright;
+        //            }
 
-                    copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
-                    return copyright;
-                }
-                catch
-                {
-                    throw new Exception("Copyright info not found.");
-                }
-
-
-            }
-
-        }
-        public static string GetImageArtist(string imagePath)
-        {
-
-            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (Image image = Image.FromStream(stream))
-            {
-                string copyright = "Unknow Artist";
-
-                try
-                {
-                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Artist).FirstOrDefault();
-
-                    if (propItem == null)
-                    {
-                        return copyright;
-                    }
-
-                    copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
-                    return copyright;
-                }
-                catch
-                {
-                    throw new Exception("Artist info not found.");
-                }
+        //            copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
+        //            return copyright;
+        //        }
+        //        catch
+        //        {
+        //            throw new Exception("Copyright info not found.");
+        //        }
 
 
-            }
+        //    }
 
-        }
+        //}
+        //public static string GetImageArtist(string imagePath)
+        //{
+
+        //    using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        //    using (Image image = Image.FromStream(stream))
+        //    {
+        //        string copyright = "Unknow Artist";
+
+        //        try
+        //        {
+        //            PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Artist).FirstOrDefault();
+
+        //            if (propItem == null)
+        //            {
+        //                return copyright;
+        //            }
+
+        //            copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
+        //            return copyright;
+        //        }
+        //        catch
+        //        {
+        //            throw new Exception("Artist info not found.");
+        //        }
+
+
+        //    }
+
+        //}
 
         #endregion
 
@@ -442,6 +447,32 @@ namespace C4ImagingNetCore.Backend
             if (value < 6.21) return 0; // Spring
             if (value < 9.23) return 1; // Summer
             return 2;   // Autumn
+        }
+
+        private static PropertyItem GetImageProperty(string imagePath, EXIFTags tag)
+        {
+            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+
+                try
+                {
+                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)tag).FirstOrDefault();
+
+                    if (propItem == null)
+                    {
+                        return null;
+                    }
+
+                    return propItem;
+                }
+                catch
+                {
+                    throw new Exception(tag.ToString() + " info not found.");
+                }
+
+
+            }
         }
 
         #endregion
