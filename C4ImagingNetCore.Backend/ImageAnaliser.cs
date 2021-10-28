@@ -123,8 +123,15 @@ namespace C4ImagingNetCore.Backend
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
             imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.ImageCategory = GetImageDate(imagePath).Year.ToString();
-            imgCategoryzationResult.DateAndTime = GetImageDate(imagePath);
+            try
+            {
+                imgCategoryzationResult.ImageCategory = GetImageDate(imagePath).Year.ToString();
+            }
+            catch
+            {
+                imgCategoryzationResult.ImageCategory = "Unknow Year";
+            }
+             //imgCategoryzationResult.DateAndTime = GetImageDate(imagePath);
 
             imgCategoryzationResults.Add(imgCategoryzationResult);
 
@@ -163,56 +170,6 @@ namespace C4ImagingNetCore.Backend
             return imgCategoryzationResults;
 
         }
-        public static Size GetImageSize(string imageFileLocation)
-        {
-            if (String.IsNullOrWhiteSpace(imageFileLocation)) throw new ImageProcessorException("No image has been specified.");
-
-            try
-            {
-                using (Stream stream = File.Open(imageFileLocation, FileMode.Open, FileAccess.Read, FileShare.Read))
-                using (Image image = Image.FromStream(stream))
-                {
-                    return new Size(image.Width, image.Height);
-                }
-            }
-            catch (ArgumentException)
-            {
-                throw new InvalidImageFileException(imageFileLocation);
-            }
-            catch (IOException ex)
-            {
-                throw new FileAccessException(imageFileLocation, ex);
-            }
-        }
-        public static ImageGeoCoordinates GetImageGeoCoordinates(string imageFileLocation)
-        {
-
-            ImageGeoCoordinates geoCoords = new ImageGeoCoordinates();
-
-            using (Stream stream = File.Open(imageFileLocation, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (Image image = Image.FromStream(stream))
-            {
-                try
-                {
-                    PropertyItem propItem = image.GetPropertyItem(2);
-
-                    geoCoords.Latitude = (float)GetImageLatitude(image);
-                    geoCoords.Longitude = (float)GetImageLongitude(image);
-
-                    return geoCoords;
-
-                }
-                catch
-                {
-                    throw new Exception("Geo-location info not found.");
-                }
-
-            }
-
-
-
-
-        }
         public static List<ImageCategorizationResult> GetImageAuthor(string imagePath)
         {
             ImageAnaliser imgAnalyser = new ImageAnaliser();
@@ -248,81 +205,7 @@ namespace C4ImagingNetCore.Backend
             imgCategoryzationResults.Add(imgCategoryzationResult);
             return imgCategoryzationResults;
         }
-
-
-        private static ImageCategorizationResult CalculateImageAspectRatio(string imagePath)
-        {
-
-            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
-            imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.LogId = 2000001; // we are in another logging level (more detail)
-
-           // ImageAnaliser imgAnalyser = new ImageAnaliser();
-            Size currentImageSize = GetImageSize(imagePath);
-
-            ImgAspectRatio CurrentImageAspectRatio = new ImgAspectRatio(); // helper entity to hold the current image aspect ratio
-            CurrentImageAspectRatio.x = currentImageSize.Width / GCD(currentImageSize.Width, currentImageSize.Height);
-            CurrentImageAspectRatio.y = currentImageSize.Height / GCD(currentImageSize.Width, currentImageSize.Height);
-
-            double CurrentImageSizeQuotient = CurrentImageAspectRatio.x / CurrentImageAspectRatio.y;
-
-            AspectRatioRepository spectRatioRepository = new AspectRatioRepository();
-            List<ImgAspectRatio> Imglist = new List<ImgAspectRatio>();
-
-            string veredict = "";
-
-            var imagesRatioRepository = spectRatioRepository.All.ToList();
-            foreach (AspectRatio item in imagesRatioRepository.OrderByDescending(x => x.Quotient))
-            {
-
-                if (CurrentImageSizeQuotient <= item.Quotient)
-                {
-                    veredict = item.Description;
-                }
-
-            }
-
-            imgCategoryzationResult.LogLevel = LogLevels.INFO;
-            imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.ImageCategory = veredict;
-            imgCategoryzationResult.DateAndTime = DateTime.Now;
-
-            return imgCategoryzationResult;
-
-        }
-        private static string GetDataFromGoogle(float latitude, float longitude, string ApiKey)
-        {
-
-            using (var webclient = new WebClient())
-            {
-                string baseUrl = @"https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + ApiKey;
-                string json = webclient.DownloadString(baseUrl);
-
-                GoogleGeoCodeResponse jsonResult = JsonConvert.DeserializeObject<GoogleGeoCodeResponse>(json);
-
-                if (jsonResult.status == "OK")
-                {
-                    for (int i = 0; i < jsonResult.results.Length; i++)
-                    {
-                        string country = jsonResult.results[i].address_components[1].types[0];
-                        if (country == "country")
-                        {
-                            return jsonResult.results[i].address_components[1].short_name;
-                        }
-                    }
-
-                    return "unknow location";
-                }
-                else
-                {
-                    throw new Exception("Unable to access to Google Geocode Api");
-                }
-
-            }
-
-
-        }
-
+   
         #region EXIF functions
         private static float? GetImageLatitude(Image targetImg)
         {
@@ -401,6 +284,7 @@ namespace C4ImagingNetCore.Backend
 
             }
         }
+      
 
         #endregion
 
@@ -434,8 +318,126 @@ namespace C4ImagingNetCore.Backend
             if (value < 9.23) return 1; // Summer
             return 2;   // Autumn
         }
+        private static string GetDataFromGoogle(float latitude, float longitude, string ApiKey)
+        {
 
-    
+            using (var webclient = new WebClient())
+            {
+                string baseUrl = @"https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + ApiKey;
+                string json = webclient.DownloadString(baseUrl);
+
+                GoogleGeoCodeResponse jsonResult = JsonConvert.DeserializeObject<GoogleGeoCodeResponse>(json);
+
+                if (jsonResult.status == "OK")
+                {
+                    for (int i = 0; i < jsonResult.results.Length; i++)
+                    {
+                        string country = jsonResult.results[i].address_components[1].types[0];
+                        if (country == "country")
+                        {
+                            return jsonResult.results[i].address_components[1].short_name;
+                        }
+                    }
+
+                    return "unknow location";
+                }
+                else
+                {
+                    throw new Exception("Unable to access to Google Geocode Api");
+                }
+
+            }
+
+
+        }
+        private static ImageCategorizationResult CalculateImageAspectRatio(string imagePath)
+        {
+
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.LogId = 2000001; // we are in another logging level (more detail)
+
+            // ImageAnaliser imgAnalyser = new ImageAnaliser();
+            Size currentImageSize = GetImageSize(imagePath);
+
+            ImgAspectRatio CurrentImageAspectRatio = new ImgAspectRatio(); // helper entity to hold the current image aspect ratio
+            CurrentImageAspectRatio.x = currentImageSize.Width / GCD(currentImageSize.Width, currentImageSize.Height);
+            CurrentImageAspectRatio.y = currentImageSize.Height / GCD(currentImageSize.Width, currentImageSize.Height);
+
+            double CurrentImageSizeQuotient = CurrentImageAspectRatio.x / CurrentImageAspectRatio.y;
+
+            AspectRatioRepository spectRatioRepository = new AspectRatioRepository();
+            List<ImgAspectRatio> Imglist = new List<ImgAspectRatio>();
+
+            string veredict = "";
+
+            var imagesRatioRepository = spectRatioRepository.All.ToList();
+            foreach (AspectRatio item in imagesRatioRepository.OrderByDescending(x => x.Quotient))
+            {
+
+                if (CurrentImageSizeQuotient <= item.Quotient)
+                {
+                    veredict = item.Description;
+                }
+
+            }
+
+            imgCategoryzationResult.LogLevel = LogLevels.INFO;
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.ImageCategory = veredict;
+            imgCategoryzationResult.DateAndTime = DateTime.Now;
+
+            return imgCategoryzationResult;
+
+        }
+        private static ImageGeoCoordinates GetImageGeoCoordinates(string imageFileLocation)
+        {
+
+            ImageGeoCoordinates geoCoords = new ImageGeoCoordinates();
+
+            using (Stream stream = File.Open(imageFileLocation, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+                try
+                {
+                    PropertyItem propItem = image.GetPropertyItem(2);
+
+                    geoCoords.Latitude = (float)GetImageLatitude(image);
+                    geoCoords.Longitude = (float)GetImageLongitude(image);
+
+                    return geoCoords;
+
+                }
+                catch
+                {
+                    throw new Exception("Geo-location info not found.");
+                }
+
+            }
+
+        }
+        private static Size GetImageSize(string imageFileLocation)
+        {
+            if (String.IsNullOrWhiteSpace(imageFileLocation)) throw new ImageProcessorException("No image has been specified.");
+
+            try
+            {
+                using (Stream stream = File.Open(imageFileLocation, FileMode.Open, FileAccess.Read, FileShare.Read))
+                using (Image image = Image.FromStream(stream))
+                {
+                    return new Size(image.Width, image.Height);
+                }
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidImageFileException(imageFileLocation);
+            }
+            catch (IOException ex)
+            {
+                throw new FileAccessException(imageFileLocation, ex);
+            }
+        }
+
         #endregion
 
         #region Exceptions
