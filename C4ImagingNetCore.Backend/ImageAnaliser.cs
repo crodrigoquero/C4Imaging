@@ -60,8 +60,8 @@ namespace C4ImagingNetCore.Backend
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
             imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.ImageCategory = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(GetImageDateInfo(imagePath).Month);
-            imgCategoryzationResult.DateAndTime = GetImageDateInfo(imagePath);
+            imgCategoryzationResult.ImageCategory = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(GetImageDate(imagePath).Month);
+            imgCategoryzationResult.DateAndTime = GetImageDate(imagePath);
 
             imgCategoryzationResults.Add(imgCategoryzationResult);
 
@@ -74,7 +74,7 @@ namespace C4ImagingNetCore.Backend
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
             imgCategoryzationResult.FilePath = imagePath;
-            int season = getSeason(GetImageDateInfo(imagePath)); // get season number
+            int season = getSeason(GetImageDate(imagePath)); // get season number
 
             // get the season name from its season number
             switch (season)
@@ -97,8 +97,6 @@ namespace C4ImagingNetCore.Backend
 
             return imgCategoryzationResults;
         }
-
-
         public static List<ImageCategorizationResult> GetImageYearTaken(string imagePath)
         {
             ImageAnaliser imgAnalyser = new ImageAnaliser();
@@ -106,8 +104,8 @@ namespace C4ImagingNetCore.Backend
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
             imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.ImageCategory = GetImageDateInfo(imagePath).Year.ToString();
-            imgCategoryzationResult.DateAndTime = GetImageDateInfo(imagePath);
+            imgCategoryzationResult.ImageCategory = GetImageDate(imagePath).Year.ToString();
+            imgCategoryzationResult.DateAndTime = GetImageDate(imagePath);
 
             imgCategoryzationResults.Add(imgCategoryzationResult);
 
@@ -179,13 +177,13 @@ namespace C4ImagingNetCore.Backend
                 {
                     PropertyItem propItem = image.GetPropertyItem(2);
 
-                    geoCoords.Latitude = (float)GetLatitude(image);
-                    geoCoords.Longitude = (float)GetLongitude(image);
+                    geoCoords.Latitude = (float)GetImageLatitude(image);
+                    geoCoords.Longitude = (float)GetImageLongitude(image);
 
                     return geoCoords;
 
                 }
-                catch (Exception ex)
+                catch
                 {
                     throw new Exception("Geo-location info not found.");
                 }
@@ -196,7 +194,6 @@ namespace C4ImagingNetCore.Backend
 
 
         }
-
         public static List<ImageCategorizationResult> GetImageAuthor(string imagePath)
         {
             ImageAnaliser imgAnalyser = new ImageAnaliser();
@@ -227,6 +224,7 @@ namespace C4ImagingNetCore.Backend
 
             return imgCategoryzationResults;
         }
+
 
         private static ImageCategorizationResult CalculateImageAspectRatio(string imagePath)
         {
@@ -300,7 +298,9 @@ namespace C4ImagingNetCore.Backend
 
 
         }
-        private static float? GetLatitude(Image targetImg)
+
+        #region EXIF functions
+        private static float? GetImageLatitude(Image targetImg)
         {
             try
             {
@@ -315,7 +315,7 @@ namespace C4ImagingNetCore.Backend
                 return null;
             }
         }
-        private static float? GetLongitude(Image targetImg)
+        private static float? GetImageLongitude(Image targetImg)
         {
             try
             {
@@ -330,27 +330,7 @@ namespace C4ImagingNetCore.Backend
                 return null;
             }
         }
-        private static float ExifGpsToFloat(PropertyItem propItemRef, PropertyItem propItem)
-        {
-            uint degreesNumerator = BitConverter.ToUInt32(propItem.Value, 0);
-            uint degreesDenominator = BitConverter.ToUInt32(propItem.Value, 4);
-            float degrees = degreesNumerator / (float)degreesDenominator;
-
-            uint minutesNumerator = BitConverter.ToUInt32(propItem.Value, 8);
-            uint minutesDenominator = BitConverter.ToUInt32(propItem.Value, 12);
-            float minutes = minutesNumerator / (float)minutesDenominator;
-
-            uint secondsNumerator = BitConverter.ToUInt32(propItem.Value, 16);
-            uint secondsDenominator = BitConverter.ToUInt32(propItem.Value, 20);
-            float seconds = secondsNumerator / (float)secondsDenominator;
-
-            float coorditate = degrees + (minutes / 60f) + (seconds / 3600f);
-            string gpsRef = System.Text.Encoding.ASCII.GetString(new byte[1] { propItemRef.Value[0] }); //N, S, E, or W
-            if (gpsRef == "S" || gpsRef == "W")
-                coorditate = 0 - coorditate;
-            return coorditate;
-        }
-        private static DateTime GetImageDateInfo(string imageFileLocation)
+        private static DateTime GetImageDate(string imageFileLocation)
         {
             ImageGeoCoordinates geoCoords = new ImageGeoCoordinates();
             Regex r = new Regex(":");
@@ -372,14 +352,6 @@ namespace C4ImagingNetCore.Backend
             }
 
         }
-        private static int getSeason(DateTime date)
-        {
-            float value = (float)date.Month + date.Day / 100f;  // <month>.<day(2 digit)>    
-            if (value < 3.21 || value >= 12.22) return 3;   // Winter
-            if (value < 6.21) return 0; // Spring
-            if (value < 9.23) return 1; // Summer
-            return 2;   // Autumn
-        }
         public static string GetImageCopyright(string imagePath)
         {
 
@@ -391,13 +363,14 @@ namespace C4ImagingNetCore.Backend
                 try
                 {
                     PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Copyright).FirstOrDefault();
-                    
-                    if(propItem == null) {
+
+                    if (propItem == null)
+                    {
                         return copyright;
                     }
 
                     copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
-                    return copyright; 
+                    return copyright;
                 }
                 catch
                 {
@@ -408,7 +381,6 @@ namespace C4ImagingNetCore.Backend
             }
 
         }
-
         public static string GetImageArtist(string imagePath)
         {
 
@@ -438,6 +410,42 @@ namespace C4ImagingNetCore.Backend
             }
 
         }
+
+        #endregion
+
+        #region Helper Functions
+
+        private static float ExifGpsToFloat(PropertyItem propItemRef, PropertyItem propItem)
+        {
+            uint degreesNumerator = BitConverter.ToUInt32(propItem.Value, 0);
+            uint degreesDenominator = BitConverter.ToUInt32(propItem.Value, 4);
+            float degrees = degreesNumerator / (float)degreesDenominator;
+
+            uint minutesNumerator = BitConverter.ToUInt32(propItem.Value, 8);
+            uint minutesDenominator = BitConverter.ToUInt32(propItem.Value, 12);
+            float minutes = minutesNumerator / (float)minutesDenominator;
+
+            uint secondsNumerator = BitConverter.ToUInt32(propItem.Value, 16);
+            uint secondsDenominator = BitConverter.ToUInt32(propItem.Value, 20);
+            float seconds = secondsNumerator / (float)secondsDenominator;
+
+            float coorditate = degrees + (minutes / 60f) + (seconds / 3600f);
+            string gpsRef = System.Text.Encoding.ASCII.GetString(new byte[1] { propItemRef.Value[0] }); //N, S, E, or W
+            if (gpsRef == "S" || gpsRef == "W")
+                coorditate = 0 - coorditate;
+            return coorditate;
+        }
+        private static int getSeason(DateTime date)
+        {
+            float value = (float)date.Month + date.Day / 100f;  // <month>.<day(2 digit)>    
+            if (value < 3.21 || value >= 12.22) return 3;   // Winter
+            if (value < 6.21) return 0; // Spring
+            if (value < 9.23) return 1; // Summer
+            return 2;   // Autumn
+        }
+
+        #endregion
+
         #region Exceptions
 
         public class ImageProcessorException : Exception
