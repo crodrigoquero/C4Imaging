@@ -206,6 +206,18 @@ namespace C4ImagingNetCore.Backend
             imgCategoryzationResult.FilePath = imagePath;
             imgCategoryzationResult.ImageCategory = GetImageCopyright(imagePath);
 
+            if (imgCategoryzationResult.ImageCategory == "Unknow Copyright")
+            {
+                // Then try to find artist data...
+                imgCategoryzationResult.ImageCategory = GetImageArtist(imagePath);
+
+            }
+
+            if (imgCategoryzationResult.ImageCategory == "Unknow Artist")
+            {
+                imgCategoryzationResult.ImageCategory = "Unknow Author";
+            }
+
             if (imgCategoryzationResult.ImageCategory.Length >= 100) // we must assume that copyright info doesn't contain an author / Company name
             {
                 imgCategoryzationResult.ImageCategory = "Unknow Author"; // so, lets assume as unknow
@@ -374,7 +386,7 @@ namespace C4ImagingNetCore.Backend
             using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             using (Image image = Image.FromStream(stream))
             {
-                string copyright = "Unknow";
+                string copyright = "Unknow Copyright";
 
                 try
                 {
@@ -397,8 +409,35 @@ namespace C4ImagingNetCore.Backend
 
         }
 
+        public static string GetImageArtist(string imagePath)
+        {
+
+            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+                string copyright = "Unknow Artist";
+
+                try
+                {
+                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Artist).FirstOrDefault();
+
+                    if (propItem == null)
+                    {
+                        return copyright;
+                    }
+
+                    copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
+                    return copyright;
+                }
+                catch
+                {
+                    throw new Exception("Artist info not found.");
+                }
 
 
+            }
+
+        }
         #region Exceptions
 
         public class ImageProcessorException : Exception
