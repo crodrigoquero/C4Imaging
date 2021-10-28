@@ -197,6 +197,24 @@ namespace C4ImagingNetCore.Backend
 
         }
 
+        public static List<ImageCategorizationResult> GetImageAuthor(string imagePath)
+        {
+            ImageAnaliser imgAnalyser = new ImageAnaliser();
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.ImageCategory = GetImageCopyright(imagePath);
+
+            if (imgCategoryzationResult.ImageCategory.Length >= 100) // we must assume that copyright info doesn't contain an author / Company name
+            {
+                imgCategoryzationResult.ImageCategory = "Unknow Author"; // so, lets assume as unknow
+            }
+
+            imgCategoryzationResults.Add(imgCategoryzationResult);
+
+            return imgCategoryzationResults;
+        }
 
         private static ImageCategorizationResult CalculateImageAspectRatio(string imagePath)
         {
@@ -350,51 +368,31 @@ namespace C4ImagingNetCore.Backend
             if (value < 9.23) return 1; // Summer
             return 2;   // Autumn
         }
-
-        public static List<ImageCategorizationResult> GetImageCopyright(string imagePath)
+        public static string GetImageCopyright(string imagePath)
         {
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
-            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
-            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
-
-            imgCategoryzationResult.FilePath = imagePath;
- 
 
             using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             using (Image image = Image.FromStream(stream))
             {
+                string copyright = "Unknow";
+
                 try
                 {
                     PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)EXIFTags.Copyright).FirstOrDefault();
                     
-                    if (propItem != null)
-                    {
-                        imgCategoryzationResult.ImageCategory = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
-                        
-                        // but...
-                        // if it seems that there is not company / author name because the copyright infor is too long
-                        // we must assume that the property contains only a long copyrght notice, so we will discard
-                        // the property and assume an aunknow author
-                        
-                        if (imgCategoryzationResult.ImageCategory.Length >= 100)
-                        {
-                            imgCategoryzationResult.ImageCategory = "Unknow";
-                        }
+                    if(propItem == null) {
+                        return copyright;
                     }
-                    else
-                    {
-                        imgCategoryzationResult.ImageCategory = "Unknow";
-                    }
-                    
-                     
+
+                    copyright = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
+                    return copyright; 
                 }
                 catch
                 {
-                    throw new Exception("copyright info not found.");
+                    throw new Exception("Copyright info not found.");
                 }
 
-                imgCategoryzationResults.Add(imgCategoryzationResult);
-                return imgCategoryzationResults;
+
             }
 
         }

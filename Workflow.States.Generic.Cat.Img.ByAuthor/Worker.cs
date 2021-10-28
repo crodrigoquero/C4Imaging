@@ -94,7 +94,7 @@ namespace Workflow.States.Generic.Cat.Img.ByAuthor
                 _logger.LogInformation("AN IMAGE HAS BEEN RECEIVED:" + filePath);
 
                 // call the Backend dll and categorize the received file
-                imgCategoryzationResults = GetImageCopyright(filePath);
+                imgCategoryzationResults = GetImageAuthor(filePath);
 
                 // analise the categaroization results and log them
                 foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
