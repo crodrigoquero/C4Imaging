@@ -58,13 +58,32 @@ namespace C4ImagingNetCore.Backend
             ImageAnaliser imgAnalyser = new ImageAnaliser();
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+            Regex r = new Regex(":");
 
             imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.ImageCategory = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(GetImageDate(imagePath).Month);
-            imgCategoryzationResult.DateAndTime = GetImageDate(imagePath);
+            imgCategoryzationResult.ImageCategory = "Unknow Month";
+
+            try
+            {
+                PropertyItem propItem = GetImageProperty(imagePath, EXIFTags.DateTime);
+
+                if (propItem == null)
+                {
+                    imgCategoryzationResults.Add(imgCategoryzationResult);
+                    return imgCategoryzationResults;
+                }
+
+                DateTime dateTaken = DateTime.Parse(r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2));
+            
+                imgCategoryzationResult.ImageCategory = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(dateTaken.Month);
+                //imgCategoryzationResult.DateAndTime = GetImageDate(imagePath);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
             imgCategoryzationResults.Add(imgCategoryzationResult);
-
             return imgCategoryzationResults;
         }
         public static List<ImageCategorizationResult> GetImageSeasonTaken(string imagePath)
@@ -335,12 +354,12 @@ namespace C4ImagingNetCore.Backend
                 return null;
             }
         }
-        private static DateTime GetImageDate(string imageFileLocation)
+        private static DateTime GetImageDate(string imagePath)
         {
             ImageGeoCoordinates geoCoords = new ImageGeoCoordinates();
             Regex r = new Regex(":");
 
-            using (Stream stream = File.Open(imageFileLocation, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             using (Image image = Image.FromStream(stream))
             {
                 try
@@ -356,6 +375,31 @@ namespace C4ImagingNetCore.Backend
 
             }
 
+        }
+        private static PropertyItem GetImageProperty(string imagePath, EXIFTags tag)
+        {
+            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+
+                try
+                {
+                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)tag).FirstOrDefault();
+
+                    if (propItem == null)
+                    {
+                        return null;
+                    }
+
+                    return propItem;
+                }
+                catch
+                {
+                    throw new Exception(tag.ToString() + " info not found.");
+                }
+
+
+            }
         }
 
         #endregion
@@ -391,32 +435,7 @@ namespace C4ImagingNetCore.Backend
             return 2;   // Autumn
         }
 
-        private static PropertyItem GetImageProperty(string imagePath, EXIFTags tag)
-        {
-            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (Image image = Image.FromStream(stream))
-            {
-
-                try
-                {
-                    PropertyItem propItem = image.PropertyItems.Where(x => x.Id == (int)tag).FirstOrDefault();
-
-                    if (propItem == null)
-                    {
-                        return null;
-                    }
-
-                    return propItem;
-                }
-                catch
-                {
-                    throw new Exception(tag.ToString() + " info not found.");
-                }
-
-
-            }
-        }
-
+    
         #endregion
 
         #region Exceptions
