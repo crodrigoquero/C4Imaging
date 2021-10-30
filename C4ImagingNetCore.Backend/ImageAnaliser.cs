@@ -19,8 +19,6 @@ namespace C4ImagingNetCore.Backend
     {
         public static List<ImageCategorizationResult> GetImageCountryTaken(string imagePath, string apiKey)
         {
-            //ImageAnaliser imgAnalyser = new ImageAnaliser();
-
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
             
@@ -55,7 +53,6 @@ namespace C4ImagingNetCore.Backend
         }
         public static List<ImageCategorizationResult> GetImageMonthNameTaken(string imagePath)
         {
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
             Regex r = new Regex(":");
@@ -88,7 +85,6 @@ namespace C4ImagingNetCore.Backend
         }
         public static List<ImageCategorizationResult> GetImageSeasonTaken(string imagePath)
         {
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
@@ -118,7 +114,6 @@ namespace C4ImagingNetCore.Backend
         }
         public static List<ImageCategorizationResult> GetImageYearTaken(string imagePath)
         {
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
@@ -172,7 +167,6 @@ namespace C4ImagingNetCore.Backend
         }
         public static List<ImageCategorizationResult> GetImageAuthor(string imagePath)
         {
-            ImageAnaliser imgAnalyser = new ImageAnaliser();
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
@@ -205,7 +199,37 @@ namespace C4ImagingNetCore.Backend
             imgCategoryzationResults.Add(imgCategoryzationResult);
             return imgCategoryzationResults;
         }
-   
+        public static List<ImageCategorizationResult> GetImageResolution(string imagePath)
+        {
+
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.ImageCategory = "Unknow Resolution";
+
+            try
+            {
+                PropertyItem propItem3 = GetImageProperty(imagePath, EXIFTags.ResolutionUnit);
+                string resolutionUnitDescription = "dpi";
+ 
+                ushort resolutionXUnit = BitConverter.ToUInt16(propItem3.Value);
+                if (resolutionXUnit == 3) resolutionUnitDescription = "cm";
+
+                string resolution = GetImageResolutionProperty(imagePath) + " " + resolutionUnitDescription;
+                imgCategoryzationResult.ImageCategory = resolution;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            imgCategoryzationResults.Add(imgCategoryzationResult);
+            return imgCategoryzationResults;
+        }
+
+
         #region EXIF functions
         private static float? GetImageLatitude(Image targetImg)
         {
@@ -284,7 +308,27 @@ namespace C4ImagingNetCore.Backend
 
             }
         }
-      
+        private static float GetImageResolutionProperty(string imagePath)
+        {
+            ImageGeoCoordinates geoCoords = new ImageGeoCoordinates();
+            Regex r = new Regex(":");
+
+            using (Stream stream = File.Open(imagePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (Image image = Image.FromStream(stream))
+            {
+                try
+                {
+                       return image.VerticalResolution;
+                }
+                catch
+                {
+                    throw new Exception("Resolution info not found.");
+                }
+
+            }
+
+        }
+
 
         #endregion
 
