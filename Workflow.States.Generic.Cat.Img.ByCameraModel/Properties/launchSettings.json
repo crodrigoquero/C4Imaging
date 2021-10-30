@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Workflow.States.Generic.Cat.Img.ByCameraModel": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Temp\\workerservice\\WorkerInbox\" \"C:\\Temp\\workerservice\\WorkerOutbox\"  1",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -183,7 +183,7 @@ namespace C4ImagingNetCore.Backend
                     return imgCategoryzationResults;
                 }
 
-                imgCategoryzationResult.ImageCategory = Encoding.UTF8.GetString(GetImageProperty(imagePath, EXIFTags.Copyright).Value).ToString().Replace("\0", "").Trim();
+                imgCategoryzationResult.ImageCategory = Encoding.UTF8.GetString(propItem.Value).ToString().Replace("\0", "").Trim();
 
             }
             catch (Exception ex)
@@ -223,6 +223,42 @@ namespace C4ImagingNetCore.Backend
             catch (Exception ex)
             {
                 throw ex;
+            }
+
+            imgCategoryzationResults.Add(imgCategoryzationResult);
+            return imgCategoryzationResults;
+        }
+        public static List<ImageCategorizationResult> GetImageCameraModel(string imagePath)
+        {
+            ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
+            List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
+
+            imgCategoryzationResult.FilePath = imagePath;
+            imgCategoryzationResult.ImageCategory = "Unknow Camera Model";
+
+            try
+            {
+                PropertyItem propItem1 = GetImageProperty(imagePath, EXIFTags.EquipMake);
+                PropertyItem propItem2 = GetImageProperty(imagePath, EXIFTags.EquipModel);
+
+                if (propItem2 == null || propItem1 == null)
+                {
+                    imgCategoryzationResults.Add(imgCategoryzationResult);
+                    return imgCategoryzationResults;
+                }
+
+                imgCategoryzationResult.ImageCategory = Encoding.UTF8.GetString(propItem1.Value).ToString().Replace("\0", "").Trim() +
+                    " - " + Encoding.UTF8.GetString(propItem2.Value).ToString().Replace("\0", "").Trim();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            if (imgCategoryzationResult.ImageCategory.Length >= 100) // we must assume that copyright info doesn't contain an author / Company name
+            {
+                imgCategoryzationResult.ImageCategory = "Unknow Author"; // so, lets assume as unknow
             }
 
             imgCategoryzationResults.Add(imgCategoryzationResult);
