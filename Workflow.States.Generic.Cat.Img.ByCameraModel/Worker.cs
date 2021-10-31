@@ -8,17 +8,17 @@ using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.ImageAnaliser;
 using Workflow.States.Kernel.IO.FileSys.Win;
 using System.Collections.Generic;
-
+using C4ImagingNetCore.Backend.CommandLine.Img.Cat;
 
 namespace Workflow.States.Generic.Cat.Img.ByCameraModel
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly CommandLineOptions _commandLineOptions;
+        private readonly StandardOptions _commandLineOptions;
         private Setup _workFlowStateKernel;
 
-        public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
+        public Worker(ILogger<Worker> logger, StandardOptions commandLineOptions)
         {
             _logger = logger;
             _commandLineOptions = commandLineOptions;
