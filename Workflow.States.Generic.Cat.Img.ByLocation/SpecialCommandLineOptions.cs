@@ -1,14 +1,12 @@
 ﻿using CommandLine;
 
-namespace Workflow.States.Generic.Cat.Img.ByMonthTaken
+namespace Workflow.States.Generic.Cat.Img.ByLocation
 {
     /// <summary>
-    /// This class is one the pieces from the CommandLineParser nuget package 
-    /// which takes commands line arguments in a console app / service and perses them
-    /// to put them into this class properties. 
-    /// The commands line arguments can be mandatory (see "value" attribute) or optional (see "option" attribute).
+    /// This worklow state may need spacial parameters becasue it has excternal api's
+    /// dependencies
     /// </summary>
-    public class CommandLineOptions
+    public class SpecialCommandLineOptions
     {
         [Value(index: 0, Required = true, HelpText = "Path to watch.")]
         public string Path { get; set; }

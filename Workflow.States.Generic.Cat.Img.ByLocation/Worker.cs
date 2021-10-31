@@ -8,16 +8,17 @@ using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.ImageAnaliser;
 using Workflow.States.Kernel.IO.FileSys.Win;
 using System.Collections.Generic;
+using C4ImagingNetCore.Backend.CommandLine.Img.Cat;
 
 namespace Workflow.States.Generic.Cat.Img.ByLocation
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly CommandLineOptions _commandLineOptions;
+        private readonly StandardOptions _commandLineOptions;
         private Setup _workFlowStateKernel;
 
-        public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
+        public Worker(ILogger<Worker> logger, StandardOptions commandLineOptions)
         {
             _logger = logger;
             _commandLineOptions = commandLineOptions;
@@ -103,7 +104,7 @@ namespace Workflow.States.Generic.Cat.Img.ByLocation
                 {
                     // Image analysis and logging
                     _workFlowStateKernel.Status.TotalFiles += 1; //update session file counter
-                    _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY LOCATION: " + Path.GetFileName(filePath) + " WAS TAKEN IN " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
+                    _logger.LogInformation("AN IMAGE HAS BEEN CATEGORIZED BY COUNTRY TAKEN: " + Path.GetFileName(filePath) + " WAS TAKEN IN " + imgCategoryzationResult.ImageCategory, imgCategoryzationResult.LogId);
 
                     _logger.LogInformation("Latitude: " + imgCategoryzationResult.Latitude.ToString() +
                         " Longitude:" + imgCategoryzationResult.Longitude.ToString() +

@@ -21,12 +21,9 @@ namespace C4ImagingNetCore.Backend
         {
             ImageCategorizationResult imgCategoryzationResult = new ImageCategorizationResult();
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
-            
             ImageGeoCoordinates coords = new ImageGeoCoordinates();
 
             imgCategoryzationResult.FilePath = imagePath;
-            imgCategoryzationResult.LogId = 1000001;
-            imgCategoryzationResult.LogLevel = LogLevels.INFO;
 
             try
             {
@@ -39,8 +36,7 @@ namespace C4ImagingNetCore.Backend
             }
             catch (Exception ex) 
             {
-                imgCategoryzationResult.LogLevel = LogLevels.WARNING;
-                throw new Exception(imgCategoryzationResult.LogLevel.ToString() + ": " + ex.Message);
+                imgCategoryzationResult.ImageCategory = "Unknow Country";
             }
             finally
             {
