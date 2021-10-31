@@ -8,16 +8,17 @@ using C4ImagingNetCore.Backend;
 using static C4ImagingNetCore.Backend.ImageAnaliser;
 using Workflow.States.Kernel.IO.FileSys.Win;
 using System.Collections.Generic;
+using C4ImagingNetCore.Backend.CommandLine.Img.Cat;
 
 namespace Workflow.States.Generic.Cat.Img.ByYearTaken
 {
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly CommandLineOptions _commandLineOptions;
+        private readonly StandardOptions _commandLineOptions;
         private Setup _workFlowStateKernel;
 
-        public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
+        public Worker(ILogger<Worker> logger, StandardOptions commandLineOptions)
         {
             _logger = logger;
             _commandLineOptions = commandLineOptions;
@@ -94,11 +95,11 @@ namespace Workflow.States.Generic.Cat.Img.ByYearTaken
                 _logger.LogInformation("AN IMAGE HAS BEEN RECEIVED:" + filePath);
 
                 // call the Backend dll and categorize the received file
-                // In this case, an api key for google geocode api is required; such key
-                // must reside in the config file
+                // TODO: call external worflow node skill (console app) and capture its output
+                // (imgCategoryzationResults as json object)
                 imgCategoryzationResults = GetImageYearTaken(filePath);
 
-                // analise the categaroization results and log them
+                // analise the categorization results and log them
                 foreach (ImageCategorizationResult imgCategoryzationResult in imgCategoryzationResults)
                 {
                     // Image analysis and logging

@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace Workflow.States.Generic.Cat.Img.ByYearTaken
+namespace C4ImagingNetCore.Backend.CommandLine.Img.Cat
 {
     /// <summary>
     /// This class is one the pieces from the CommandLineParser nuget package 
@@ -8,7 +8,7 @@ namespace Workflow.States.Generic.Cat.Img.ByYearTaken
     /// to put them into this class properties. 
     /// The commands line arguments can be mandatory (see "value" attribute) or optional (see "option" attribute).
     /// </summary>
-    public class CommandLineOptions
+    public class StandardOptions
     {
         [Value(index: 0, Required = true, HelpText = "Path to watch.")]
         public string Path { get; set; }
