@@ -1,4 +1,5 @@
 using C4ImagingNetCore.Backend;
+using C4ImagingNetCore.Backend.CommandLine.Img.Cat;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,10 +15,10 @@ namespace Workflow.States.Generic.Cat.Img.BySeasonTaken
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly CommandLineOptions _commandLineOptions;
+        private readonly StandardOptions _commandLineOptions;
         private Setup _workFlowStateKernel;
 
-        public Worker(ILogger<Worker> logger, CommandLineOptions commandLineOptions)
+        public Worker(ILogger<Worker> logger, StandardOptions commandLineOptions)
         {
             _logger = logger;
             _commandLineOptions = commandLineOptions;

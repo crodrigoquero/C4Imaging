@@ -1,3 +1,4 @@
+using C4ImagingNetCore.Backend.CommandLine.Img.Cat;
 using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,11 +27,11 @@ namespace Workflow.States.Generic.Cat.Img.BySeasonTaken
                 .CreateLogger();
 
             // calling commandLineParser
-            return await Parser.Default.ParseArguments<CommandLineOptions>(args)
-                .MapResult(async (CommandLineOptions commandLineOptions) =>
+            return await Parser.Default.ParseArguments<StandardOptions>(args)
+                .MapResult(async (StandardOptions standardOptions) =>
                 {
                     // We have the parsed arguments, so let's just pass them down
-                    await CreateHostBuilder(args, commandLineOptions).Build().RunAsync();
+                    await CreateHostBuilder(args, standardOptions).Build().RunAsync();
                     return 0;
                 },
                 errs => Task.FromResult(-1)); // Invalid arguments
@@ -39,14 +40,14 @@ namespace Workflow.States.Generic.Cat.Img.BySeasonTaken
                                               // "FromResult" is useful when you call a non async function as a return value of a task
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args, CommandLineOptions commandLineOptions)
+        public static IHostBuilder CreateHostBuilder(string[] args, StandardOptions standardOptions)
         {
             return Host.CreateDefaultBuilder(args)
                 .UseWindowsService() // nuget pkg "Microsoft.Extensions.Hosting.WindowsServices"
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
-                    services.AddSingleton(commandLineOptions);
+                    services.AddSingleton(standardOptions);
                 })
                 .UseSerilog();
         }

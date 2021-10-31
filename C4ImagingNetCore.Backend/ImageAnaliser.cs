@@ -89,7 +89,16 @@ namespace C4ImagingNetCore.Backend
             List<ImageCategorizationResult> imgCategoryzationResults = new List<ImageCategorizationResult>();
 
             imgCategoryzationResult.FilePath = imagePath;
-            int season = getSeason(GetImageDate(imagePath)); // get season number
+            int season = 0;
+
+            try
+            {
+                season = getSeason(GetImageDate(imagePath)); // get season number
+            }
+            catch
+            {
+                season = 5;
+            }
 
             // get the season name from its season number
             switch (season)
@@ -105,6 +114,9 @@ namespace C4ImagingNetCore.Backend
                     break;
                 case 3:
                     imgCategoryzationResult.ImageCategory = "Autumn";
+                    break;
+                default:
+                    imgCategoryzationResult.ImageCategory = "Unknow Sason";
                     break;
             };
 
